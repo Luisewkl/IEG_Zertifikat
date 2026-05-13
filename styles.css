@@ -586,6 +586,67 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--ieg-blue);
 }
 
+/* "Nächstes" Modul - pulsiert leicht, um es hervorzuheben */
+.module-card.module-next {
+  border-color: var(--ieg-blue);
+  box-shadow: 0 0 0 4px rgba(7,93,228,0.10), var(--shadow-lift);
+  animation: pulseHighlight 2.4s ease-in-out infinite;
+}
+.module-card.module-next::before {
+  transform: scaleX(1);
+}
+
+@keyframes pulseHighlight {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(7,93,228,0.10), var(--shadow-lift); }
+  50% { box-shadow: 0 0 0 8px rgba(7,93,228,0.15), var(--shadow-lift); }
+}
+
+/* Preview-Modus Hinweis */
+.preview-hint {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  background: var(--ieg-blue-soft);
+  border: 1px solid rgba(7,93,228,0.20);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text);
+  flex-wrap: wrap;
+}
+
+.preview-hint-icon {
+  font-size: 20px;
+}
+
+.preview-hint-text {
+  color: var(--text-muted);
+}
+.preview-hint-text strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.preview-toggle {
+  padding: 8px 16px;
+  background: var(--white);
+  border: 1px solid var(--ieg-blue);
+  border-radius: var(--radius-sm);
+  color: var(--ieg-blue);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.preview-toggle:hover {
+  background: var(--ieg-blue);
+  color: var(--white);
+}
+.preview-toggle.active {
+  background: var(--ieg-blue);
+  color: var(--white);
+}
+
 /* ==================== TEAM ==================== */
 .team-section {
   padding: 120px 0;
