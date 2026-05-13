@@ -1,20 +1,51 @@
 # IEG Claude Academy
 
 Eine interne Lern-Website für IEG-Mitarbeiter und Praktikanten zur Beherrschung von Claude
-für Investment-Banking-Workflows. Vollständig im IEG-Branding (kräftiges IEG-Blau, Navy,
-Original-Logo).
+für Investment-Banking-Workflows.
 
-## Inhalt
+---
 
-- **6 Module** mit Lerninhalten basierend auf dem Claude Mastery Curriculum
-- **Quiz nach jedem Modul** (Pass-Threshold: 70%)
-- **Sequentielles Freischalten** — das nächste Modul öffnet sich erst nach bestandenem Quiz
-- **Final Examination** mit 15 Fragen über alle Module
-- **IEG Claude Certificate** mit personalisiertem Namen, Datum, Zertifikat-ID und IEG-Logo
-- **Team-Übersicht** mit IEG-Schlüsselpersonen (Stefan Heilmann, Mirko Heide, Erkan Ezgin u.v.m.)
-- **Fortschritts-Tracking** über Browser-Storage (jeder Mitarbeiter sieht nur seinen eigenen Stand)
+## ⚠️ WICHTIG — So starten Sie die Seite RICHTIG
 
-## Module
+Die Website ist eine **moderne Web-Anwendung** und benötigt einen **Web-Server** (auch lokal).
+Wenn Sie `index.html` einfach doppelklicken, blockieren moderne Browser oft das Laden
+des Logos und das JavaScript funktioniert nicht zuverlässig (CORS / `file://`-Beschränkungen).
+
+### ✅ Empfohlene Methode: Lokaler Server
+
+**Mit Python (vorinstalliert auf Mac & Linux):**
+```bash
+cd ieg-academy
+python3 -m http.server 8000
+# Dann im Browser öffnen: http://localhost:8000
+```
+
+**Mit Node.js:**
+```bash
+cd ieg-academy
+npx serve
+```
+
+**Mit VS Code:** Die Extension "Live Server" installieren, dann Rechtsklick auf `index.html` →
+"Open with Live Server".
+
+### ✅ Für GitHub-Deployment
+
+Wenn Sie die Seite auf GitHub Pages, Vercel oder Netlify hosten, **funktioniert alles automatisch**.
+Das ist der eigentliche Anwendungsfall — kein `file://`-Problem mehr.
+
+```bash
+# GitHub Pages: Push das Repo, dann unter Settings → Pages aktivieren
+# Vercel: Im Ordner: vercel --prod
+# Netlify: Den Ordner einfach auf netlify.com per Drag & Drop hochladen
+```
+
+---
+
+## Inhalte (aus dem Claude Mastery Curriculum)
+
+Alle 6 Module der hochgeladenen Curriculum-Datei sind 1:1 als Lern-Modal eingebaut, plus 7 Quizzes
+und ein Final Examination:
 
 | # | Titel | Niveau |
 |---|-------|--------|
@@ -25,85 +56,77 @@ Original-Logo).
 | 04 | The Integrated Ecosystem — Connectors & Skills | Professional |
 | 05 | Claude Code — The Terminal-Based Power User | Expert |
 | 06 | Advanced Prompt Engineering for Finance | Masterclass |
-| ★ | Final Examination | Comprehensive |
+| ★ | Final Examination (15 Fragen) | Comprehensive |
+
+---
+
+## So funktioniert die Lern-Mechanik
+
+1. Standardmäßig ist **nur Modul 00** freigeschaltet (mit pulsierendem blauen Rahmen markiert)
+2. Klick auf Modul 00 öffnet das Lern-Modal mit dem vollen Curriculum-Inhalt
+3. Am Ende des Moduls: Button **„Zum Quiz"**
+4. Quiz bestehen (≥ 70%) → Modul 01 wird automatisch freigeschaltet
+5. So weiter, bis alle 6 Module abgeschlossen sind
+6. Dann wird das **Final Examination** freigeschaltet (15 Fragen, mischt Inhalte aller Module)
+7. Bei Bestehen → personalisiertes **IEG Claude Certificate** mit Name, Datum, Cert-ID und Logo
+
+### 👁 Vorschau-Modus
+
+Im Curriculum-Bereich gibt es einen **"Vorschau-Modus"**-Button.
+Damit können Sie als Admin alle Module direkt ansehen, ohne Quizzes absolvieren zu müssen —
+ideal, um den Inhalt vor dem Roll-Out zu reviewen.
+
+---
 
 ## Dateistruktur
 
 ```
 ieg-academy/
-├── index.html        # Hauptseite
+├── index.html        # Hauptseite (HTML-Struktur)
 ├── styles.css        # Stylesheet (IEG-Brand-Farben)
-├── content.js        # Lerninhalte + Quiz-Fragen
+├── content.js        # ALLE Lerninhalte + Quiz-Fragen
 ├── app.js            # App-Logik (Locking, Quiz-Engine, Zertifikat)
 ├── assets/
-│   └── ieg-logo.png  # Original IEG-Logo
+│   └── ieg-logo.png  # IEG-Logo (transparent)
 └── README.md         # Diese Datei
 ```
 
-## So starten Sie die Website lokal
-
-**Option 1 — Doppelklick:**
-1. Entpacken Sie das Archiv
-2. Doppelklick auf `index.html` — die Seite öffnet sich im Browser
-3. Fertig.
-
-**Option 2 — Lokaler Server (empfohlen):**
-```bash
-cd ieg-academy
-python3 -m http.server 8000
-# Dann im Browser: http://localhost:8000
-```
-
-## Deployment / Hosting
-
-Die Website ist eine reine statische Site (HTML/CSS/JS) — kein Backend nötig:
-
-- **Vercel:** `vercel --prod` im Ordner ausführen
-- **Netlify:** Ordner per Drag & Drop auf netlify.com hochladen
-- **Internes IEG-Hosting:** Den Ordner einfach auf den Webserver kopieren
-- **GitHub Pages:** Repo erstellen, Inhalte pushen, Pages aktivieren
+---
 
 ## Anpassung
 
-### Inhalte ändern
-- **Modul-Texte und Quizfragen:** `content.js` editieren
-  - Variable `CURRICULUM` enthält alle 6 Module
-  - Variable `FINAL_EXAM` enthält die 15 Final-Fragen
-- **Team-Mitglieder:** Direkt in `index.html` im Abschnitt `<section id="team">` editieren
-- **Pass-Threshold:** `PASS_THRESHOLD = 70` in `content.js` anpassen
+### Inhalte ändern (`content.js`)
+- `CURRICULUM` → Array mit allen 6 Modulen: Titel, Beschreibung, HTML-Inhalt, Quizfragen
+- `FINAL_EXAM` → Array mit den 15 Fragen des Abschluss-Examens
+- `PASS_THRESHOLD = 70` → Pass-Schwelle in %
 
-### IEG-Brand-Farben (CSS-Variablen in `styles.css`)
+### Team-Mitglieder anpassen (`index.html`)
+Im Abschnitt `<section id="team">` finden Sie alle Team-Karten. Pro Person eine `<article>`.
+
+### Branding (`styles.css`, CSS-Variablen)
 ```css
---ieg-blue: #075DE4;          /* Primary IEG Blue (aus dem Logo) */
---ieg-blue-bright: #2876F2;   /* Helleres Blau für Hover */
---ieg-blue-deep: #0040AE;     /* Dunkleres Blau für Tiefe */
---ieg-blue-soft: #E8F0FF;     /* Sehr helles Blau für Hintergründe */
---navy: #0A1A33;              /* Navy für Hero/Footer/Team */
---paper: #FBFCFE;             /* Heller Hintergrund */
+--ieg-blue: #075DE4;          /* Primary IEG Blue (aus dem Logo extrahiert) */
+--ieg-blue-bright: #2876F2;
+--ieg-blue-deep: #0040AE;
+--ieg-blue-soft: #E8F0FF;
+--navy: #0A1A33;
 ```
 
-### Logo austauschen
-Falls Sie eine höher aufgelöste Version oder eine SVG-Version des Logos haben:
-- Datei als `assets/ieg-logo.png` (oder `.svg`) ablegen
-- In `index.html` die `src="assets/ieg-logo.png"`-Verweise ggf. anpassen
-- Logo erscheint automatisch in: Navbar, Footer, Zertifikat
-
-### Zertifikat-Signatur
-In `app.js` in der Funktion `renderCertificate()` finden Sie die Signatur "S. Heilmann".
-Anpassbar dort.
-
-## Datenschutz / Speicherung
-
-- **Keine Server-Kommunikation:** Alle Daten bleiben im Browser des Nutzers (`localStorage`)
-- **Pro Gerät und Browser:** Jeder Nutzer sieht nur seinen eigenen Fortschritt
-- **Reset jederzeit möglich:** Über den Footer-Link "Fortschritt zurücksetzen"
-
-## Support
-
-Bei Fragen zur Website oder zum Curriculum:
-**Erkan Ezgin** — Head of AI, IEG
-e.ezgin@ieg-banking.com
+### Zertifikat-Signatur (`app.js`, Funktion `renderCertificate`)
+Standardmäßig "S. Heilmann" — frei anpassbar.
 
 ---
 
-© 2026 IEG Investment Banking Group · Internal Training Material · v1.1
+## Datenschutz
+
+- **Keine Server-Kommunikation:** Alle Daten bleiben im Browser des Nutzers (`localStorage`)
+- **Pro Browser:** Jeder Nutzer sieht nur seinen eigenen Fortschritt
+- **Reset möglich:** Über den Footer-Link "Fortschritt zurücksetzen"
+
+---
+
+## Support
+
+Bei Fragen zur Website oder zum Curriculum wenden Sie sich an Ihren internen IEG-Ansprechpartner.
+
+© 2026 IEG Investment Banking Group · Internal Training Material · v1.3
