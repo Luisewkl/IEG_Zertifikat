@@ -14,8 +14,13 @@ const CURRICULUM = [
     // === ZUSATZ-INHALTE (optional) ===
     // Hier kannst du Videos, Bilder und zusätzlichen Text einfügen.
     // Diese Inhalte erscheinen AUTOMATISCH auf der Modul-Seite (modules/modul-XX.html).
-    videos:
-       //[{ url: https://www.youtube.com/watch?v=51vysjHcJ5A, title: 'Claude kompletter Grundkurs (2026): BEGINNER zu PROFI in 30 min!',(30:42min)'}],
+    videos: [
+  {
+    url: 'https://www.youtube.com/embed/51vysjHcJ5A',
+    title: 'Claude kompletter Grundkurs (2026): BEGINNER zu PROFI in 30 min!',
+    caption: 'Video 0.1 · Claude Grundkurs (30:42)'
+  },
+],
     images: [
       // Beispiel:
       // { src: '../assets/bild.png', alt: 'Beschreibung', caption: 'Abbildung 1.1 · Bildunterschrift' },
