@@ -16,7 +16,7 @@ const CURRICULUM = [
     // Diese Inhalte erscheinen AUTOMATISCH auf der Modul-Seite (modules/modul-XX.html).
     videos: [
       // Beispiel:
-      // { url: 'https://www.youtube.com/embed/VIDEO_ID', title: 'Titel', caption: 'Video 1.1 · Beschreibung (Dauer)' },
+      // { url: 'https://www.youtube.com/watch?v=51vysjHcJ5A', title: 'Titel', caption: 'Video 1.1 · Beschreibung (Dauer)' },
     ],
     images: [
       // Beispiel:
