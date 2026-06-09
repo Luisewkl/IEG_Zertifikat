@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 01 · Foundations & The Analyst’s Workbench — IEG Claude Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="module-styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img">
+      <span class="logo-divider"></span>
+      <div class="logo-text">
+        <span class="logo-primary">Claude Academy</span>
+        <span class="logo-secondary">Modul 01</span>
+      </div>
+    </a>
+    <a href="../index.html#curriculum" class="nav-back">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Zurück zum Curriculum
+    </a>
+  </div>
+</nav>
+
+<section class="module-hero">
+  <div class="module-hero-inner">
+    <div class="module-breadcrumb"><span>BEGINNER</span><span>·</span><span>MODULE 1</span></div>
+    <div class="module-hero-number">01</div>
+    <h1 class="module-hero-title">Foundations & The Analyst’s Workbench</h1>
+    <p class="module-hero-lede">Claude-Grundlagen, Chat-Organisation, die drei Modelle (Haiku, Sonnet, Opus), zentrale Funktionen, Personalisierung und Datenschutz.</p>
+    <div class="module-hero-meta">
+      <span class="module-hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        30 Minuten Lernzeit
+      </span>
+      <span class="module-hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        5 Quiz-Fragen
+      </span>
+      <span class="module-hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        Mit Video
+      </span>
+    </div>
+  </div>
+</section>
+
+<main class="module-content">
+  <div id="dynamicContent"></div>
+  <h3>1. Grundlagen und Chat-Organisation</h3>
+      <p>Claude funktioniert ähnlich wie ChatGPT oder Gemini über eine zentrale Textbox
+      für Prompts (Anfragen). Entscheidend für gute Ergebnisse ist die <strong>Chat-Disziplin</strong>:</p>
+
+      <div class="callout">
+        <div class="callout-title">Goldene Regel</div>
+        <p>Erstelle für <strong>jedes neue Thema</strong> einen neuen Chat. Das Vermischen von Themen
+        in einem Chat verwirrt die KI und verschlechtert die Ergebnisqualität erheblich.</p>
+      </div>
+
+      <h3>2. Die Modellfamilie</h3>
+      <p>Claude bietet drei spezialisierte Modelle für unterschiedliche Aufgaben:</p>
+
+      <table>
+        <thead>
+          <tr><th>Modell</th><th>Stärke</th><th>Typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Haiku</strong></td>
+            <td>Das schnellste Modell</td>
+            <td>Einfache Formatierungen, schnelle Antworten. Weniger tiefgründig.</td>
+          </tr>
+          <tr>
+            <td><strong>Sonnet</strong></td>
+            <td>Der Allrounder</td>
+            <td>Tägliche Arbeit, Standard in der Gratisversion. Gute Balance aus Geschwindigkeit und Qualität.</td>
+          </tr>
+          <tr>
+            <td><strong>Opus</strong></td>
+            <td>Das leistungsstärkste Modell</td>
+            <td>Komplexe Recherchen, tiefgehende Analysen. Langsamer, kann aber Quellen und Studien integrieren. Verfügbar in der Pro-Version.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>3. Zentrale Funktionen</h3>
+
+      <h4>Websuche</h4>
+      <p>Kann über das <strong>Plus-Symbol</strong> aktiviert werden, um aktuelle Informationen
+      (z.&thinsp;B. DAX-Daten, Breaking News) aus dem Internet zu ziehen. Besonders nützlich für
+      Marktrecherchen und aktuelle Unternehmensdaten.</p>
+
+      <h4>Dateiupload</h4>
+      <p>Claude verarbeitet <strong>PDFs, Excel-Tabellen und Word-Dokumente</strong>. Für gründliche
+      Analysen empfiehlt sich der <em>erweiterte Nachdenkenmodus</em> (Stoppuhr-Symbol) &mdash;
+      damit liest die KI die Datei sorgfältiger ein und liefert bessere Ergebnisse.</p>
+
+      <h4>Technik-Berater</h4>
+      <p>Claude kann technische Probleme (z.&thinsp;B. langsamer PC) lösen, indem man allgemeine Anfragen
+      mit <strong>Screenshots der Benutzeroberfläche</strong> kombiniert. Die KI erkennt UI-Elemente
+      und gibt konkrete Handlungsanweisungen.</p>
+
+      <h3>4. Personalisierung</h3>
+      <p>Claude lässt sich auf drei Ebenen an die eigene Arbeitsweise anpassen:</p>
+      <ul>
+        <li><strong>Präferenzen:</strong> Globale Einstellungen (z.&thinsp;B. &bdquo;Antworte immer in einem
+        Satz&ldquo;), die für <em>jeden neuen Chat</em> automatisch übernommen werden.</li>
+        <li><strong>Stile:</strong> Vordefinierte Schreibstile (z.&thinsp;B. formell) oder eigene Stile,
+        die durch das Hochladen von <strong>Textproben</strong> erstellt werden können &mdash; Claude
+        adaptiert dann Ton, Struktur und Wortwahl.</li>
+        <li><strong>Erinnerungen (Memory):</strong> Gezielte Anweisungen für die Zukunft
+        (z.&thinsp;B. &bdquo;Schlage bei Reisen nur Bahnverbindungen vor&ldquo;), die Claude im
+        &bdquo;Gedächtnis&ldquo; speichert und in zukünftigen Chats berücksichtigt.</li>
+      </ul>
+
+      <h3>5. Produktivität und fortgeschrittene Tools</h3>
+
+      <h4>Projekte</h4>
+      <p>Ein geschlossener Bereich für Chats, in dem <strong>Anweisungen und Dateien</strong>
+      (z.&thinsp;B. für einen LinkedIn-Post-Generator) für alle Chats innerhalb des Projekts
+      hinterlegt sind. Ideal für wiederkehrende Workflows.</p>
+
+      <h4>Programmierung</h4>
+      <p>Claude kann <strong>interaktive Dashboards</strong> oder komplette HTML-Websites erstellen
+      &mdash; inklusive Schritt-für-Schritt-Anleitungen zur Veröffentlichung. Kein
+      Programmier-Vorwissen nötig.</p>
+
+      <h4>Claude in Excel</h4>
+      <p>Eine <strong>Pro-Funktion</strong>, die direkt in Excel Tabellen füllt, Charts erstellt
+      und Formelfehler (wie Zirkelbezüge) korrigiert &mdash; per natürlichsprachlicher Anweisung.</p>
+
+      <h3>6. Datenschutz und Sicherheit</h3>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">Pflicht bei IEG</div>
+        <p><strong>Training deaktivieren:</strong> In den Einstellungen unter &bdquo;Datenschutz&ldquo;
+        muss die Option &bdquo;hilft dabei Claude zu verbessern&ldquo; <strong>deaktiviert</strong>
+        werden, damit eigene Daten nicht zum Training der KI genutzt werden.</p>
+      </div>
+
+      <p><strong>Inkognitomodus</strong> (Geist-Symbol): Chats werden hier nicht dauerhaft in der
+      Seitenleiste gespeichert &mdash; ideal für private oder einmalige Anfragen. In diesem Modus
+      werden keine Daten für zukünftige Sessions aufbewahrt.</p>
+
+  <div class="quiz-section">
+    <div class="quiz-eyebrow">Bereit für das Quiz?</div>
+    <h2>Testen Sie Ihr Verständnis</h2>
+    <p class="quiz-lede">5 Fragen · Pass-Threshold 70 %. Bei Bestehen wird Modul 02 freigeschaltet.</p>
+    <button class="btn btn-primary" onclick="startQuiz()">Quiz starten
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</main>
+
+<div class="module-navigation">
+  <a href="modul-00.html" class="nav-card nav-card-prev">
+    <div class="nav-card-label">← Vorheriges Modul</div>
+    <div class="nav-card-title">00 · The AI-Powered Investment Bank</div>
+  </a>
+  <a href="modul-02.html" class="nav-card nav-card-next">
+    <div class="nav-card-label">Nächstes Modul →</div>
+    <div class="nav-card-title">02 · Document Engineering & Data Synthesis</div>
+  </a>
+</div>
+
+<div class="modal-overlay" id="quizModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeQuiz()">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="quizModalBody"></div>
+  </div>
+</div>
+
+<footer class="module-footer">
+  <img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo">
+  <div class="module-footer-text">© 2026 IEG Investment Banking Group · Internal Training Material</div>
+</footer>
+
+<script src="../content.js"></script>
+<script>
+  const MODULE_ID = 1;
+  const MODULE_TITLE = "Foundations & The Analyst’s Workbench";
+  const MODULE_QUIZ = CURRICULUM.find(m => m.id === 1).quiz;
+</script>
+<script src="module.js"></script>
+</body>
+</html>
