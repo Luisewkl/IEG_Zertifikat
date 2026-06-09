@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 00 · The AI-Powered Investment Bank & Prompt Engineering 101 — IEG Claude Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="module-styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img">
+      <span class="logo-divider"></span>
+      <div class="logo-text">
+        <span class="logo-primary">Claude Academy</span>
+        <span class="logo-secondary">Modul 00</span>
+      </div>
+    </a>
+    <a href="../index.html#curriculum" class="nav-back">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Zurück zum Curriculum
+    </a>
+  </div>
+</nav>
+
+<section class="module-hero">
+  <div class="module-hero-inner">
+    <div class="module-breadcrumb"><span>STRATEGIC ORIENTATION</span><span>·</span><span>FOUNDATIONAL</span></div>
+    <div class="module-hero-number">00</div>
+    <h1 class="module-hero-title">The AI-Powered Investment Bank & Prompt Engineering 101</h1>
+    <p class="module-hero-lede">Die drei Interaktionsmodi (Chat, Cowork, Code), agentische KI als Wettbewerbsvorteil und die Grundlagen des Prompt Engineerings nach Anthropic Best Practices.</p>
+    <div class="module-hero-meta">
+      <span class="module-hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        25 Minuten Lernzeit
+      </span>
+      <span class="module-hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        7 Quiz-Fragen
+      </span>
+      <span class="module-hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        Mit Video
+      </span>
+    </div>
+  </div>
+</section>
+
+<main class="module-content">
+  <div id="dynamicContent"></div>
+
+  <h3>Warum agentische KI jetzt?</h3>
+      <p>Die Finanzdienstleistungsbranche durchläuft einen tektonischen Wandel &mdash; weg von statischen
+      Chatbots, hin zu agentischen Workflows. Für M&amp;A-Profis ist Claude-Mastery keine Option
+      mehr, sondern <strong>Wettbewerbsnotwendigkeit</strong>.</p>
+      <p>In einer Welt, in der <strong>Deal-Velocity</strong> und <strong>Präzision</strong> die
+      primären Währungen sind, wirkt agentische KI als Kraftmultiplikator. Claude agiert als
+      autonomer Partner: Er navigiert komplexe Dateisysteme, führt mehrstufige Datensynthesen aus
+      und automatisiert reibungsstarke Origination- und Underwriting-Aufgaben.</p>
+
+      <h3>Die drei Kerninteraktionsmodi</h3>
+      <table>
+        <thead>
+          <tr><th>Modus</th><th>Definition</th><th>Anwendungsfall im Investment Banking</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Chat</strong></td>
+            <td>Standard-Konversationsoberfläche für direkte Anfragen.</td>
+            <td>Marktnachrichten zusammenfassen, schnelle Formelchecks, Outreach-Drafts.</td>
+          </tr>
+          <tr>
+            <td><strong>Cowork</strong></td>
+            <td>Desktop-Umgebung, in der Claude lokale Dateien liest und bearbeitet.</td>
+            <td>Pitchbook-Datenvorbereitung, Bereinigen von Transaction Logs, Batch-Reports.</td>
+          </tr>
+          <tr>
+            <td><strong>Code</strong></td>
+            <td>Terminalbasierter Agent für autonome Entwicklung &amp; Engineering.</td>
+            <td>Bespoke LBO-Modelle, komplexe Datenpipelines, web-basierte Deal Rooms.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Prompt Engineering 101 &mdash; Anthropic Best Practices</h3>
+
+      <h4>1. Prompt Engineering als iterative Wissenschaft</h4>
+      <p>Prompt Engineering ist ein <strong>empirischer, iterativer Prozess</strong>. Man beginnt mit einem
+      einfachen Prompt, analysiert die Fehler der KI und baut den Prompt Schritt für Schritt auf,
+      um die Genauigkeit zu erhöhen. Es hilft, <em>Testfälle</em> zu erstellen, um sicherzustellen,
+      dass die KI in der gewünschten Domäne bleibt (z.&thinsp;B. Autounfälle statt Skiunfälle).</p>
+
+      <h4>2. Die ideale Prompt-Struktur</h4>
+      <p>Anthropic empfiehlt einen spezifischen Aufbau für komplexe Aufgaben, um sie beim ersten
+      Versuch (<em>&bdquo;one-shot&ldquo;</em>) korrekt zu lösen:</p>
+      <ol>
+        <li><strong>Aufgabenbeschreibung:</strong> Festlegen der Rolle und des Ziels
+        (z.&thinsp;B. &bdquo;Du bist ein Schadensprüfer&ldquo;).</li>
+        <li><strong>Kontext &amp; Tonfall:</strong> Anweisungen zum Stil
+        (z.&thinsp;B. &bdquo;bleib sachlich&ldquo;, &bdquo;antworte nur, wenn du sicher bist&ldquo;).</li>
+        <li><strong>Hintergrunddaten:</strong> Statische Informationen oder Dokumente
+        (idealerweise im System Prompt).</li>
+        <li><strong>Detaillierte Anweisungen:</strong> Eine Schritt-für-Schritt-Liste,
+        wie die KI die Aufgabe angehen soll.</li>
+        <li><strong>Beispiele (Few-Shot):</strong> Musterlösungen für schwierige Fälle.</li>
+        <li><strong>Wichtige Erinnerungen:</strong> Wiederholung der kritischsten Punkte
+        am Ende des Prompts.</li>
+      </ol>
+
+      <h4>3. Strukturierung durch XML-Tags</h4>
+      <p>Claude liebt Struktur. Verwende <strong>XML-Tags</strong>
+      (z.&thinsp;B. <code>&lt;form&gt;...&lt;/form&gt;</code> oder
+      <code>&lt;anweisungen&gt;...&lt;/anweisungen&gt;</code>), um verschiedene Arten von
+      Informationen voneinander abzugrenzen. Dies hilft der KI, sich später im Prompt gezielt
+      auf bestimmte Abschnitte zu beziehen.</p>
+
+      <div class="callout">
+        <div class="callout-title">Warum XML-Tags?</div>
+        <p>Tags geben dem Prompt eine klare Hierarchie. Statt alles in Fließtext zu packen,
+        trennt man Kontext, Anweisungen und Beispiele &mdash; Claude kann dann gezielt auf
+        einzelne Abschnitte zugreifen und interpretiert den Prompt präziser.</p>
+      </div>
+
+      <h4>4. Die Reihenfolge der Analyse</h4>
+      <p>Die Reihenfolge, in der Claude Informationen analysiert, ist <strong>entscheidend</strong>.
+      Weise Claude an, zuerst die klaren Fakten (z.&thinsp;B. ein Formular) zu prüfen, bevor er
+      interpretative Daten (z.&thinsp;B. eine Skizze) analysiert &mdash; genau wie ein Mensch
+      es tun würde. Dieses Prinzip heißt <em>&bdquo;Analyze the Form before the Sketch&ldquo;</em>.</p>
+
+      <h4>5. Kontrolle des Outputs</h4>
+      <ul>
+        <li><strong>Formatvorgaben:</strong> Nutze XML-Tags am Ende (z.&thinsp;B.
+        <code>&lt;urteil&gt;...&lt;/urteil&gt;</code>), um nur das Endergebnis zu extrahieren
+        &mdash; wichtig für technische Anwendungen und Daten-Pipelines.</li>
+        <li><strong>Antworten &bdquo;vorgeben&ldquo; (Pre-filling):</strong> Du kannst Claude
+        den Anfang seiner Antwort in den Mund legen (z.&thinsp;B. indem du die Antwort mit
+        <code>{</code> für JSON beginnen lässt), um das Format zu erzwingen.</li>
+      </ul>
+
+      <h4>6. Prompt Caching &amp; System Prompts</h4>
+      <p>Informationen, die sich nie ändern (wie die Struktur eines Standardformulars),
+      gehören in den <strong>System Prompt</strong>. Durch <em>Caching</em> spart man Zeit und
+      Ressourcen, da Claude das Dokument nicht bei jeder Anfrage neu &bdquo;lernen&ldquo; muss.</p>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">Kernidee</div>
+        <p>Der Übergang von High-Level-Strategie zu Execution erfordert eine präzise
+        Grundkonfiguration &mdash; damit Modell-Outputs den rigorosen Audit-Standards der
+        Bankenbranche entsprechen. Prompt Engineering ist dabei die Schlüsselkompetenz.</p>
+      </div>
+
+  <div class="quiz-section">
+    <div class="quiz-eyebrow">Bereit für das Quiz?</div>
+    <h2>Testen Sie Ihr Verständnis</h2>
+    <p class="quiz-lede">7 Fragen · Pass-Threshold 70 %. Bei Bestehen wird Modul 01 freigeschaltet.</p>
+    <button class="btn btn-primary" onclick="startQuiz()">Quiz starten
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</main>
+
+<div class="module-navigation">
+  <div class="nav-card nav-card-empty">
+    <div class="nav-card-label">Vorheriges Modul</div>
+    <div class="nav-card-title" style="color:var(--text-faint);">Erstes Modul</div>
+  </div>
+  <a href="modul-01.html" class="nav-card nav-card-next">
+    <div class="nav-card-label">Nächstes Modul →</div>
+    <div class="nav-card-title">01 · Foundations & The Analyst’s Workbench</div>
+  </a>
+</div>
+
+<div class="modal-overlay" id="quizModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeQuiz()">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="quizModalBody"></div>
+  </div>
+</div>
+
+<footer class="module-footer">
+  <img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo">
+  <div class="module-footer-text">© 2026 IEG Investment Banking Group · Internal Training Material</div>
+</footer>
+
+<script src="../content.js"></script>
+<script>
+  const MODULE_ID = 0;
+  const MODULE_TITLE = "The AI-Powered Investment Bank & Prompt Engineering 101";
+  const MODULE_QUIZ = CURRICULUM.find(m => m.id === 0).quiz;
+</script>
+<script src="module.js"></script>
+</body>
+</html>
