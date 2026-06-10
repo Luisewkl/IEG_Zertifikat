@@ -806,44 +806,44 @@ const CURRICULUM = [
         q: 'Was ist das Risiko beim sogenannten "Vibecoding"?',
         options: [
           'Der Code ist langsamer',
-          'Das geistige Eigentum an einem Nebenprojekt könnte rechtlich dem Arbeitgeber gehören',
-          'Die KI schreibt fehlerhaften Code',
-          'Man braucht eine extra Lizenz'
+          'Man braucht eine extra Lizenz, welches man durch das Claude Certificate bekommt',
+          'Die KI schreibt fehlerhaften Code und könnte mehr Speicher wegnehmen',
+          'Das geistige Eigentum an einem Nebenprojekt könnte rechtlich dem Arbeitgeber gehören'
         ],
-        correct: 1,
+        correct: 3,
         explanation: 'Vibecoding-Gefahr: Wenn du ein Nebenprojekt mit der KI oder Hardware deines Arbeitgebers erstellst, kann das geistige Eigentum rechtlich dem Unternehmen gehören.'
       },
       {
         q: 'Was ist die "Lethal Trifecta" (Tödliches Trio)?',
         options: [
           'Drei KI-Modelle, die gleichzeitig laufen',
-          'Ein Angriff, bei dem externe Inhalte (z.B. eine E-Mail) die KI kapern, um private Daten auszulesen und nach außen zu senden',
+          'Ein Fehler in der Claude-Software',
           'Drei verschiedene Programmiersprachen',
-          'Ein Fehler in der Claude-Software'
+          'Ein Angriff, bei dem externe Inhalte die KI kapern, um private Daten auszulesen und nach außen zu senden'
         ],
-        correct: 1,
+        correct: 3,
         explanation: 'Die Lethal Trifecta beschreibt einen Angriff über Konnektoren: Präparierte E-Mail → KI liest sie → versteckte Anweisung extrahiert private Daten und sendet sie an den Angreifer.'
       },
       {
         q: 'Was passiert, wenn du einen Konnektor (z.B. Gmail) mit Claude verbindest?',
         options: [
-          'Claude kann nur die letzte E-Mail lesen',
           'Claude kann potenziell das gesamte Postfach oder alle Drive-Dateien lesen',
+          'Claude kann die letzten E-Mail lesen. Hängt davo ab wie viel Speicher zur Verfügung steht',
           'Es passiert nichts — Konnektoren sind nur kosmetisch',
           'Claude löscht automatisch alte E-Mails'
         ],
-        correct: 1,
+        correct: 0,
         explanation: 'Massiver Zugriff: Einmal verbunden, kann die KI oft das gesamte Postfach oder alle Drive-Dateien lesen — deshalb das Minimalprinzip beachten.'
       },
       {
         q: 'Was bedeutet "Anonymisieren" als goldene Sicherheitsregel?',
         options: [
           'Den eigenen Namen in Claude ändern',
-          'Sensible Daten vor dem Einfügen in die KI unkenntlich machen',
           'Claude im Inkognitomodus nutzen',
+          'Sensible Daten vor dem Einfügen in die KI unkenntlich machen',
           'Einen VPN verwenden'
         ],
-        correct: 1,
+        correct: 2,
         explanation: 'Anonymisieren heißt: Bevor du Daten in die KI eingibst, müssen Namen, Adressen und andere sensible Informationen unkenntlich gemacht werden.'
       },
       {
