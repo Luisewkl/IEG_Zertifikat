@@ -155,12 +155,12 @@ const CURRICULUM = [
       {
         q: 'Wozu dienen XML-Tags (z.B. <form>, <anweisungen>) in einem Prompt?',
         options: [
-          'Sie sind reine Dekoration ohne Funktion',
-          'Sie strukturieren den Prompt, damit Claude verschiedene Informationsarten unterscheiden und gezielt darauf zugreifen kann',
+          'Sie haben keine genaue Funktion da sie wie eine HTML funktionieren',
+          'Sie verschlüsseln den Prompt. Das ist wichtig in Falle eines .',
           'Sie aktivieren den Programmiermodus',
-          'Sie verschlüsseln den Prompt'
+          'Sie strukturieren den Prompt, damit Claude verschiedene Informationsarten unterscheiden und darauf zugreifen kann'
         ],
-        correct: 1,
+        correct: 3,
         explanation: 'XML-Tags geben dem Prompt eine klare Hierarchie. Claude kann dann gezielt auf einzelne Abschnitte zugreifen und den Prompt präziser interpretieren.'
       },
       {
