@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 02 · Prompt Engineering 101 — Anthropic Best Practices — IEG Claude Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="module-styles.css">
+</head><body>
+<nav class="navbar"><div class="nav-inner">
+  <a href="../index.html" class="nav-logo"><img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img"><span class="logo-divider"></span><div class="logo-text"><span class="logo-primary">Claude Academy</span><span class="logo-secondary">Modul 02</span></div></a>
+  <a href="../index.html#curriculum" class="nav-back"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Zurück zum Curriculum</a>
+</div></nav>
+<section class="module-hero"><div class="module-hero-inner">
+  <div class="module-breadcrumb"><span>INTERMEDIATE</span><span>·</span><span>MODULE 2</span></div>
+  <div class="module-hero-number">02</div>
+  <h1 class="module-hero-title">Prompt Engineering 101 — Anthropic Best Practices</h1>
+  <p class="module-hero-lede">Prompt Engineering als iterative Wissenschaft: die ideale Prompt-Struktur, XML-Tags, Analyse-Reihenfolge, Pre-filling und System Prompts.</p>
+  <div class="module-hero-meta">
+    <span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 25 Min. Lernzeit</span>
+    <span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> 6 Quiz-Fragen</span>
+    <span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> Mit Video</span>
+  </div>
+</div></section>
+<main class="module-content">
+  <div id="dynamicContent"></div>
+  <h3>1. Prompt Engineering als iterative Wissenschaft</h3>
+      <p>Prompt Engineering ist ein <strong>empirischer, iterativer Prozess</strong>. Man beginnt mit einem
+      einfachen Prompt, analysiert die Fehler der KI und baut den Prompt Schritt für Schritt auf.
+      Es hilft, <em>Testfälle</em> zu erstellen, um sicherzustellen, dass die KI in der
+      gewünschten Domäne bleibt.</p>
+
+      <h3>2. Die ideale Prompt-Struktur</h3>
+      <p>Anthropic empfiehlt für komplexe Aufgaben:</p>
+      <ol>
+        <li><strong>Aufgabenbeschreibung:</strong> Rolle und Ziel festlegen.</li>
+        <li><strong>Kontext &amp; Tonfall:</strong> Stil-Anweisungen.</li>
+        <li><strong>Hintergrunddaten:</strong> Statische Informationen (idealerweise im System Prompt).</li>
+        <li><strong>Detaillierte Anweisungen:</strong> Schritt-für-Schritt-Liste.</li>
+        <li><strong>Beispiele (Few-Shot):</strong> Musterlösungen für schwierige Fälle.</li>
+        <li><strong>Wichtige Erinnerungen:</strong> Wiederholung der kritischsten Punkte am Ende.</li>
+      </ol>
+
+      <h3>3. Strukturierung durch XML-Tags</h3>
+      <p>Verwende <strong>XML-Tags</strong> (z.B. <code>&lt;form&gt;</code>, <code>&lt;anweisungen&gt;</code>),
+      um verschiedene Informationsarten voneinander abzugrenzen.</p>
+      <div class="callout">
+        <div class="callout-title">Warum XML-Tags?</div>
+        <p>Tags geben dem Prompt eine klare Hierarchie. Claude kann gezielt auf einzelne Abschnitte zugreifen.</p>
+      </div>
+
+      <h3>4. Die Reihenfolge der Analyse</h3>
+      <p><strong>„Analyze the Form before the Sketch“:</strong> Zuerst klare Fakten (Formular), dann interpretative Daten (Skizze).</p>
+
+      <h3>5. Kontrolle des Outputs</h3>
+      <ul>
+        <li><strong>Formatvorgaben:</strong> XML-Tags am Ende für Endergebnis-Extraktion.</li>
+        <li><strong>Pre-filling:</strong> Antwort mit <code>{</code> beginnen lassen für JSON-Output.</li>
+      </ul>
+
+      <h3>6. Prompt Caching &amp; System Prompts</h3>
+      <p>Statische Informationen gehören in den <strong>System Prompt</strong>. Durch Caching spart man Zeit und Ressourcen.</p>
+  <div class="quiz-section">
+    <div class="quiz-eyebrow">Bereit für das Quiz?</div>
+    <h2>Testen Sie Ihr Verständnis</h2>
+    <p class="quiz-lede">6 Fragen · Pass-Threshold 70 %.</p>
+    <button class="btn btn-primary" onclick="startQuiz()">Quiz starten <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+  </div>
+</main>
+<div class="module-navigation"><a href="modul-01.html" class="nav-card nav-card-prev"><div class="nav-card-label">← Vorheriges Modul</div><div class="nav-card-title">01 · Foundations & The Analyst’s Workbench</div></a><a href="modul-03.html" class="nav-card nav-card-next"><div class="nav-card-label">Nächstes Modul →</div><div class="nav-card-title">03 · Claude Skills — KI-Experten auf Knopfdruck</div></a></div>
+<div class="modal-overlay" id="quizModal"><div class="modal-content">
+  <button class="modal-close" onclick="closeQuiz()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <div id="quizModalBody"></div>
+</div></div>
+<footer class="module-footer"><img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo"><div class="module-footer-text">© 2026 IEG Investment Banking Group</div></footer>
+<script src="../content.js"></script>
+<script>
+  const MODULE_ID = 2;
+  const MODULE_TITLE = "Prompt Engineering 101 — Anthropic Best Practices";
+  const MODULE_QUIZ = CURRICULUM.find(m => m.id === 2).quiz;
+</script>
+<script src="module.js"></script>
+</body></html>
