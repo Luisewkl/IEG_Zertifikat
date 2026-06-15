@@ -19,14 +19,14 @@
       <span class="logo-divider"></span>
       <div class="logo-text">
         <span class="logo-primary">Claude Academy</span>
-        <span class="logo-secondary">Internal Training</span>
+        <span class="logo-secondary">Internes Trainingsprogramm</span>
       </div>
     </a>
     <div class="nav-links">
       <a href="#home" class="nav-link active" data-nav="home">Übersicht</a>
       <a href="#curriculum" class="nav-link" data-nav="curriculum">Curriculum</a>
       <a href="#team" class="nav-link" data-nav="team">Team</a>
-      <a href="#certificate" class="nav-link" data-nav="certificate">Zertifikat</a>
+      <a href="#Zertifikat" class="nav-link" data-nav="Zertifikat">Zertifikat</a>
     </div>
     <div class="nav-right">
       <div class="nav-progress">
@@ -53,7 +53,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="eyebrow-dot"></span>
-      <span>Internal Training Programme · Berlin · 2026</span>
+      <span>Internes Trainingsprogramm · Berlin · 2026</span>
     </div>
     <h1 class="hero-title">
       <span class="title-line">Claude im Investment Banking</span>
@@ -97,7 +97,7 @@
       <div class="quote-mark">"</div>
       <p>Der Kurs vermittelt eine strukturierte Einführung in Claude für den Einsatz im Finance- und M&A-Umfeld. 
         Im Fokus stehen ein sicherer Umgang mit den wichtigsten Funktionen, ein realistisches Verständnis der Einsatzgrenzen und der praktische Nutzen im Arbeitsalltag.</p>
-      <div class="quote-attribution">—  IEG Internal Training</div>
+      <div class="quote-attribution">—  IEG Internes Trainingsprogramm</div>
     </div>
   </div>
 </section>
@@ -106,16 +106,15 @@
 <section id="curriculum" class="curriculum">
   <div class="section-header">
     <div class="section-eyebrow">/ Curriculum</div>
-    <h2 class="section-title">Sechs Module. Ein Pfad. Vom Analyst bis zum Power-User.</h2>
+    <h2 class="section-title">Sechs Module für den strukturierten Einstieg</h2>
     <p class="section-lede">
-      Jedes Modul schließt mit einem Quiz ab. Nur nach Bestehen (mind. 70 %) wird das
-      nächste Modul freigeschaltet. Nach Abschluss aller sechs Module folgt das
-      <strong>Final Examination</strong> — und Ihr persönliches IEG Claude Certificate.
+      Jedes Modul schließt mit einem Quiz ab. Nach erfolgreichem Abschluss wird das nächste Modul freigeschaltet. 
+      Nach allen sechs Modulen folgt eine Abschlussprüfung mit internem Teilnahmezertifikat.
     </p>
     <div class="preview-hint">
       <span class="preview-hint-icon">👁</span>
       <span class="preview-hint-text">
-        <strong>Admin / Review-Modus:</strong> Möchten Sie alle Module direkt einsehen, ohne Quizzes zu absolvieren?
+        <strong>Vorschau aktivieren: </strong> Alle Module ohne Quiz-Freischaltung anzeigen.
       </span>
       <button id="previewToggle" class="preview-toggle" onclick="togglePreviewMode()">Vorschau-Modus</button>
     </div>
@@ -137,11 +136,11 @@
 <!-- ============ TEAM ============ -->
 <section id="team" class="team-section">
   <div class="section-header">
-    <div class="section-eyebrow">/ Who we are</div>
+    <div class="section-eyebrow">/ Team</div>
     <h2 class="section-title">Die Menschen hinter IEG</h2>
     <p class="section-lede">
-      Eine kurze Einführung in das Team — besonders nützlich für neue Praktikanten und
-      Analysten. Über 50 Köpfe, sieben Standorte, ein Family Spirit.
+     Eine kurze Einführung in das IEG Team und ausgewählte Ansprechpartner. 
+      Besonders hilfreich für neue Praktikantinnen, Praktikanten und Analystinnen bzw. Analysten im Onboarding.
     </p>
   </div>
 
@@ -272,8 +271,8 @@
   </div>
 </section>
 
-<!-- ============ CERTIFICATE PREVIEW ============ -->
-<section id="certificate" class="cert-section">
+<!-- ============ Zertifikat PREVIEW ============ -->
+<section id="Zertifikat" class="cert-section">
   <div class="cert-locked-state" id="certLockedState">
     <div class="cert-icon-lock">
       <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -281,17 +280,17 @@
         <path d="M8 11V7a4 4 0 1 1 8 0v4"/>
       </svg>
     </div>
-    <div class="section-eyebrow">/ Certificate</div>
-    <h2 class="section-title">Ihr IEG Claude Certificate</h2>
+    <div class="section-eyebrow">/ Zertifikat</div>
+    <h2 class="section-title">Ihr IEG Claude Zertifikat</h2>
     <p class="section-lede">
-      Schließen Sie alle sechs Module und das Final Examination ab, um Ihr persönliches,
+      Schließen Sie alle sechs Module und die Abschlussprüfung ab, um Ihr persönliches,
       auf Ihren Namen ausgestelltes Zertifikat zu erhalten.
     </p>
     <div class="cert-status" id="certStatus">Status: noch nicht freigeschaltet</div>
   </div>
 
   <div class="cert-unlocked-state" id="certUnlockedState" style="display:none;">
-    <!-- Certificate inserted by JS once unlocked -->
+    <!-- Zertifikat inserted by JS once unlocked -->
   </div>
 </section>
 
@@ -318,10 +317,10 @@
 <!-- ============ MODAL: NAME INPUT ============ -->
 <div class="modal-overlay" id="nameModal" style="display:none;">
   <div class="modal-content modal-name">
-    <h3>Wer schreibt das Final Examination?</h3>
+    <h3>Wer schreibt die Abschlussprüfung?</h3>
     <p>Bitte geben Sie Ihren vollständigen Namen ein. Dieser erscheint auf Ihrem Zertifikat.</p>
     <input type="text" id="userNameInput" placeholder="z. B. Max Mustermann" />
-    <button class="btn btn-primary" onclick="submitName()">Zum Final Examination</button>
+    <button class="btn btn-primary" onclick="submitName()">Zur Abschlussprüfung</button>
   </div>
 </div>
 
@@ -339,7 +338,7 @@
       <div class="footer-heading">Academy</div>
       <a href="#curriculum">Curriculum</a>
       <a href="#team">Team</a>
-      <a href="#certificate">Zertifikat</a>
+      <a href="#Zertifikat">Zertifikat</a>
     </div>
     <div class="footer-col">
       <div class="footer-heading">Internal</div>
@@ -354,7 +353,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 IEG Investment Banking Group · Internal Training Material · v1.0
+    © 2026 IEG Investment Banking Group · Internes Training Material · v1.0
   </div>
 </footer>
 
