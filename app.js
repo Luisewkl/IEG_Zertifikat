@@ -10,23 +10,22 @@ let currentUser = null;
 let supabaseReady = false;
 let previewMode = false;
 
-// Warte auf Supabase, dann initialisieren
+// Warte auf Supabase
 document.addEventListener('supabaseReady', initWithSupabase);
+// Fallback nach 3 Sekunden
 window.addEventListener('load', () => {
-  // Falls Supabase nicht konfiguriert → lokaler Fallback
   setTimeout(() => {
     if (!supabaseReady) {
-      console.log('Supabase nicht konfiguriert — lokaler Modus');
       state = loadLocalState();
       renderEverything();
       setupNavObserver();
     }
-  }, 2000);
+  }, 3000);
 });
 
 async function initWithSupabase() {
   supabaseReady = true;
-  if (!window.supabaseClient) {
+  if (!window.sb) {
     state = loadLocalState();
     renderEverything();
     setupNavObserver();
@@ -34,7 +33,7 @@ async function initWithSupabase() {
   }
 
   // Session prüfen → wenn nicht eingeloggt, zu login.html
-  const { data: { session } } = await window.supabaseClient.auth.getSession();
+  const { data: { session } } = await window.sb.auth.getSession();
   if (!session) {
     window.location.href = 'login.html';
     return;
@@ -60,7 +59,7 @@ function updateUserDisplay() {
 async function loadCloudState() {
   try {
     // Fortschritt laden
-    const { data: progressRows } = await window.supabaseClient
+    const { data: progressRows } = await window.sb
       .from('progress')
       .select('module_id, passed')
       .eq('user_id', currentUser.id);
@@ -68,7 +67,7 @@ async function loadCloudState() {
     const completed = (progressRows || []).filter(r => r.passed).map(r => r.module_id);
 
     // Final Exam laden
-    const { data: examRow } = await window.supabaseClient
+    const { data: examRow } = await window.sb
       .from('final_exam')
       .select('passed, user_name, completed_at')
       .eq('user_id', currentUser.id)
@@ -87,9 +86,9 @@ async function loadCloudState() {
 }
 
 async function saveModuleComplete(moduleId) {
-  if (window.supabaseClient && currentUser) {
+  if (window.sb && currentUser) {
     try {
-      await window.supabaseClient.from('progress').upsert({
+      await window.sb.from('progress').upsert({
         user_id: currentUser.id,
         module_id: moduleId,
         passed: true,
@@ -102,9 +101,9 @@ async function saveModuleComplete(moduleId) {
 }
 
 async function saveFinalExam(userName) {
-  if (window.supabaseClient && currentUser) {
+  if (window.sb && currentUser) {
     try {
-      await window.supabaseClient.from('final_exam').upsert({
+      await window.sb.from('final_exam').upsert({
         user_id: currentUser.id,
         passed: true,
         user_name: userName,
@@ -131,8 +130,8 @@ function saveLocalState() {
 
 // Logout
 async function logout() {
-  if (window.supabaseClient) {
-    await window.supabaseClient.auth.signOut();
+  if (window.sb) {
+    await window.sb.auth.signOut();
   }
   window.location.href = 'login.html';
 }
@@ -140,9 +139,9 @@ async function logout() {
 async function resetProgress() {
   if (!confirm('Möchten Sie Ihren gesamten Lernfortschritt wirklich zurücksetzen?')) return;
 
-  if (window.supabaseClient && currentUser) {
-    await window.supabaseClient.from('progress').delete().eq('user_id', currentUser.id);
-    await window.supabaseClient.from('final_exam').delete().eq('user_id', currentUser.id);
+  if (window.sb && currentUser) {
+    await window.sb.from('progress').delete().eq('user_id', currentUser.id);
+    await window.sb.from('final_exam').delete().eq('user_id', currentUser.id);
   }
 
   state = { completed: [], finalPassed: false, userName: '', completionDate: '' };
