@@ -8,9 +8,9 @@ const CURRICULUM = [
   {
     id: 0,
     number: '00',
-    meta: 'Strategic Orientation · Foundational',
-    title: 'Claude im Überblick — Projects, Cowork & Code',
-    desc: 'Organisation durch Projects, Visualisierung im Chat, Claude Cowork als autonomer Assistent und Entwicklung mit Claude Code, Skills und Konnektoren.',
+    meta: 'Einführung · Grundlagen',
+    title: 'Claude im Überblick: Funktionen, Arbeitsbereiche und Tools',
+    desc: 'Überblick über zentrale Claude-Funktionen, Arbeitsbereiche und Erweiterungen — von Projects und Visualisierungen bis zu Claude Code, Skills und Konnektoren.',
     duration: '15 Min.',
     videos: [
       { url: 'https://www.youtube.com/embed/EE9qr6Bfwj8', title: 'Claude im Überblick', caption: 'Video 0.1 · Claude Features im Überblick' },
@@ -129,9 +129,9 @@ const CURRICULUM = [
   {
     id: 1,
     number: '01',
-    meta: 'Beginner · Module 1',
-    title: 'Foundations & The Analyst\u2019s Workbench',
-    desc: 'Claude-Grundlagen, Chat-Organisation, die drei Modelle (Haiku, Sonnet, Opus), zentrale Funktionen, Personalisierung und Datenschutz.',
+    meta: 'Grundlagen · Modul 1',
+    title: 'Grundlagen und Arbeitsumgebung',
+    desc: 'Einführung in die grundlegende Nutzung von Claude: Chat-Struktur, Modelle, zentrale Funktionen, Personalisierung sowie Datenschutz und sichere Anwendung.',
     duration: '45 Min.',
     videos: [
       { url: 'https://www.youtube.com/embed/51vysjHcJ5A', title: 'Claude kompletter Grundkurs (2026)', caption: 'Video 1.1 \u00b7 Claude Grundkurs \u2014 von Beginner zu Profi (30:42)' },
@@ -247,9 +247,9 @@ const CURRICULUM = [
   {
     id: 2,
     number: '02',
-    meta: 'Intermediate · Module 2',
-    title: 'Prompt Engineering Masterclass',
-    desc: 'Die 6 Bausteine des perfekten Prompts, XML-Tags, Few-Shot, Chain of Thought, Prompt Chaining, Self-Reflection, Pre-filling und System Prompts.',
+    meta: 'Aufbau · Modul 2',
+    title: 'Prompting und strukturierte Anweisungen',
+    desc: 'Einführung in den Aufbau wirksamer Prompts, den Einsatz von Beispielen, XML-Strukturen und wiederverwendbaren Anweisungen für konsistentere Ergebnisse.',
     duration: '60 Min.',
     videos: [
       { url: 'https://www.youtube.com/embed/m4rFoTPpeAA', title: 'Prompt Engineering Praxis', caption: 'Video 2.1 · Prompt Engineering in der Praxis' },
@@ -376,9 +376,9 @@ const CURRICULUM = [
   {
     id: 3,
     number: '03',
-    meta: 'Advanced \u00b7 Module 3',
-    title: 'Claude Skills \u2014 KI-Experten auf Knopfdruck',
-    desc: 'Skills als wiederverwendbare Arbeitsanweisungen. Von der Wissensgewinnung mit NotebookLM \u00fcber die Skill-Konfiguration bis zur Anwendung.',
+    meta: 'Fortgeschritten · Modul 3',
+    title: 'Skills und wiederverwendbare Arbeitsabläufe',
+    desc: 'Einführung in Skills als strukturierte, wiederverwendbare Arbeitsanweisungen — von der inhaltlichen Vorbereitung bis zur praktischen Anwendung im Arbeitsalltag.',
     duration: '30 Min.',
     videos: [
       { url: 'https://www.youtube.com/embed/XHVgq4zodpE', title: 'Claude Skills', caption: 'Video 3.1 \u00b7 Claude Skills erstellen und anwenden' },
@@ -481,9 +481,9 @@ const CURRICULUM = [
   {
     id: 4,
     number: '04',
-    meta: 'Professional \u00b7 Module 4',
-    title: 'Security & Data Safety',
-    desc: 'What never to paste, the vibecoding trap, the lethal trifecta of connectors, and the golden rules for working safely with AI.',
+    meta: 'Sicherheit · Modul 4',
+    title: 'Sicherer Umgang mit Daten und Tools',
+    desc: 'Grundlagen für den sicheren Einsatz von Claude: sensible Inhalte, typische Risikofelder, Konnektoren und zentrale Regeln für datenschutzbewusstes Arbeiten.',
     duration: '15 Min.',
     videos: [],
     images: [],
@@ -622,9 +622,9 @@ const CURRICULUM = [
   {
     id: 5,
     number: '05',
-    meta: 'Expert \u00b7 Module 5',
-    title: 'Finance Automation \u2014 Skills in der Praxis',
-    desc: 'Modulare Skills f\u00fcr Finanzprozesse: Data Cleaning, Branding, Dynamic Dashboards, PowerPoint-Generierung und der "Super Skill" f\u00fcr Full Cycle Automation.',
+    meta: 'Praxis · Modul 5',
+    title: 'Skills in Finance-Workflows',
+    desc: 'Praxisnahe Anwendungsbeispiele für Skills in finanznahen Prozessen, darunter Datenaufbereitung, Strukturierung von Inhalten, Dashboards und wiederkehrende Arbeitsabläufe.',
     duration: '20 Min.',
     videos: [
       { url: 'https://www.youtube.com/embed/h0XeJi6OAVI', title: 'Finance Automation mit Claude Skills', caption: 'Video 5.1 \u00b7 Kreditkartenabrechnung vollautomatisiert mit Claude Skills' },
@@ -796,8 +796,7 @@ const CURRICULUM = [
         options: [
           'Ein gro\u00dfer Prompt ist immer besser als mehrere Skills',
           'Modulare Skills sind billiger',
-          'Einzelne Skills k\u00f6nnen unabh\u00e4ngig aktualisiert, kombiniert und in verschiedenen Workflows wiederverwendet werden',
-          'Es gibt keinen Unterschied'
+          'Vertiefung strukturierter Prompting-Techniken für finanzbezogene Aufgaben, darunter XML-Tags, Reihenfolge von Anweisungen, Beispiele und kontrollierte Ausgabeformate.'
         ],
         correct: 2,
         explanation: 'Modularit\u00e4t: Jeder Skill kann einzeln aktualisiert, frei kombiniert und in verschiedenen Workflows wiederverwendet werden.'
@@ -807,8 +806,8 @@ const CURRICULUM = [
   {
     id: 6,
     number: '06',
-    meta: 'Masterclass \u00b7 Module 6',
-    title: 'Advanced Prompt Engineering for Finance',
+    meta: 'Vertiefung · Modul 6',
+    title: 'Fortgeschrittenes Prompting im Finance-Kontext',
     desc: 'XML-Tags, Order of Operations, Few-Shot, Chain-of-Thought und die Pre-fill-Technik \u2014 spezialisiert f\u00fcr Finance.',
     duration: '35 Min.',
     videos: [],
@@ -878,7 +877,7 @@ const CURRICULUM = [
   }
 ];
 
-// FINAL EXAM \u2014 15 Fragen aus allen Modulen, Antworten durchgemischt
+// Abschlussprüfung \u2014 15 Fragen aus allen Modulen, Antworten durchgemischt
 const FINAL_EXAM = [
   {
     q: 'Wozu dienen "Projects" in Claude?',
