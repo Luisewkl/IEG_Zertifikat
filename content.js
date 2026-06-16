@@ -367,8 +367,9 @@ const CURRICULUM = [
     duration: '15 Min.',
     videos: [],
     images: [],
-    longContent: '',  
-         content: `<h3>Never paste these into a personal account</h3>
+    longContent: '',
+    content: `
+      <h3>Never paste these into a personal account</h3>
       <p>Some data should never touch your personal AI account. If you've pasted a few of these, you're not alone. Just stop now.</p>
       <div class="callout callout-warn">
         <div class="callout-title">Never paste</div>
@@ -460,18 +461,20 @@ const CURRICULUM = [
         explanation: 'Monthly review: disconnect anything not actively in use.'
       }
     ]
-  
+  },
   {
     id: 4,
     number: '04',
-    meta: 'Fortgeschritten· Modul 4',
+    meta: 'Fortgeschritten · Modul 4',
     title: 'Skills und wiederverwendbare Arbeitsabläufe',
-    desc: 'Grundlagen für den sicheren Einsatz von Claude: sensible Inhalte, typische Risikofelder, Konnektoren und zentrale Regeln für datenschutzbewusstes Arbeiten.',
-    duration: '45 Min.',
-    videos: [],
+    desc: 'Einführung in Skills als strukturierte, wiederverwendbare Arbeitsanweisungen — von der inhaltlichen Vorbereitung bis zur praktischen Anwendung im Arbeitsalltag.',
+    duration: '30 Min.',
+    videos: [
+      { url: 'https://www.youtube.com/embed/XHVgq4zodpE', title: 'Claude Skills', caption: 'Video 3.1 · Claude Skills erstellen und anwenden' },
+    ],
     images: [],
     longContent: '',
-    content: `,
+    content: `
       <h3>1. Was sind Claude Skills?</h3>
       <p>Ein Skill ist eine <strong>fest definierte, wiederverwendbare Arbeitsanweisung</strong>.</p>
       <table>
@@ -557,7 +560,7 @@ const CURRICULUM = [
         explanation: 'Ziel: Von isolierten Prompts zu einem systematischen Arbeitssystem.'
       }
     ]
-     ,
+  },
   {
     id: 5,
     number: '05',

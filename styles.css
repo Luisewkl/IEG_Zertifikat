@@ -1433,3 +1433,56 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .certificate { padding: 48px 24px; }
   .team-card-feature { grid-column: span 1; }
 }
+
+/* ============ LOGIN / USER STYLES ============ */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--ieg-blue-soft);
+  border-radius: var(--radius);
+  border: 1px solid rgba(7,93,228,0.15);
+}
+
+.nav-user-name {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ieg-blue);
+  font-weight: 500;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-logout {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  padding: 0;
+}
+.nav-logout:hover {
+  background: var(--ieg-blue);
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .nav-user-name { display: none; }
+  .nav-right { gap: 8px; }
+}

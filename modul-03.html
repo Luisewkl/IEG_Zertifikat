@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Modul 03</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="module-styles.css"></head><body><nav class="navbar"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img"><span class="logo-divider"></span><div class="logo-text"><span class="logo-primary">Claude Academy</span><span class="logo-secondary">Modul 03</span></div></a><a href="../index.html#curriculum" class="nav-back"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Zurück</a></div></nav><section class="module-hero"><div class="module-hero-inner"><div class="module-breadcrumb"><span>SICHERHEIT</span><span>·</span><span>MODULE 3</span></div><div class="module-hero-number">03</div><h1 class="module-hero-title">Sicherer Umgang mit Daten und Tools</h1><p class="module-hero-lede">Grundlagen für den sicheren Einsatz von Claude: sensible Inhalte, typische Risikofelder, Konnektoren und zentrale Regeln für datenschutzbewusstes Arbeiten.</p><div class="module-hero-meta"><span class="module-hero-meta-item">15 Min. Lernzeit</span><span class="module-hero-meta-item">7 Quiz-Fragen</span></div></div></section><main class="module-content"><div id="dynamicContent"></div>
+      <h3>Never paste these into a personal account</h3>
+      <p>Some data should never touch your personal AI account. If you've pasted a few of these, you're not alone. Just stop now.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title">Never paste</div>
+        <ul>
+          <li>Source code, or anything from your company's codebase</li>
+          <li>Customer or client data: names, emails, phone numbers, addresses, order history, health info</li>
+          <li>Unreleased plans, roadmaps, designs, prototypes</li>
+          <li>Non-public financials: revenue, margins, budgets, forecasts, deal terms</li>
+          <li>Anything marked confidential, internal-only, or under NDA</li>
+          <li>Logins, passwords, access keys, security settings</li>
+          <li>Full contracts or legal docs with real names and terms</li>
+          <li>Recordings or transcripts of internal meetings</li>
+        </ul>
+      </div>
+      <p>If you need AI help with any of these, <strong>anonymize them first</strong> or use your IEG Claude account.</p>
+
+      <h3>The vibecoding trap</h3>
+      <p>What if you use your company's AI to vibecode a side project? Bad news: <strong>your company now owns your project.</strong></p>
+      <p>What if you vibecode your side project with your personal AI, but on the company's computer? You're still at risk. Just don't do it.</p>
+
+      <h3>The most dangerous thing</h3>
+      <p>A <strong>connector</strong> links your AI to another service: Gmail, Google Drive, Calendar, Slack, Teams, Outlook. Once connected, the AI can read that data and act on it.</p>
+      <p>Useful. Also, <strong>the most dangerous thing you can do</strong> with a personal AI account.</p>
+      <p><strong>The access is enormous.</strong> Connect Gmail and the AI can read your whole mailbox. Connect Drive and it can search every file you can open.</p>
+      <p>A connected AI can be <strong>hijacked by the content it reads</strong>. Researchers proved it twice in 2025: the <strong>"lethal trifecta."</strong></p>
+      <div class="callout callout-warn">
+        <div class="callout-title">The Lethal Trifecta</div>
+        <p>AI can reach your private data + read external content you don't control + send information out = attacker can steal your data.</p>
+      </div>
+
+      <h3>How to use connectors safely</h3>
+      <ul>
+        <li><strong>Never connect work accounts to your personal AI.</strong></li>
+        <li><strong>Connect the least, with the narrowest access.</strong> Pick read-only or a single folder.</li>
+        <li><strong>Only connect official connectors.</strong> A random third-party connector can quietly change behavior after approval.</li>
+        <li><strong>Review and disconnect monthly.</strong></li>
+      </ul>
+      <div class="callout callout-success">
+        <div class="callout-title">Bottom line</div>
+        <p>Save the connected setup for the <strong>IEG Claude account</strong>, where someone is paid to secure it.</p>
+      </div>
+    <div class="quiz-section"><div class="quiz-eyebrow">Bereit?</div><h2>Quiz starten</h2><p class="quiz-lede">7 Fragen · 70%</p><button class="btn btn-primary" onclick="startQuiz()">Quiz starten</button></div></main><div class="module-navigation"><a href="modul-02.html" class="nav-card nav-card-prev"><div class="nav-card-label">← Vorheriges Modul</div><div class="nav-card-title">02 · Prompting und strukturierte Anweisungen</div></a><a href="modul-04.html" class="nav-card nav-card-next"><div class="nav-card-label">Nächstes Modul →</div><div class="nav-card-title">04 · Skills und wiederverwendbare Arbeitsabläufe</div></a></div><div class="modal-overlay" id="quizModal"><div class="modal-content"><button class="modal-close" onclick="closeQuiz()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div id="quizModalBody"></div></div></div><footer class="module-footer"><img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo"><div class="module-footer-text">© 2026 IEG Investment Banking Group</div></footer><script src="../content.js"></script><script>var MODULE_ID=3;var MODULE_TITLE="Sicherer Umgang mit Daten und Tools";var MODULE_QUIZ=CURRICULUM.find(function(m){return m.id===3;}).quiz;</script><script src="module.js"></script></body></html>
