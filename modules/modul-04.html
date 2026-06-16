@@ -1,204 +1,34 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modul 04 · Skills und wiederverwendbare Arbeitsabläufe — IEG Claude Academy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="module-styles.css">
-</head>
-<body>
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="../index.html" class="nav-logo">
-      <img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img">
-      <span class="logo-divider"></span>
-      <div class="logo-text">
-        <span class="logo-primary">Claude Academy</span>
-        <span class="logo-secondary">Modul 03</span>
-      </div>
-    </a>
-    <a href="../index.html#curriculum" class="nav-back">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Zurück zum Curriculum
-    </a>
-  </div>
-</nav>
-
-<section class="module-hero">
-  <div class="module-hero-inner">
-    <div class="module-breadcrumb"><span>ADVANCED</span><span>·</span><span>MODULE 3</span></div>
-    <div class="module-hero-number">03</div>
-    <h1 class="module-hero-title">Claude Skills — KI-Experten auf Knopfdruck</h1>
-    <p class="module-hero-lede">Skills als wiederverwendbare Arbeitsanweisungen erstellen. Von der Wissensgewinnung mit NotebookLM über die Skill-Konfiguration bis zur Anwendung im Alltag.</p>
-    <div class="module-hero-meta">
-      <span class="module-hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        30 Minuten Lernzeit
-      </span>
-      <span class="module-hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        5 Quiz-Fragen
-      </span>
-      <span class="module-hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-        Mit Video
-      </span>
-    </div>
-  </div>
-</section>
-
-<main class="module-content">
-  <div id="dynamicContent"></div>
-  <h3>1. Was sind Claude Skills und warum braucht man sie?</h3>
-      <p>Ein Claude Skill ist eine <strong>fest definierte, wiederverwendbare Arbeitsanweisung</strong>
-      für Aufgaben, die du nicht jedes Mal neu erklären möchtest.</p>
-
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Modul 04</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="module-styles.css"></head><body><nav class="navbar"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img"><span class="logo-divider"></span><div class="logo-text"><span class="logo-primary">Claude Academy</span><span class="logo-secondary">Modul 04</span></div></a><a href="../index.html#curriculum" class="nav-back"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Zurück</a></div></nav><section class="module-hero"><div class="module-hero-inner"><div class="module-breadcrumb"><span>FORTGESCHRITTEN</span><span>·</span><span>MODULE 4</span></div><div class="module-hero-number">04</div><h1 class="module-hero-title">Skills und wiederverwendbare Arbeitsabläufe</h1><p class="module-hero-lede">Einführung in Skills als strukturierte, wiederverwendbare Arbeitsanweisungen — von der inhaltlichen Vorbereitung bis zur praktischen Anwendung im Arbeitsalltag.</p><div class="module-hero-meta"><span class="module-hero-meta-item">30 Min. Lernzeit</span><span class="module-hero-meta-item">5 Quiz-Fragen</span><span class="module-hero-meta-item">Mit Video</span></div></div></section><main class="module-content"><div id="dynamicContent"></div>
+      <h3>1. Was sind Claude Skills?</h3>
+      <p>Ein Skill ist eine <strong>fest definierte, wiederverwendbare Arbeitsanweisung</strong>.</p>
       <table>
-        <thead>
-          <tr><th>Eigenschaft</th><th>Projekte</th><th>Skills</th></tr>
-        </thead>
+        <thead><tr><th>Eigenschaft</th><th>Projekte</th><th>Skills</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Übertragbarkeit</strong></td>
-            <td>Isoliert in einem Projekt</td>
-            <td>In jedem neuen Chat nutzbar</td>
-          </tr>
-          <tr>
-            <td><strong>Kombinierbarkeit</strong></td>
-            <td>Festgefahrene Struktur</td>
-            <td>Flexibel kombinierbar (z.&thinsp;B. Copywriting + Analyse)</td>
-          </tr>
-          <tr>
-            <td><strong>Systematik</strong></td>
-            <td>Manuelle Wiederholung</td>
-            <td>Klar definierte Prozesse mit Standards und Abläufen</td>
-          </tr>
+          <tr><td><strong>Übertragbarkeit</strong></td><td>Isoliert</td><td>In jedem Chat nutzbar</td></tr>
+          <tr><td><strong>Kombinierbarkeit</strong></td><td>Festgefahren</td><td>Flexibel kombinierbar</td></tr>
+          <tr><td><strong>Systematik</strong></td><td>Manuell</td><td>Definierte Prozesse</td></tr>
         </tbody>
       </table>
-
       <div class="callout">
         <div class="callout-title">Kernidee</div>
-        <p>Anstatt der KI jedes Mal zu sagen, was sie tun soll, baust du dir eine
-        <strong>Sammlung klar definierter Prozesse</strong> auf. Claude weiß dann von vornherein,
-        welche Standards, Abläufe und Frameworks gelten.</p>
+        <p>Statt der KI jedes Mal zu sagen was sie tun soll, baust du eine <strong>Sammlung klar definierter Prozesse</strong> auf.</p>
       </div>
 
-      <h3>2. Schritt 1: Wissensgewinnung mit NotebookLM</h3>
-      <p>Bevor du einen Skill erstellst, benötigt die KI <strong>echtes Expertenwissen</strong>
-      als Grundlage.</p>
+      <h3>2. Wissensgewinnung mit NotebookLM</h3>
       <ul>
-        <li><strong>Deep Research nutzen:</strong> Über die Web-Suche in NotebookLM startest du
-        eine &bdquo;Deep Research&ldquo;-Anfrage zu einem komplexen Thema
-        (z.&thinsp;B. &bdquo;Prinzipien für hochkonvertierende Landing Pages&ldquo;).</li>
-        <li><strong>Umfang:</strong> NotebookLM durchsucht dabei teilweise <strong>über 60
-        verschiedene Quellen</strong>, um fundierte Informationen zu Frameworks, psychologischen
-        Triggern und Best Practices zu sammeln.</li>
-        <li><strong>Wissen strukturieren:</strong> Das gesammelte Rohmaterial wird im Chat von
-        NotebookLM in ein klares System überführt &mdash; z.&thinsp;B. wie eine perfekte Headline,
-        die Pain-Point-Identifikation und die Call-to-Actions aufgebaut sein müssen.</li>
+        <li><strong>Deep Research:</strong> NotebookLM durchsucht über 60 Quellen.</li>
+        <li><strong>Wissen strukturieren:</strong> Rohmaterial in ein klares System überführen.</li>
       </ul>
 
-      <h3>3. Schritt 2: Den Skill in Claude konfigurieren</h3>
-      <p>Sobald du das strukturierte Expertenwissen hast, wird es in Claude implementiert.</p>
+      <h3>3. Den Skill in Claude konfigurieren</h3>
+      <p>Im <strong>Skill Creator Modus</strong> stellt Claude Rückfragen: Ziel, Zielgruppe, Output-Format, Sprache.</p>
 
-      <h4>Skill Creator Modus</h4>
-      <p>Du kopierst das Wissen aus NotebookLM in den Bereich &bdquo;Skills&ldquo; bei Claude.
-      Claude wechselt daraufhin in einen speziellen Modus, in dem er dich <strong>interaktiv</strong>
-      bei der Erstellung unterstützt.</p>
-
-      <h4>Interaktive Abfrage</h4>
-      <p>Claude stellt gezielte Rückfragen, um den Prozess zu präzisieren:</p>
+      <h3>4. Den Skill im Alltag anwenden</h3>
       <ul>
-        <li><strong>Ziel:</strong> Was genau soll der Skill erreichen?</li>
-        <li><strong>Zielgruppe:</strong> Für welche Branchen oder Nutzer ist er gedacht?</li>
-        <li><strong>Output-Format:</strong> Nur Text, nur Code oder eine Kombination?</li>
-        <li><strong>Sprache:</strong> In welchen Sprachen soll die Ausgabe erfolgen?</li>
+        <li>Über das <strong>Plus-Symbol</strong> im Chat auswählen.</li>
+        <li>Geringer Prompt-Aufwand dank verankertem Expertenwissen.</li>
       </ul>
 
-      <p>Claude kombiniert deine Antworten mit dem Expertenwissen und erstellt daraus einen
-      <strong>strukturierten Arbeitsprozess</strong> mit klaren Regeln und Schritten.</p>
-
-      <h3>4. Schritt 3: Den Skill im Alltag anwenden</h3>
-      <p>Ein fertiger Skill lässt sich extrem einfach nutzen und liefert deutlich bessere
-      Ergebnisse als ein normaler Chat.</p>
-      <ul>
-        <li><strong>Einfacher Aufruf:</strong> Über das Plus-Symbol im Chat wählst du den
-        gewünschten Skill aus.</li>
-        <li><strong>Geringer Prompt-Aufwand:</strong> Da das Expertenwissen bereits im Skill
-        verankert ist, reicht oft ein sehr allgemeiner Prompt aus.</li>
-        <li><strong>Qualität der Ergebnisse:</strong> Der Skill sorgt automatisch für:
-          <ul>
-            <li>Emotionales Storytelling und starke Einstiege</li>
-            <li>Trust-Elemente wie Social Proof (Sterne-Bewertungen, Kundenzahlen)</li>
-            <li>Psychologische Ansätze: erst Problem verdeutlichen, dann Lösung präsentieren</li>
-          </ul>
-        </li>
-      </ul>
-
-      <h3>5. Skalierbarkeit für dein Business</h3>
-      <p>Dieses System ist <strong>nicht auf Landing Pages beschränkt</strong>. Du kannst den
-      Workflow für jedes Thema nutzen, in dem du selbst kein Experte sein musst &mdash;
-      solange du NotebookLM für die Recherche nutzt.</p>
-
-      <div class="callout callout-success">
-        <div class="callout-title">Mögliche Einsatzgebiete</div>
-        <ul>
-          <li>Erstellung von E-Mail-Funnels oder Sales Pages</li>
-          <li>Strukturierung von Social Media Content-Strategien</li>
-          <li>Entwicklung kompletter Unternehmensstrategien oder Angebotsstrukturen</li>
-        </ul>
-      </div>
-
-      <div class="callout callout-warn">
-        <div class="callout-title">Das Ziel</div>
-        <p>Weg von einzelnen Prompts &mdash; hin zu einem <strong>festen Arbeitssystem</strong>
-        mit wiederverwendbaren, kombinierbaren Skills.</p>
-      </div>
-
-  <div class="quiz-section">
-    <div class="quiz-eyebrow">Bereit für das Quiz?</div>
-    <h2>Testen Sie Ihr Verständnis</h2>
-    <p class="quiz-lede">5 Fragen · Pass-Threshold 70 %. Bei Bestehen wird Modul 04 freigeschaltet.</p>
-    <button class="btn btn-primary" onclick="startQuiz()">Quiz starten
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </button>
-  </div>
-</main>
-
-<div class="module-navigation">
-  <a href="modul-02.html" class="nav-card nav-card-prev">
-    <div class="nav-card-label">← Vorheriges Modul</div>
-    <div class="nav-card-title">02 · Document Engineering & Data Synthesis</div>
-  </a>
-  <a href="modul-04.html" class="nav-card nav-card-next">
-    <div class="nav-card-label">Nächstes Modul →</div>
-    <div class="nav-card-title">04 · The Integrated Ecosystem — Connectors & Skills</div>
-  </a>
-</div>
-
-<div class="modal-overlay" id="quizModal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeQuiz()">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-    <div id="quizModalBody"></div>
-  </div>
-</div>
-
-<footer class="module-footer">
-  <img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo">
-  <div class="module-footer-text">© 2026 IEG Investment Banking Group · Internal Training Material</div>
-</footer>
-
-<script src="../content.js"></script>
-<script>
-  const MODULE_ID = 4;
-  const MODULE_TITLE = "Claude Skills — KI-Experten auf Knopfdruck";
-  const MODULE_QUIZ = CURRICULUM.find(m => m.id === 3).quiz;
-</script>
-<script src="module.js"></script>
-</body>
-</html>
+      <h3>5. Skalierbarkeit</h3>
+      <p>Nicht auf Landing Pages beschränkt — einsetzbar für E-Mail-Funnels, Content-Strategien, Unternehmensstrategien.</p>
+    <div class="quiz-section"><div class="quiz-eyebrow">Bereit?</div><h2>Quiz starten</h2><p class="quiz-lede">5 Fragen · 70%</p><button class="btn btn-primary" onclick="startQuiz()">Quiz starten</button></div></main><div class="module-navigation"><a href="modul-03.html" class="nav-card nav-card-prev"><div class="nav-card-label">← Vorheriges Modul</div><div class="nav-card-title">03 · Sicherer Umgang mit Daten und Tools</div></a><a href="modul-05.html" class="nav-card nav-card-next"><div class="nav-card-label">Nächstes Modul →</div><div class="nav-card-title">05 · Skills in Finance-Workflows</div></a></div><div class="modal-overlay" id="quizModal"><div class="modal-content"><button class="modal-close" onclick="closeQuiz()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div id="quizModalBody"></div></div></div><footer class="module-footer"><img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo"><div class="module-footer-text">© 2026 IEG Investment Banking Group</div></footer><script src="../content.js"></script><script>var MODULE_ID=4;var MODULE_TITLE="Skills und wiederverwendbare Arbeitsabläufe";var MODULE_QUIZ=CURRICULUM.find(function(m){return m.id===4;}).quiz;</script><script src="module.js"></script></body></html>
