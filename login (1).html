@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEG Claude Academy — Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root { --blue:#075DE4; --navy:#0A1A33; --paper:#FBFCFE; --bone:#E5EAF2; --muted:#4A5878; --rust:#C24A2C; --sage:#2E7D5C; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter Tight',-apple-system,sans-serif;background:var(--navy);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .card{background:var(--paper);border-radius:16px;padding:48px;width:100%;max-width:420px;box-shadow:0 24px 80px rgba(10,26,51,.5);}
+  .logo{display:flex;align-items:center;gap:12px;margin-bottom:40px;}
+  .logo img{height:32px;}
+  .logo-div{width:1px;height:22px;background:var(--bone);}
+  .logo-p{font-family:'Fraunces',serif;font-size:14px;color:var(--navy);}
+  .logo-s{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;}
+  h1{font-family:'Fraunces',serif;font-weight:400;font-size:30px;color:var(--navy);margin-bottom:6px;}
+  .sub{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.5;}
+  .tabs{display:flex;border-bottom:1px solid var(--bone);margin-bottom:24px;}
+  .tab{padding:8px 0;font-size:14px;font-weight:500;color:var(--muted);border:none;background:none;cursor:pointer;margin-right:20px;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:inherit;}
+  .tab.on{color:var(--blue);border-bottom-color:var(--blue);}
+  .fg{margin-bottom:16px;}
+  label{display:block;font-size:12px;font-weight:600;color:var(--navy);margin-bottom:5px;letter-spacing:.02em;}
+  input{width:100%;padding:11px 14px;font-family:inherit;font-size:14px;border:1px solid var(--bone);border-radius:8px;background:#fff;color:var(--navy);outline:none;}
+  input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(7,93,228,.1);}
+  .btn{width:100%;padding:13px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;margin-top:6px;}
+  .btn:hover{background:#2876F2;}
+  .btn:disabled{opacity:.6;cursor:not-allowed;}
+  .msg{padding:11px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none;line-height:1.4;}
+  .msg.show{display:block;}
+  .err{background:#FEF1ED;color:var(--rust);border:1px solid rgba(194,74,44,.2);}
+  .ok{background:#ECF6F1;color:var(--sage);border:1px solid rgba(46,125,92,.2);}
+  .panel{display:none;}.panel.on{display:block;}
+  .hint{text-align:center;font-size:13px;color:var(--muted);margin-top:14px;}
+  .hint a{color:var(--blue);cursor:pointer;text-decoration:underline;}
+  .foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--bone);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-align:center;letter-spacing:.04em;}
+  .debug{background:#f5f5f5;border:1px solid #ddd;border-radius:6px;padding:10px;font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:16px;color:#333;display:none;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+  window.sb = supabase.createClient(
+    'https://hojkbskyhwocsknucvos.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvamtic2t5aHdvY3NrbnVjdm9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1MzI4NzYsImV4cCI6MjA5NzEwODg3Nn0.A2jd2EPn9bSBHiUh-CQDbx-zUnGart4iU688gXypT3c'
+  );
+  // Bereits eingeloggt? → weiterleiten
+  window.sb.auth.getSession().then(({ data }) => {
+    if (data?.session) window.location.href = 'index.html';
+  });
+</script>
+</head>
+<body>
+<div class="card">
+  <div class="logo">
+    <img src="assets/ieg-logo.png" alt="IEG">
+    <div class="logo-div"></div>
+    <div>
+      <div class="logo-p">Claude Academy</div>
+      <div class="logo-s">Internal Training</div>
+    </div>
+  </div>
+
+  <h1>Willkommen zurück</h1>
+  <p class="sub">Melde dich an, um deinen Lernfortschritt zu sehen.</p>
+
+  <div class="tabs">
+    <button class="tab on" onclick="sw('login')">Anmelden</button>
+    <button class="tab" onclick="sw('register')">Registrieren</button>
+  </div>
+
+  <div id="debug" class="debug"></div>
+  <div id="msg" class="msg"></div>
+
+  <div class="panel on" id="loginPanel">
+    <div class="fg"><label>E-MAIL</label><input type="email" id="lE" placeholder="name@ieg-banking.com"></div>
+    <div class="fg">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+        <label style="margin:0;">PASSWORT</label>
+        <a onclick="sw('reset')" style="font-size:12px;color:var(--blue);cursor:pointer;text-decoration:underline;">Passwort vergessen?</a>
+      </div>
+      <input type="password" id="lP" placeholder="••••••••">
+    </div>
+    <button class="btn" id="lB" onclick="doLogin()">Anmelden</button>
+    <div class="hint">Noch kein Konto? <a onclick="sw('register')">Registrieren</a></div>
+  </div>
+
+  <!-- RESET PANEL -->
+  <div class="panel" id="resetPanel">
+    <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5;">Gib deine E-Mail-Adresse ein. Wir senden dir einen Link zum Zurücksetzen deines Passworts.</p>
+    <div class="fg"><label>E-MAIL</label><input type="email" id="rsetE" placeholder="name@ieg-banking.com"></div>
+    <button class="btn" id="rsetB" onclick="doReset()">Reset-Link senden</button>
+    <div class="hint"><a onclick="sw('login')">← Zurück zum Login</a></div>
+  </div>
+
+  <div class="panel" id="registerPanel">
+    <div class="fg"><label>VOLLSTÄNDIGER NAME</label><input type="text" id="rN" placeholder="z. B. Max Mustermann"></div>
+    <div class="fg"><label>E-MAIL</label><input type="email" id="rE" placeholder="name@ieg-banking.com"></div>
+    <div class="fg"><label>PASSWORT</label><input type="password" id="rP" placeholder="Mindestens 8 Zeichen"></div>
+    <button class="btn" id="rB" onclick="doRegister()">Account erstellen</button>
+    <div class="hint">Bereits registriert? <a onclick="sw('login')">Anmelden</a></div>
+  </div>
+
+  <div class="foot">© 2026 IEG Investment Banking Group</div>
+</div>
+
+<script>
+// ====== KONFIGURATION ======
+const URL = 'https://hojkbskyhwocsknucvos.supabase.co';
+const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvamtic2t5aHdvY3NrbnVjdm9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1MzI4NzYsImV4cCI6MjA5NzEwODg3Nn0.A2jd2EPn9bSBHiUh-CQDbx-zUnGart4iU688gXypT3c';
+// ===========================
+
+function sw(t) {
+  document.querySelectorAll('.tab').forEach((el,i) => el.classList.toggle('on',(i===0)===(t==='login')));
+  document.getElementById('loginPanel').classList.toggle('on', t==='login');
+  document.getElementById('registerPanel').classList.toggle('on', t==='register');
+  document.getElementById('resetPanel').classList.toggle('on', t==='reset');
+  showMsg('');
+}
+
+function showMsg(text, type='err') {
+  const el = document.getElementById('msg');
+  if (!text) { el.className='msg'; return; }
+  el.className='msg show '+type;
+  el.textContent = text;
+}
+
+function showDebug(text) {
+  const el = document.getElementById('debug');
+  el.style.display = 'block';
+  el.textContent = text;
+}
+
+function setBtn(id, loading) {
+  const b = document.getElementById(id);
+  b.disabled = loading;
+  b.textContent = loading ? 'Bitte warten...' : (id==='lB' ? 'Anmelden' : 'Account erstellen');
+}
+
+// Direkt fetch statt Supabase-Library verwenden
+async function doRegister() {
+  const name = document.getElementById('rN').value.trim();
+  const email = document.getElementById('rE').value.trim();
+  const pass = document.getElementById('rP').value;
+  if (!name||!email||!pass) { showMsg('Bitte alle Felder ausfüllen.'); return; }
+  if (pass.length < 8) { showMsg('Passwort muss mindestens 8 Zeichen haben.'); return; }
+
+  setBtn('rB', true); showMsg('');
+
+  try {
+    const { data, error } = await window.sb.auth.signUp({
+      email, password: pass,
+      options: { data: { full_name: name } }
+    });
+    if (error) throw error;
+    // Direkt einloggen
+    const { data: loginData, error: loginErr } = await window.sb.auth.signInWithPassword({ email, password: pass });
+    if (loginErr) {
+      showMsg('✓ Account erstellt! Bitte jetzt anmelden.', 'ok');
+      sw('login');
+    } else {
+      window.location.href = 'index.html';
+    }
+  } catch(e) {
+    showMsg('Fehler: ' + e.message);
+    setBtn('rB', false);
+  }
+}
+
+async function doLogin() {
+  const email = document.getElementById('lE').value.trim();
+  const pass = document.getElementById('lP').value;
+  if (!email||!pass) { showMsg('Bitte E-Mail und Passwort eingeben.'); return; }
+
+  setBtn('lB', true); showMsg('');
+
+  try {
+    const { data, error } = await window.sb.auth.signInWithPassword({ email, password: pass });
+    if (error) throw error;
+    window.location.href = 'index.html';
+  } catch(e) {
+    showMsg(e.message.includes('Invalid') ? 'E-Mail oder Passwort falsch.' : 'Fehler: ' + e.message);
+    setBtn('lB', false);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  if (document.getElementById('loginPanel').classList.contains('on')) doLogin();
+  else doRegister();
+});
+
+async function doReset() {
+  const email = document.getElementById('rsetE').value.trim();
+  if (!email) { showMsg('Bitte E-Mail eingeben.'); return; }
+
+  const b = document.getElementById('rsetB');
+  b.disabled = true;
+  b.textContent = 'Wird gesendet...';
+  showMsg('');
+
+  try {
+    const res = await fetch(`${URL}/auth/v1/recover`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': KEY,
+        'Authorization': `Bearer ${KEY}`
+      },
+      body: JSON.stringify({
+        email,
+        gotrue_meta_security: {}
+      })
+    });
+
+    if (res.ok) {
+      showMsg('✓ Reset-Link gesendet! Bitte E-Mail prüfen.', 'ok');
+    } else {
+      const data = await res.json();
+      throw new Error(data.error_description || data.msg || 'Fehler beim Senden');
+    }
+  } catch(e) {
+    showMsg('Fehler: ' + e.message);
+  }
+
+  b.disabled = false;
+  b.textContent = 'Reset-Link senden';
+}
+</script>
+</body>
+</html>

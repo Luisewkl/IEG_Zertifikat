@@ -10,17 +10,22 @@ let currentUser = null;
 let supabaseReady = false;
 let previewMode = false;
 
-// Warte auf Supabase
-document.addEventListener('supabaseReady', initWithSupabase);
-// Fallback nach 3 Sekunden
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    if (!supabaseReady) {
-      state = loadLocalState();
-      renderEverything();
-      setupNavObserver();
-    }
-  }, 3000);
+// Sofort starten wenn DOM bereit
+document.addEventListener('DOMContentLoaded', () => {
+  // Login-Check über localStorage
+  const token = localStorage.getItem('sb_access_token');
+  if (!token) {
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // User ist eingeloggt → Seite aufbauen
+  currentUser = { name: localStorage.getItem('sb_user_name') || 'User' };
+  supabaseReady = true;
+  updateUserDisplay();
+  state = loadLocalState();
+  renderEverything();
+  setupNavObserver();
 });
 
 async function initWithSupabase() {
@@ -32,8 +37,15 @@ async function initWithSupabase() {
     return;
   }
 
-  // Session prüfen → wenn nicht eingeloggt, zu login.html
-  const { data: { session } } = await window.sb.auth.getSession();
+  // Session prüfen — mehrmals versuchen wegen Timing
+  let session = null;
+  for (let i = 0; i < 3; i++) {
+    const { data } = await window.sb.auth.getSession();
+    session = data?.session;
+    if (session) break;
+    await new Promise(r => setTimeout(r, 500));
+  }
+
   if (!session) {
     window.location.href = 'login.html';
     return;
@@ -48,10 +60,9 @@ async function initWithSupabase() {
 
 function updateUserDisplay() {
   if (!currentUser) return;
-  const name = currentUser.user_metadata?.full_name || currentUser.email.split('@')[0];
+  const name = currentUser.name || localStorage.getItem('sb_user_name') || 'User';
   const el = document.getElementById('userDisplayName');
   if (el) el.textContent = name;
-  // Prefill Name-Feld für Zertifikat
   if (!state.userName) state.userName = name;
 }
 
@@ -130,9 +141,8 @@ function saveLocalState() {
 
 // Logout
 async function logout() {
-  if (window.sb) {
-    await window.sb.auth.signOut();
-  }
+  localStorage.removeItem('sb_access_token');
+  localStorage.removeItem('sb_user_name');
   window.location.href = 'login.html';
 }
 
