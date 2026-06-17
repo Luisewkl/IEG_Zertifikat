@@ -200,7 +200,7 @@ function finishQuiz() {
     : `Sie benötigen mindestens ${PASS_THRESHOLD}% zum Bestehen. Sehen Sie sich das Material noch einmal an und versuchen Sie es erneut.`;
 
   const nextModuleId = MODULE_ID + 1;
-  const hasNext = nextModuleId <= 6;
+  const hasNext = nextModuleId <= 7;
 
   const actions = passed
     ? (hasNext

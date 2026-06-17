@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 07 · Contact Research & Outreach — IEG Claude Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="module-styles.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img">
+      <span class="logo-divider"></span>
+      <div class="logo-text">
+        <span class="logo-primary">Claude Academy</span>
+        <span class="logo-secondary">Modul 07</span>
+      </div>
+    </a>
+    <a href="../index.html#curriculum" class="nav-back">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Zurück zum Curriculum
+    </a>
+  </div>
+</nav>
+
+<!-- ============ MODULE HERO ============ -->
+<section class="module-hero">
+  <div class="module-hero-inner">
+    <div class="module-breadcrumb">
+      <span>PRAXIS</span>
+      <span>·</span>
+      <span>MODULE 7</span>
+    </div>
+    <div class="module-hero-number">07</div>
+    <h1 class="module-hero-title">Contact Research &amp; Outreach im M&amp;A-Alltag</h1>
+    <p class="module-hero-lede">Praktische Claude-Workflows für Unternehmensrecherche, Target Profiling, Outreach-E-Mails und CRM-Notizen — die wichtigsten Daily Tasks für Analysts und Interns.</p>
+    <div class="module-hero-meta">
+      <span class="module-hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        40 Minuten Lernzeit
+      </span>
+      <span class="module-hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        8 Quiz-Fragen
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODULE CONTENT ============ -->
+<main class="module-content">
+
+  <div id="dynamicContent"></div>
+
+  <h3>1. Die drei Daily Tasks im M&amp;A-Alltag</h3>
+  <p>Als Analyst oder Intern verbringst du täglich Zeit mit drei Kernaufgaben:
+  <strong>Unternehmen recherchieren</strong>, <strong>Kontakte identifizieren</strong>
+  und <strong>professionelle Kommunikation</strong> vorbereiten. Claude kann jeden dieser
+  Schritte erheblich beschleunigen — wenn man weiß, wie man fragt.</p>
+  <div class="callout callout-warn">
+    <div class="callout-title">Datenschutz zuerst</div>
+    <p>Echte Namen, Deal-Details oder vertrauliche Kundendaten gehören <strong>nicht</strong>
+    in einen persönlichen Claude-Account. Nutze für diese Aufgaben den
+    <strong>IEG Claude Account</strong> oder anonymisiere die Daten vorher.</p>
+  </div>
+
+  <h3>2. Company Research &amp; Target Profiling</h3>
+  <p>Ein Company Profile zu einem potenziellen M&amp;A-Target ist oft die erste Aufgabe.
+  Claude erstellt in Minuten eine strukturierte Übersicht — mit dem richtigen Prompt.</p>
+
+  <h4>Musterprompt: Company Profile</h4>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Company Profile</div>
+    <p><em>„Du bist ein erfahrener M&amp;A-Analyst. Erstelle ein strukturiertes Company Profile
+    für [Unternehmensname] mit folgenden Abschnitten: (1) Geschäftsmodell &amp; Umsatzquellen,
+    (2) Marktposition &amp; Wettbewerber, (3) Finanzkennzahlen (falls öffentlich),
+    (4) Management-Team, (5) mögliche Akquisitionsgründe aus Käuferperspektive.
+    Format: strukturierte Tabelle + kurzer Fließtext pro Abschnitt.
+    Wenn Informationen nicht verfügbar sind, sag es explizit — keine Vermutungen."</em></p>
+  </div>
+  <div class="callout">
+    <div class="callout-title">Warum "sag es explizit"?</div>
+    <p>Ohne diese Stoppklausel <strong>erfindet Claude fehlende Fakten</strong>.
+    Gerade bei Finanzkennzahlen ist das gefährlich. Die Klausel verhindert Halluzinationen.</p>
+  </div>
+
+  <h4>Target Screening: Mehrere Unternehmen vergleichen</h4>
+  <p>Für Screenlisten eignet sich <strong>Prompt Chaining</strong>: Erst Einzelprofile,
+  dann ein Vergleichsprompt. So ist jedes Teilergebnis prüfbar.</p>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Vergleichstabelle</div>
+    <p><em>„Fasse die Profile von [Unternehmen A], [Unternehmen B] und [Unternehmen C]
+    in einer Vergleichstabelle zusammen. Spalten: Unternehmen, Umsatz (ca.), Mitarbeiter,
+    Marktposition, strategische Passung für M&amp;A (Bewertung 1–5, mit Begründung).
+    Sortiere nach strategischer Passung absteigend."</em></p>
+  </div>
+
+  <h3>3. Kontaktrecherche &amp; Person Research</h3>
+  <p>Entscheider identifizieren und qualifizieren — ohne stundenlange LinkedIn-Recherche.
+  Claude verarbeitet Textauszüge und leitet daraus strukturierte Zusammenfassungen ab.</p>
+
+  <h4>Musterprompt: Entscheider-Profil</h4>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Person Research</div>
+    <p><em>„Du bist ein Research-Analyst. Ich gebe dir folgenden LinkedIn-Auszug zu
+    einer Führungskraft (Name anonymisiert). Fasse zusammen: (1) Karriereweg in 3 Sätzen,
+    (2) relevante Expertise für einen M&amp;A-Kontext, (3) zwei mögliche Gesprächseinstiege
+    für eine Erstansprache. Halte die Zusammenfassung auf max. 150 Wörter.
+    Hier ist der Auszug: [Text einfügen]"</em></p>
+  </div>
+  <div class="callout callout-warn">
+    <div class="callout-title">Regel: Immer anonymisieren</div>
+    <p>Kein echter Vor- und Nachname. Nutze Platzhalter wie <code>[CFO, mittelständisches Industrieunternehmen]</code> —
+    das reicht für eine qualitativ hochwertige Zusammenfassung.</p>
+  </div>
+
+  <h3>4. Outreach-E-Mails &amp; Follow-ups</h3>
+  <p>Die Erstansprache ist oft das Schwierigste. Claude hilft, den richtigen Ton zu treffen —
+  du gibst Kontext, Claude liefert den Entwurf, du passt an.</p>
+
+  <h4>Musterprompt: Cold Outreach</h4>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Cold Outreach</div>
+    <p><em>„Schreibe eine professionelle Erstansprache-E-Mail (max. 120 Wörter) von einer
+    M&amp;A-Boutique an den [Rolle] eines mittelständischen Unternehmens im Bereich [Branche].
+    Ziel: ein erstes Kennenlern-Gespräch vereinbaren. Ton: professionell, direkt, keine leeren
+    Floskeln. Betreffzeile: konkret und Neugier weckend.
+    Schreibe 2 Varianten — eine sachlich-nüchtern, eine mit persönlichem Aufhänger."</em></p>
+  </div>
+
+  <h4>Musterprompt: Follow-up nach 10 Tagen</h4>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Follow-up</div>
+    <p><em>„Schreibe ein kurzes Follow-up (max. 60 Wörter) zu einer Erstansprache-E-Mail,
+    die vor 10 Tagen verschickt wurde und keine Antwort erhielt.
+    Ton: freundlich, nicht aufdringlich, keine Vorwürfe.
+    Neuer Aufhänger: [aktuelles Markt- oder Branchenereignis einfügen]."</em></p>
+  </div>
+  <div class="callout">
+    <div class="callout-title">Tipp: Few-Shot für konsistenten Stil</div>
+    <p>Wenn du bereits eine gute Outreach-Mail hast, gib sie als Beispiel mit: <em>„Schreibe
+    ähnlich wie dieses Beispiel: [E-Mail einfügen]"</em> — Claude übernimmt dann Ton und Struktur.</p>
+  </div>
+
+  <h3>5. CRM-Notizen strukturieren</h3>
+  <p>Nach einem Gespräch schnell strukturierte CRM-Einträge erstellen — statt roher Notizen
+  ein sofort verwendbares Format.</p>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — CRM-Eintrag</div>
+    <p><em>„Ich gebe dir meine rohen Gesprächsnotizen vom heutigen Call. Erstelle daraus
+    einen strukturierten CRM-Eintrag mit: (1) Datum &amp; Gesprächstyp, (2) Kerninhalte
+    in max. 5 Bulletpoints, (3) vereinbarte nächste Schritte mit Verantwortlichen,
+    (4) empfohlenes Follow-up-Datum. Anonymisiere alle Namen.
+    Hier sind meine Notizen: [Notizen einfügen]"</em></p>
+  </div>
+
+  <h3>6. Prompt-Cheatsheet: Die 5 Templates im Überblick</h3>
+  <table>
+    <thead>
+      <tr><th>Aufgabe</th><th>Prompt-Starter</th><th>Schlüssel-Element</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Company Profile</strong></td><td>„Du bist M&amp;A-Analyst. Erstelle Company Profile für [X] mit Abschnitten..."</td><td>Stoppklausel gegen Halluzinationen</td></tr>
+      <tr><td><strong>Vergleichstabelle</strong></td><td>„Fasse Profile von [A, B, C] in Tabelle zusammen. Spalten: ... Sortiere nach..."</td><td>Prompt Chaining (erst Einzel, dann Vergleich)</td></tr>
+      <tr><td><strong>Person-Summary</strong></td><td>„Fasse diesen Auszug zusammen: Karriere, Expertise, Gesprächseinstieg (max. 150 W.)"</td><td>Anonymisierung vorab</td></tr>
+      <tr><td><strong>Cold Outreach</strong></td><td>„Erstansprache-E-Mail max. 120 Wörter, Ton: direkt, 2 Varianten"</td><td>2 Varianten für Auswahl</td></tr>
+      <tr><td><strong>CRM-Eintrag</strong></td><td>„CRM-Eintrag aus Notizen: Bullets + Next Steps + Follow-up-Datum"</td><td>Klare Ausgabestruktur</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===== QUIZ-CTA ===== -->
+  <div class="quiz-section">
+    <div class="quiz-eyebrow">Bereit für das Quiz?</div>
+    <h2>Testen Sie Ihr Verständnis</h2>
+    <p class="quiz-lede">
+      8 Fragen · Pass-Threshold 70 %. Bei Bestehen wird die Abschlussprüfung freigeschaltet.
+    </p>
+    <button class="btn btn-primary" onclick="startQuiz()">
+      Quiz starten
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+</main>
+
+<!-- ============ MODULE NAVIGATION ============ -->
+<div class="module-navigation">
+  <a href="modul-06.html" class="nav-card nav-card-prev">
+    <div class="nav-card-label">← Vorheriges Modul</div>
+    <div class="nav-card-title">06 · Advanced Prompt Engineering for Finance</div>
+  </a>
+  <a href="../index.html#certificate" class="nav-card nav-card-next">
+    <div class="nav-card-label">Nächster Schritt →</div>
+    <div class="nav-card-title">★ Abschlussprüfung</div>
+  </a>
+</div>
+
+<!-- ============ QUIZ MODAL ============ -->
+<div class="modal-overlay" id="quizModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeQuiz()">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="quizModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="module-footer">
+  <img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo">
+  <div class="module-footer-text">© 2026 IEG Investment Banking Group · Internal Training Material</div>
+</footer>
+
+<script>
+  const MODULE_ID = 7;
+  const MODULE_TITLE = "Contact Research & Outreach im M&A-Alltag";
+</script>
+<script src="../content.js"></script>
+<script>
+  const MODULE_QUIZ = CURRICULUM.find(m => m.id === 7).quiz;
+</script>
+<script src="module.js"></script>
+
+</body>
+</html>
