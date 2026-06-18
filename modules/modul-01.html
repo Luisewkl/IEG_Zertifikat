@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modul 01 · Foundations & The Analyst’s Workbench — IEG Claude Academy</title>
+<title>Modul 01 · Claude im Überblick — Projects, Cowork &amp; Code — IEG Claude Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -29,14 +29,14 @@
 
 <section class="module-hero">
   <div class="module-hero-inner">
-    <div class="module-breadcrumb"><span>BEGINNER</span><span>·</span><span>MODULE 1</span></div>
+    <div class="module-breadcrumb"><span>EINFÜHRUNG</span><span>·</span><span>MODULE 1</span></div>
     <div class="module-hero-number">01</div>
-    <h1 class="module-hero-title">Foundations & The Analyst’s Workbench</h1>
-    <p class="module-hero-lede">Claude-Grundlagen, Chat-Organisation, die drei Modelle (Haiku, Sonnet, Opus), zentrale Funktionen, Personalisierung und Datenschutz.</p>
+    <h1 class="module-hero-title">Claude im Überblick — Projects, Cowork &amp; Code</h1>
+    <p class="module-hero-lede">Organisation durch Projects, Visualisierung im Chat, Claude Cowork als autonomer Assistent und Entwicklungsmöglichkeiten mit Claude Code, Skills &amp; Konnektoren.</p>
     <div class="module-hero-meta">
       <span class="module-hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        30 Minuten Lernzeit
+        20 Min. Lernzeit
       </span>
       <span class="module-hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
@@ -52,141 +52,126 @@
 
 <main class="module-content">
   <div id="dynamicContent"></div>
-  <h3>1. Grundlagen und Chat-Organisation</h3>
-      <p>Claude funktioniert ähnlich wie ChatGPT oder Gemini über eine zentrale Textbox
-      für Prompts (Anfragen). Entscheidend für gute Ergebnisse ist die <strong>Chat-Disziplin</strong>:</p>
+  <h3>1. Organisation durch Projects</h3>
+      <p>Projects fungieren wie ein <strong>ausgelagertes Gehirn</strong> — ein Briefing-Ordner,
+      in dem du Dokumente, Anweisungen und Kontext für spezifische Themenbereiche abspeichern kannst.</p>
+      <p>Einmal angelegt (z.&thinsp;B. für Kunden-E-Mails inklusive Tonfall und Produktinfos),
+      muss man für neue Gespräche innerhalb dieses Projekts <strong>nicht wieder bei null anfangen</strong>.
+      Das spart enorm Zeit bei Routineaufgaben.</p>
 
+      <h3>2. Visualisierung und Interaktivität</h3>
+      <p>Claude kann <strong>ohne zusätzliche Plugins oder Installationen</strong> Diagramme,
+      Dashboards und interaktive Grafiken erstellen — direkt im Chat.</p>
       <div class="callout">
-        <div class="callout-title">Goldene Regel</div>
-        <p>Erstelle für <strong>jedes neue Thema</strong> einen neuen Chat. Das Vermischen von Themen
-        in einem Chat verwirrt die KI und verschlechtert die Ergebnisqualität erheblich.</p>
+        <div class="callout-title">So einfach geht es</div>
+        <p>Ein Befehl wie &bdquo;zeig mir&ldquo; reicht aus, damit das visuelle Element
+        direkt im Chat-Fenster erscheint. Keine externe Software nötig.</p>
       </div>
 
-      <h3>2. Die Modellfamilie</h3>
-      <p>Claude bietet drei spezialisierte Modelle für unterschiedliche Aufgaben:</p>
-
-      <table>
-        <thead>
-          <tr><th>Modell</th><th>Stärke</th><th>Typischer Einsatz</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Haiku</strong></td>
-            <td>Das schnellste Modell</td>
-            <td>Einfache Formatierungen, schnelle Antworten. Weniger tiefgründig.</td>
-          </tr>
-          <tr>
-            <td><strong>Sonnet</strong></td>
-            <td>Der Allrounder</td>
-            <td>Tägliche Arbeit, Standard in der Gratisversion. Gute Balance aus Geschwindigkeit und Qualität.</td>
-          </tr>
-          <tr>
-            <td><strong>Opus</strong></td>
-            <td>Das leistungsstärkste Modell</td>
-            <td>Komplexe Recherchen, tiefgehende Analysen. Langsamer, kann aber Quellen und Studien integrieren. Verfügbar in der Pro-Version.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>3. Zentrale Funktionen</h3>
-
-      <h4>Websuche</h4>
-      <p>Kann über das <strong>Plus-Symbol</strong> aktiviert werden, um aktuelle Informationen
-      (z.&thinsp;B. DAX-Daten, Breaking News) aus dem Internet zu ziehen. Besonders nützlich für
-      Marktrecherchen und aktuelle Unternehmensdaten.</p>
-
-      <h4>Dateiupload</h4>
-      <p>Claude verarbeitet <strong>PDFs, Excel-Tabellen und Word-Dokumente</strong>. Für gründliche
-      Analysen empfiehlt sich der <em>erweiterte Nachdenkenmodus</em> (Stoppuhr-Symbol) &mdash;
-      damit liest die KI die Datei sorgfältiger ein und liefert bessere Ergebnisse.</p>
-
-      <h4>Technik-Berater</h4>
-      <p>Claude kann technische Probleme (z.&thinsp;B. langsamer PC) lösen, indem man allgemeine Anfragen
-      mit <strong>Screenshots der Benutzeroberfläche</strong> kombiniert. Die KI erkennt UI-Elemente
-      und gibt konkrete Handlungsanweisungen.</p>
-
-      <h3>4. Personalisierung</h3>
-      <p>Claude lässt sich auf drei Ebenen an die eigene Arbeitsweise anpassen:</p>
+      <h3>3. Claude Cowork: Der autonome Assistent</h3>
+      <p>Cowork lebt in der <strong>Desktop-App</strong> und arbeitet Aufgaben ab, solange der
+      Computer eingeschaltet und die App offen ist.</p>
       <ul>
-        <li><strong>Präferenzen:</strong> Globale Einstellungen (z.&thinsp;B. &bdquo;Antworte immer in einem
-        Satz&ldquo;), die für <em>jeden neuen Chat</em> automatisch übernommen werden.</li>
-        <li><strong>Stile:</strong> Vordefinierte Schreibstile (z.&thinsp;B. formell) oder eigene Stile,
-        die durch das Hochladen von <strong>Textproben</strong> erstellt werden können &mdash; Claude
-        adaptiert dann Ton, Struktur und Wortwahl.</li>
-        <li><strong>Erinnerungen (Memory):</strong> Gezielte Anweisungen für die Zukunft
-        (z.&thinsp;B. &bdquo;Schlage bei Reisen nur Bahnverbindungen vor&ldquo;), die Claude im
-        &bdquo;Gedächtnis&ldquo; speichert und in zukünftigen Chats berücksichtigt.</li>
+        <li><strong>Hintergrund-Arbeit:</strong> Cowork erledigt Aufgaben autonom, während du
+        andere Dinge tust.</li>
+        <li><strong>Fernsteuerung per App:</strong> Du kannst Cowork von unterwegs über dein
+        Handy Anweisungen geben — z.&thinsp;B. das Organisieren von hunderten Dateien auf
+        deinem Desktop.</li>
       </ul>
 
-      <h3>5. Produktivität und fortgeschrittene Tools</h3>
+      <h3>4. Entwicklung und Erweiterungen</h3>
+      <h4>Claude Code</h4>
+      <p>Dieser Dienst fungiert als <strong>persönlicher Entwickler</strong>, der
+      Webseiten-Prototypen, Tools und Apps baut, ohne dass du selbst Code schreiben musst.</p>
 
-      <h4>Projekte</h4>
-      <p>Ein geschlossener Bereich für Chats, in dem <strong>Anweisungen und Dateien</strong>
-      (z.&thinsp;B. für einen LinkedIn-Post-Generator) für alle Chats innerhalb des Projekts
-      hinterlegt sind. Ideal für wiederkehrende Workflows.</p>
+      <h4>Skills und Plugins</h4>
+      <ul>
+        <li><strong>Skills:</strong> Einzelne Fähigkeiten, die du Claude beibringst
+        (z.&thinsp;B. einen bestimmten Schreibstil oder Analyseprozess).</li>
+        <li><strong>Plugins:</strong> Ganze Bündel solcher Fähigkeiten (z.&thinsp;B. das
+        &bdquo;Productivity&ldquo;-Plugin), um Claude zum persönlichen Assistenten zu machen.</li>
+      </ul>
 
-      <h4>Programmierung</h4>
-      <p>Claude kann <strong>interaktive Dashboards</strong> oder komplette HTML-Websites erstellen
-      &mdash; inklusive Schritt-für-Schritt-Anleitungen zur Veröffentlichung. Kein
-      Programmier-Vorwissen nötig.</p>
-
-      <h4>Claude in Excel</h4>
-      <p>Eine <strong>Pro-Funktion</strong>, die direkt in Excel Tabellen füllt, Charts erstellt
-      und Formelfehler (wie Zirkelbezüge) korrigiert &mdash; per natürlichsprachlicher Anweisung.</p>
-
-      <h3>6. Datenschutz und Sicherheit</h3>
+      <h4>Konnektoren</h4>
+      <p>Konnektoren verbinden Claude direkt mit Anwendungen wie <strong>Gmail, Google Calendar
+      oder Notion</strong>, sodass die KI innerhalb dieser Tools agieren kann.</p>
 
       <div class="callout callout-warn">
-        <div class="callout-title">Pflicht bei IEG</div>
-        <p><strong>Training deaktivieren:</strong> In den Einstellungen unter &bdquo;Datenschutz&ldquo;
-        muss die Option &bdquo;hilft dabei Claude zu verbessern&ldquo; <strong>deaktiviert</strong>
-        werden, damit eigene Daten nicht zum Training der KI genutzt werden.</p>
+        <div class="callout-title">Wichtig bei Konnektoren</div>
+        <p>Konnektoren sind mächtig, aber bergen Sicherheitsrisiken — mehr dazu in Modul 04
+        (Sicherheit &amp; Datenschutz).</p>
       </div>
-
-      <p><strong>Inkognitomodus</strong> (Geist-Symbol): Chats werden hier nicht dauerhaft in der
-      Seitenleiste gespeichert &mdash; ideal für private oder einmalige Anfragen. In diesem Modus
-      werden keine Daten für zukünftige Sessions aufbewahrt.</p>
 
   <section class="exercise-section">
     <div class="section-intro">
       <div class="section-eyebrow">Praxisübung</div>
       <h2>Das Gelernte anwenden</h2>
-      <p>Richten Sie einen sauberen Workspace ein und üben Sie die Zuordnung von Aufgaben zu den richtigen Claude-Funktionen.</p>
+      <p>Ordnen Sie Claude-Funktionen konkreten Anwendungsfällen zu und entwickeln Sie einen Workflow mit Projects und Cowork.</p>
     </div>
     <div class="exercise-grid">
       <article class="exercise-card">
         <div class="exercise-kicker">Übung 1</div>
-        <h3 class="exercise-title">Workspace sauber aufsetzen</h3>
-        <p class="exercise-text">Ein gut strukturiertes Projekt spart langfristig Zeit. Definieren Sie ein Claude-Projekt für einen konkreten Anwendungsfall — inkl. Zweck, Dateien und Anweisungen.</p>
+        <h3 class="exercise-title">Feature-Mapping: Funktion zum Anwendungsfall</h3>
+        <p class="exercise-text">Jedes Claude-Feature löst bestimmte Probleme besonders gut. Ordnen Sie den folgenden Szenarien das passende Feature zu und begründen Sie Ihre Wahl.</p>
         <ul class="exercise-list">
-          <li>Wählen Sie einen konkreten Use Case (z.B. „Wöchentliche Marktübersicht für das Team").</li>
-          <li>Definieren Sie: Projektname, Kurzbeschreibung (1 Satz), welche Dateien hochgeladen werden, welche Custom Instructions hinterlegt werden.</li>
-          <li>Legen Sie das Projekt in Claude an und testen Sie es mit einer ersten Anfrage.</li>
-          <li>Notieren Sie, was Sie an den Instructions anpassen mussten, damit das Ergebnis passt.</li>
+          <li>Erstellen Sie eine Tabelle mit zwei Spalten: <strong>Szenario</strong> und <strong>Empfohlenes Feature</strong>.</li>
+          <li>Bewerten Sie: (a) Sie brauchen täglich Markt-Updates im gleichen Stil, (b) Sie wollen 200 Desktop-Dateien nach Projekt sortieren lassen, (c) Ihr Team braucht ein interaktives KPI-Dashboard, (d) Sie wollen Claude direkt in Notion Notizen anlegen lassen.</li>
+          <li>Begründen Sie jede Entscheidung in einem Satz.</li>
         </ul>
         <div class="exercise-prompt">
           <strong>Beispiel-Prompt:</strong>
-          <p>Ich möchte ein Claude-Projekt für wöchentliche Marktrecherchen aufsetzen. Schlage mir eine sinnvolle Struktur vor: Projektname, Custom Instructions (inkl. Ton, Zielgruppe, Output-Format) und welche Dateien ich als Kontext hochladen sollte.</p>
+          <p>Ich gebe dir 4 Szenarien aus dem Büroalltag. Empfehle jeweils das passende Claude-Feature (Projects, Cowork, Visualisierung/Artifact, Konnektoren) und begründe in einem Satz. Format: Tabelle.</p>
         </div>
         <div class="exercise-note">
-          <strong>Ziel:</strong> Saubere Projektstruktur statt ad-hoc-Nutzung — die Basis für effizientes Arbeiten mit Claude.
+          <strong>Ziel:</strong> Das richtige Feature für den richtigen Anwendungsfall erkennen — Effizienz durch gezielte Tool-Wahl.
+        </div>
+        <button class="exercise-solution-toggle" onclick="toggleSolution(this)">
+          Musterlösung anzeigen
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="exercise-solution">
+          <div class="exercise-solution-eyebrow">Musterlösung</div>
+          <table>
+            <thead><tr><th>Szenario</th><th>Feature</th><th>Begründung</th></tr></thead>
+            <tbody>
+              <tr><td>(a) Tägliche Markt-Updates im gleichen Stil</td><td><strong>Projects</strong></td><td>Einmal Stil und Kontext hinterlegen, wiederholt abrufen ohne neu zu briefen</td></tr>
+              <tr><td>(b) 200 Desktop-Dateien sortieren</td><td><strong>Cowork</strong></td><td>Autonome Hintergrundaufgabe, läuft ohne ständige Aufsicht</td></tr>
+              <tr><td>(c) Interaktives KPI-Dashboard</td><td><strong>Visualisierung / Artifact</strong></td><td>Claude generiert lauffähigen Code direkt im Chat, keine externe Software nötig</td></tr>
+              <tr><td>(d) Notizen direkt in Notion</td><td><strong>Konnektoren</strong></td><td>Verbindet Claude mit Notion, sodass die KI direkt im Tool agieren kann</td></tr>
+            </tbody>
+          </table>
         </div>
       </article>
       <article class="exercise-card">
         <div class="exercise-kicker">Übung 2</div>
-        <h3 class="exercise-title">Richtige Funktion für die richtige Aufgabe</h3>
-        <p class="exercise-text">Nicht jede Aufgabe braucht dasselbe Werkzeug. Entscheiden Sie für verschiedene Szenarien, welche Claude-Funktion die beste Wahl ist.</p>
+        <h3 class="exercise-title">Einen Workflow mit Projects und Cowork aufbauen</h3>
+        <p class="exercise-text">Projects und Cowork ergänzen sich ideal: Projects strukturieren wiederkehrende Aufgaben, Cowork führt sie autonom aus. Entwerfen Sie einen kombinierten Workflow für Ihren Alltag.</p>
         <ul class="exercise-list">
-          <li>Lesen Sie die folgenden Aufgaben und ordnen Sie jeweils die passende Funktion zu: <strong>Websuche</strong>, <strong>Dateiupload</strong>, <strong>Personalisierung/Stil</strong> oder <strong>Projekt</strong>.</li>
-          <li>Aufgaben: (a) Aktuelle Bewertungsmultiples einer Branche recherchieren. (b) Einen 40-seitigen Jahresbericht zusammenfassen. (c) Alle E-Mails im gleichen professionellen Ton formulieren. (d) Wiederkehrend CRM-Einträge aus Gesprächsnotizen erstellen.</li>
-          <li>Begründen Sie jede Wahl in einem Satz.</li>
+          <li>Wählen Sie eine wiederkehrende Aufgabe (z.&thinsp;B. wöchentlicher Marktscan, Onboarding neuer Kollegen, Kundenkommunikation).</li>
+          <li>Beschreiben Sie, wie Sie ein Project aufsetzen würden: Welche Dateien, welche Custom Instructions?</li>
+          <li>Überlegen Sie, welchen Teil davon Cowork autonom übernehmen könnte.</li>
+          <li>Testen Sie Ihren Workflow in Claude und notieren Sie, was funktioniert hat und was Sie anpassen mussten.</li>
         </ul>
         <div class="exercise-prompt">
           <strong>Beispiel-Prompt:</strong>
-          <p>Ich gebe dir 4 Aufgaben aus dem Arbeitsalltag. Ordne jede der passenden Claude-Funktion zu (Websuche, Dateiupload, Personalisierung, Projekt) und erkläre in je einem Satz, warum. Format: nummerierte Liste.</p>
+          <p>Ich möchte einen Workflow für wöchentliche Branchen-Updates aufbauen. Schlage mir vor: (1) Wie ich das Project strukturiere (Name, Instructions, Dateien), (2) Welche Schritte Cowork autonom übernehmen könnte. Halte die Antwort praxisnah und konkret.</p>
         </div>
         <div class="exercise-note">
-          <strong>Ziel:</strong> Sichere und effiziente Tool-Wahl — die richtige Funktion für den richtigen Zweck.
+          <strong>Ziel:</strong> Projects und Cowork als Team denken — wiederkehrende Aufgaben einmal aufsetzen, dauerhaft automatisieren.
+        </div>
+        <button class="exercise-solution-toggle" onclick="toggleSolution(this)" data-label-closed="Lösungsansatz anzeigen" data-label-open="Lösungsansatz ausblenden">
+          Lösungsansatz anzeigen
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="exercise-solution">
+          <div class="exercise-solution-eyebrow">Lösungsansatz: Wöchentlicher Branchen-Update</div>
+          <ul>
+            <li><strong>Project aufsetzen:</strong> Name „Wöchentlicher Marktscan", Instructions: Branche, Zielgruppe, Output-Format (z.B. Executive Summary, max. 1 Seite), Ton (professionell, keine Floskeln)</li>
+            <li><strong>Dateien hinterlegen:</strong> Vorlage aus dem letzten Update, Quellenliste (relevante Nachrichtenseiten, Datenbanken)</li>
+            <li><strong>Cowork-Anteil:</strong> Jeden Montag automatisch Quellen scannen, neue Meldungen zusammenfassen und als Entwurf ablegen — bereit zur manuellen Freigabe</li>
+            <li><strong>Manueller Anteil:</strong> Qualitätskontrolle, Ergänzung eigener Insights, Versand</li>
+          </ul>
+          <p style="margin-top:12px"><strong>Fazit:</strong> Der Aufbau dauert einmalig 30 Minuten — spart danach jede Woche mehrere Stunden Recherchezeit.</p>
         </div>
       </article>
     </div>
@@ -195,21 +180,19 @@
   <div class="quiz-section">
     <div class="quiz-eyebrow">Bereit für das Quiz?</div>
     <h2>Testen Sie Ihr Verständnis</h2>
-    <p class="quiz-lede">5 Fragen · Pass-Threshold 70 %. Bei Bestehen wird Modul 02 freigeschaltet.</p>
-    <button class="btn btn-primary" onclick="startQuiz()">Quiz starten
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </button>
+    <p class="quiz-lede">5 Fragen · Pass-Threshold 70 %.</p>
+    <button class="btn btn-primary" onclick="startQuiz()">Quiz starten <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
   </div>
 </main>
 
 <div class="module-navigation">
   <a href="modul-00.html" class="nav-card nav-card-prev">
     <div class="nav-card-label">← Vorheriges Modul</div>
-    <div class="nav-card-title">00 · The AI-Powered Investment Bank</div>
+    <div class="nav-card-title">00 · Claude im Überblick: Vom Einsteiger zum Profi</div>
   </a>
   <a href="modul-02.html" class="nav-card nav-card-next">
     <div class="nav-card-label">Nächstes Modul →</div>
-    <div class="nav-card-title">02 · Document Engineering & Data Synthesis</div>
+    <div class="nav-card-title">02 · Document Engineering &amp; Data Synthesis</div>
   </a>
 </div>
 
@@ -224,13 +207,13 @@
 
 <footer class="module-footer">
   <img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo">
-  <div class="module-footer-text">© 2026 IEG Investment Banking Group · Internal Training Material</div>
+  <div class="module-footer-text">© 2026 IEG Investment Banking Group</div>
 </footer>
 
 <script src="../content.js"></script>
 <script>
   const MODULE_ID = 1;
-  const MODULE_TITLE = "Foundations & The Analyst’s Workbench";
+  const MODULE_TITLE = "Claude im Überblick — Projects, Cowork & Code";
   const MODULE_QUIZ = CURRICULUM.find(m => m.id === 1).quiz;
 </script>
 <script src="module.js"></script>
