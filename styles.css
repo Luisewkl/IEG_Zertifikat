@@ -1425,16 +1425,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ==================== PRINT ==================== */
 @media print {
   @page { size: A4 landscape; margin: 0; }
-  body * { visibility: hidden; }
-  #certUnlockedState, #certUnlockedState * { visibility: visible; }
+  body > *:not(#Zertifikat) { display: none !important; }
+  #Zertifikat { display: block !important; }
+  #Zertifikat > *:not(#certUnlockedState) { display: none !important; }
   #certUnlockedState {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     left: 0; top: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0;
     background: white;
   }
