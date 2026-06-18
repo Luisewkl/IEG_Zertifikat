@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modul 01 · Claude im Überblick: Vom Einsteiger zum Profi — IEG Claude Academy</title>
+<title>Modul 01 · Foundations & The Analyst’s Workbench — IEG Claude Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -29,18 +29,18 @@
 
 <section class="module-hero">
   <div class="module-hero-inner">
-    <div class="module-breadcrumb"><span>EINFÜHRUNG</span><span>·</span><span>MODULE 1</span></div>
+    <div class="module-breadcrumb"><span>BEGINNER</span><span>·</span><span>MODULE 1</span></div>
     <div class="module-hero-number">01</div>
-    <h1 class="module-hero-title">Claude im Überblick: Vom Einsteiger zum Profi</h1>
-    <p class="module-hero-lede">Alle zentralen Claude-Funktionen kompakt: Modellfamilie, Prompting-Techniken, Dokumentenanalyse, Deep Research, Personalisierung und Automatisierung — der perfekte Einstieg.</p>
+    <h1 class="module-hero-title">Foundations & The Analyst’s Workbench</h1>
+    <p class="module-hero-lede">Claude-Grundlagen, Chat-Organisation, die drei Modelle (Haiku, Sonnet, Opus), zentrale Funktionen, Personalisierung und Datenschutz.</p>
     <div class="module-hero-meta">
       <span class="module-hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        30 Min. Lernzeit
+        30 Minuten Lernzeit
       </span>
       <span class="module-hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        10 Quiz-Fragen
+        5 Quiz-Fragen
       </span>
       <span class="module-hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
@@ -52,143 +52,141 @@
 
 <main class="module-content">
   <div id="dynamicContent"></div>
+  <h3>1. Grundlagen und Chat-Organisation</h3>
+      <p>Claude funktioniert ähnlich wie ChatGPT oder Gemini über eine zentrale Textbox
+      für Prompts (Anfragen). Entscheidend für gute Ergebnisse ist die <strong>Chat-Disziplin</strong>:</p>
 
-  <h3>1. Was ist Claude?</h3>
-  <p>Claude ist ein KI-Assistent von <strong>Anthropic</strong> — einem Unternehmen, das von ehemaligen OpenAI-Mitarbeitern gegründet wurde. Er gilt als leistungsstarke Alternative zu ChatGPT und Gemini und zeichnet sich durch hohe Präzision, Zuverlässigkeit und Vielseitigkeit aus.</p>
-  <div class="callout">
-    <div class="callout-title">Warum Claude für M&amp;A?</div>
-    <p>Claude ist besonders stark bei der Analyse langer Dokumente, strukturiertem Schreiben und komplexen Denkaufgaben — genau das, was im Investment Banking täglich gebraucht wird.</p>
-  </div>
+      <div class="callout">
+        <div class="callout-title">Goldene Regel</div>
+        <p>Erstelle für <strong>jedes neue Thema</strong> einen neuen Chat. Das Vermischen von Themen
+        in einem Chat verwirrt die KI und verschlechtert die Ergebnisqualität erheblich.</p>
+      </div>
 
-  <h3>2. Die Modellfamilie und Abonnements</h3>
-  <p>Je nach Aufgabe wählt man das passende Modell:</p>
-  <table>
-    <thead><tr><th>Modell</th><th>Stärke</th><th>Typischer Einsatz im M&amp;A</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Opus</strong></td><td>Tiefste Analyse, komplexes Denken</td><td>Business-Analysen, Bewertungsmodelle, Risikobewertung</td></tr>
-      <tr><td><strong>Sonnet</strong></td><td>Allrounder für den Alltag</td><td>E-Mails, Zusammenfassungen, Research-Überblicke</td></tr>
-      <tr><td><strong>Haiku</strong></td><td>Schnell und effizient</td><td>Schnelle Formatierungen, einfache Umstrukturierungen</td></tr>
-    </tbody>
-  </table>
-  <p>Neben der <strong>Gratis-Version</strong> bieten die <strong>Pro-</strong> und <strong>Max-Version</strong> höhere Nutzungslimits und Zugriff auf alle Modelle.</p>
+      <h3>2. Die Modellfamilie</h3>
+      <p>Claude bietet drei spezialisierte Modelle für unterschiedliche Aufgaben:</p>
 
-  <h3>3. Effektives Prompting</h3>
-  <p>Die Qualität von Claudes Antworten hängt direkt von der Qualität des Prompts ab. Ein guter Prompt hat vier Elemente:</p>
-  <ul>
-    <li><strong>Kontext:</strong> Gib Hintergrundinformationen. Statt „Schreib eine E-Mail" lieber: „Ich bin Analyst bei einer M&amp;A-Boutique und schreibe an den CFO eines mittelständischen Unternehmens."</li>
-    <li><strong>Rollenprompting:</strong> Weise Claude eine Identität zu — z.&thinsp;B. „Du bist ein erfahrener M&amp;A-Anwalt" — um Fachperspektive und Vokabular zu steuern.</li>
-    <li><strong>Formatvorgaben:</strong> Verlange gezielt Tabellen, Listen, Bullet Points oder strukturierte Berichte.</li>
-    <li><strong>Iteration:</strong> Gib Feedback und verfeinere das Ergebnis — „Mach den Abschnitt zu Risiken konkreter, füge zwei Beispiele hinzu."</li>
-  </ul>
+      <table>
+        <thead>
+          <tr><th>Modell</th><th>Stärke</th><th>Typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Haiku</strong></td>
+            <td>Das schnellste Modell</td>
+            <td>Einfache Formatierungen, schnelle Antworten. Weniger tiefgründig.</td>
+          </tr>
+          <tr>
+            <td><strong>Sonnet</strong></td>
+            <td>Der Allrounder</td>
+            <td>Tägliche Arbeit, Standard in der Gratisversion. Gute Balance aus Geschwindigkeit und Qualität.</td>
+          </tr>
+          <tr>
+            <td><strong>Opus</strong></td>
+            <td>Das leistungsstärkste Modell</td>
+            <td>Komplexe Recherchen, tiefgehende Analysen. Langsamer, kann aber Quellen und Studien integrieren. Verfügbar in der Pro-Version.</td>
+          </tr>
+        </tbody>
+      </table>
 
-  <h3>4. Analyse und Generierung von Dokumenten</h3>
-  <ul>
-    <li><strong>Dokumenten-Upload:</strong> PDFs, Jahresberichte, Term Sheets oder Due-Diligence-Unterlagen hochladen und analysieren lassen.</li>
-    <li><strong>Bildanalyse:</strong> Claude kann Informationen aus Grafiken, Charts und Screenshots extrahieren und textlich aufbereiten.</li>
-    <li><strong>Dateierstellung:</strong> Mit spezifischen Skills kann Claude echte <strong>Word-, Excel- und PowerPoint-Dateien</strong> generieren, die direkt heruntergeladen und weiterbearbeitet werden können.</li>
-  </ul>
-  <div class="callout">
-    <div class="callout-title">Praxis-Tipp</div>
-    <p>Für umfangreiche Dokumente vor der Analyse den <strong>Extended Thinking Modus</strong> (Stoppuhr-Symbol) aktivieren — Claude denkt dann gründlicher, bevor es antwortet.</p>
-  </div>
+      <h3>3. Zentrale Funktionen</h3>
 
-  <h3>5. Recherche und Erweitertes Denken</h3>
-  <ul>
-    <li><strong>Websuche:</strong> Über das Plus-Symbol aktivierbar — Claude durchsucht aktuelle Quellen und belegt Fakten mit Fußnoten.</li>
-    <li><strong>Deep Research:</strong> Für umfassende Analysen durchsucht Claude systematisch hunderte Quellen und erstellt einen strukturierten Bericht als PDF — in wenigen Minuten.</li>
-    <li><strong>Extended Thinking:</strong> Bei komplexen Logikaufgaben (z.&thinsp;B. Unternehmensbewertungen, Risikoanalysen) plant Claude zuerst im Hintergrund und antwortet dann präziser.</li>
-  </ul>
+      <h4>Websuche</h4>
+      <p>Kann über das <strong>Plus-Symbol</strong> aktiviert werden, um aktuelle Informationen
+      (z.&thinsp;B. DAX-Daten, Breaking News) aus dem Internet zu ziehen. Besonders nützlich für
+      Marktrecherchen und aktuelle Unternehmensdaten.</p>
 
-  <h3>6. Personalisierung und Organisation</h3>
-  <ul>
-    <li><strong>Custom Styles:</strong> Claude deinen persönlichen Schreibstil beibringen — einfach Beispieltexte hochladen oder den Stil beschreiben.</li>
-    <li><strong>Skills:</strong> Erfolgreiche Arbeitsabläufe als dauerhafte Fähigkeit speichern (z.&thinsp;B. einen CRM-Eintrag-Generator oder News-Kurator).</li>
-    <li><strong>Projects:</strong> Abgeschirmte Arbeitsbereiche für spezifische Themen — Claude behält alle hinterlegten Dokumente und Anweisungen dauerhaft im Kontext jedes neuen Chats.</li>
-    <li><strong>Artifacts:</strong> Interaktive Mini-Apps direkt im Browser erstellen — z.&thinsp;B. Bewertungsrechner, Trinkgeldrechner oder Dashboards — ohne Programmierkenntnisse.</li>
-  </ul>
+      <h4>Dateiupload</h4>
+      <p>Claude verarbeitet <strong>PDFs, Excel-Tabellen und Word-Dokumente</strong>. Für gründliche
+      Analysen empfiehlt sich der <em>erweiterte Nachdenkenmodus</em> (Stoppuhr-Symbol) &mdash;
+      damit liest die KI die Datei sorgfältiger ein und liefert bessere Ergebnisse.</p>
 
-  <h3>7. Konnektoren und Desktop-Automatisierung</h3>
-  <ul>
-    <li><strong>Konnektoren:</strong> Claude mit Gmail, Google Drive, Slack oder Outlook verbinden — E-Mails zusammenfassen, Entwürfe direkt schreiben oder Kalender verwalten.</li>
-    <li><strong>Claude Cowork:</strong> KI-Assistent in der Desktop-App, der auf lokale Ordner zugreift und Dateien autonom verarbeitet — auch im Hintergrund, während du andere Dinge tust.</li>
-  </ul>
-  <div class="callout callout-warn">
-    <div class="callout-title">Sicherheitshinweis</div>
-    <p>Konnektoren geben der KI Zugriff auf echte Daten. Niemals Firmen-Accounts mit dem persönlichen Claude-Account verbinden — mehr dazu in Modul 03.</p>
-  </div>
+      <h4>Technik-Berater</h4>
+      <p>Claude kann technische Probleme (z.&thinsp;B. langsamer PC) lösen, indem man allgemeine Anfragen
+      mit <strong>Screenshots der Benutzeroberfläche</strong> kombiniert. Die KI erkennt UI-Elemente
+      und gibt konkrete Handlungsanweisungen.</p>
+
+      <h3>4. Personalisierung</h3>
+      <p>Claude lässt sich auf drei Ebenen an die eigene Arbeitsweise anpassen:</p>
+      <ul>
+        <li><strong>Präferenzen:</strong> Globale Einstellungen (z.&thinsp;B. &bdquo;Antworte immer in einem
+        Satz&ldquo;), die für <em>jeden neuen Chat</em> automatisch übernommen werden.</li>
+        <li><strong>Stile:</strong> Vordefinierte Schreibstile (z.&thinsp;B. formell) oder eigene Stile,
+        die durch das Hochladen von <strong>Textproben</strong> erstellt werden können &mdash; Claude
+        adaptiert dann Ton, Struktur und Wortwahl.</li>
+        <li><strong>Erinnerungen (Memory):</strong> Gezielte Anweisungen für die Zukunft
+        (z.&thinsp;B. &bdquo;Schlage bei Reisen nur Bahnverbindungen vor&ldquo;), die Claude im
+        &bdquo;Gedächtnis&ldquo; speichert und in zukünftigen Chats berücksichtigt.</li>
+      </ul>
+
+      <h3>5. Produktivität und fortgeschrittene Tools</h3>
+
+      <h4>Projekte</h4>
+      <p>Ein geschlossener Bereich für Chats, in dem <strong>Anweisungen und Dateien</strong>
+      (z.&thinsp;B. für einen LinkedIn-Post-Generator) für alle Chats innerhalb des Projekts
+      hinterlegt sind. Ideal für wiederkehrende Workflows.</p>
+
+      <h4>Programmierung</h4>
+      <p>Claude kann <strong>interaktive Dashboards</strong> oder komplette HTML-Websites erstellen
+      &mdash; inklusive Schritt-für-Schritt-Anleitungen zur Veröffentlichung. Kein
+      Programmier-Vorwissen nötig.</p>
+
+      <h4>Claude in Excel</h4>
+      <p>Eine <strong>Pro-Funktion</strong>, die direkt in Excel Tabellen füllt, Charts erstellt
+      und Formelfehler (wie Zirkelbezüge) korrigiert &mdash; per natürlichsprachlicher Anweisung.</p>
+
+      <h3>6. Datenschutz und Sicherheit</h3>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">Pflicht bei IEG</div>
+        <p><strong>Training deaktivieren:</strong> In den Einstellungen unter &bdquo;Datenschutz&ldquo;
+        muss die Option &bdquo;hilft dabei Claude zu verbessern&ldquo; <strong>deaktiviert</strong>
+        werden, damit eigene Daten nicht zum Training der KI genutzt werden.</p>
+      </div>
+
+      <p><strong>Inkognitomodus</strong> (Geist-Symbol): Chats werden hier nicht dauerhaft in der
+      Seitenleiste gespeichert &mdash; ideal für private oder einmalige Anfragen. In diesem Modus
+      werden keine Daten für zukünftige Sessions aufbewahrt.</p>
 
   <section class="exercise-section">
     <div class="section-intro">
       <div class="section-eyebrow">Praxisübung</div>
       <h2>Das Gelernte anwenden</h2>
-      <p>Testen Sie Ihr Wissen über Modelle, Prompting-Techniken und Claude-Funktionen anhand realistischer M&amp;A-Szenarien.</p>
+      <p>Richten Sie einen sauberen Workspace ein und üben Sie die Zuordnung von Aufgaben zu den richtigen Claude-Funktionen.</p>
     </div>
     <div class="exercise-grid">
       <article class="exercise-card">
         <div class="exercise-kicker">Übung 1</div>
-        <h3 class="exercise-title">Modell und Funktion richtig wählen</h3>
-        <p class="exercise-text">Nicht jede Aufgabe erfordert dieselbe Kombination aus Modell und Funktion. In dieser Übung trainieren Sie, das optimale Setup für verschiedene M&amp;A-Szenarien zu bestimmen.</p>
+        <h3 class="exercise-title">Workspace sauber aufsetzen</h3>
+        <p class="exercise-text">Ein gut strukturiertes Projekt spart langfristig Zeit. Definieren Sie ein Claude-Projekt für einen konkreten Anwendungsfall — inkl. Zweck, Dateien und Anweisungen.</p>
         <ul class="exercise-list">
-          <li>Erstellen Sie eine Tabelle mit drei Spalten: <strong>Aufgabe</strong>, <strong>Empfohlenes Modell</strong> und <strong>Funktion/Feature</strong>.</li>
-          <li>Bewerten Sie diese Szenarien: (a) Schnelle Formatierung einer Kontaktliste, (b) Tiefgehende Risikoanalyse eines 80-seitigen Due-Diligence-Berichts, (c) Wöchentliche Markt-Updates im gleichen Stil verfassen, (d) Recherche über aktuelle M&amp;A-Multiples mit Quellenangabe, (e) Interaktiven Bewertungsrechner für den Kunden bauen.</li>
-          <li>Begründen Sie jede Entscheidung in einem Satz.</li>
+          <li>Wählen Sie einen konkreten Use Case (z.B. „Wöchentliche Marktübersicht für das Team").</li>
+          <li>Definieren Sie: Projektname, Kurzbeschreibung (1 Satz), welche Dateien hochgeladen werden, welche Custom Instructions hinterlegt werden.</li>
+          <li>Legen Sie das Projekt in Claude an und testen Sie es mit einer ersten Anfrage.</li>
+          <li>Notieren Sie, was Sie an den Instructions anpassen mussten, damit das Ergebnis passt.</li>
         </ul>
         <div class="exercise-prompt">
           <strong>Beispiel-Prompt:</strong>
-          <p>Ich gebe dir 5 Aufgaben aus dem M&amp;A-Alltag. Empfehle jeweils das passende Claude-Modell (Haiku, Sonnet, Opus) und die geeignete Funktion (Dateiupload, Websuche, Deep Research, Custom Style, Artifact, Skill). Begründe in je einem Satz. Format: Tabelle.</p>
+          <p>Ich möchte ein Claude-Projekt für wöchentliche Marktrecherchen aufsetzen. Schlage mir eine sinnvolle Struktur vor: Projektname, Custom Instructions (inkl. Ton, Zielgruppe, Output-Format) und welche Dateien ich als Kontext hochladen sollte.</p>
         </div>
         <div class="exercise-note">
-          <strong>Ziel:</strong> Das richtige Werkzeug für den richtigen Zweck wählen — Modell, Funktion und Kontext zusammendenken.
-        </div>
-        <button class="exercise-solution-toggle" onclick="toggleSolution(this)">
-          Musterlösung anzeigen
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="exercise-solution">
-          <div class="exercise-solution-eyebrow">Musterlösung</div>
-          <table>
-            <thead><tr><th>Aufgabe</th><th>Modell</th><th>Funktion</th></tr></thead>
-            <tbody>
-              <tr><td>(a) Schnelle Formatierung einer Kontaktliste</td><td><strong>Haiku</strong></td><td>Standard-Chat — einfache Aufgabe, Geschwindigkeit zählt</td></tr>
-              <tr><td>(b) Risikoanalyse eines 80-seitigen DD-Berichts</td><td><strong>Opus</strong></td><td>Dateiupload + Extended Thinking für maximale Analysetiefe</td></tr>
-              <tr><td>(c) Wöchentliche Markt-Updates im gleichen Stil</td><td><strong>Sonnet</strong></td><td>Custom Style speichert den Schreibstil dauerhaft</td></tr>
-              <tr><td>(d) Recherche über aktuelle M&amp;A-Multiples</td><td><strong>Sonnet/Opus</strong></td><td>Deep Research für quellenbasierte, strukturierte Berichte</td></tr>
-              <tr><td>(e) Interaktiven Bewertungsrechner bauen</td><td><strong>Sonnet</strong></td><td>Artifact — Claude generiert lauffähigen Code ohne Programmierkenntnisse</td></tr>
-            </tbody>
-          </table>
+          <strong>Ziel:</strong> Saubere Projektstruktur statt ad-hoc-Nutzung — die Basis für effizientes Arbeiten mit Claude.
         </div>
       </article>
       <article class="exercise-card">
         <div class="exercise-kicker">Übung 2</div>
-        <h3 class="exercise-title">Einen optimalen Prompt aufbauen</h3>
-        <p class="exercise-text">Ein guter Prompt hat Kontext, Rolle, Format und Iteration. In dieser Übung verbessern Sie einen schwachen Prompt schrittweise zum Profi-Prompt.</p>
+        <h3 class="exercise-title">Richtige Funktion für die richtige Aufgabe</h3>
+        <p class="exercise-text">Nicht jede Aufgabe braucht dasselbe Werkzeug. Entscheiden Sie für verschiedene Szenarien, welche Claude-Funktion die beste Wahl ist.</p>
         <ul class="exercise-list">
-          <li>Ausgangspunkt: <em>„Schreib eine Zusammenfassung."</em></li>
-          <li>Fügen Sie nacheinander hinzu: (1) Kontext — wer sind Sie, was ist der Anlass? (2) Rolle — welche Expertise soll Claude einnehmen? (3) Format — wie soll das Ergebnis aussehen? (4) Einschränkung — was soll nicht enthalten sein?</li>
-          <li>Testen Sie beide Versionen in Claude und vergleichen Sie die Ergebnisqualität.</li>
-          <li>Notieren Sie: Welcher Schritt hat die größte Verbesserung gebracht?</li>
+          <li>Lesen Sie die folgenden Aufgaben und ordnen Sie jeweils die passende Funktion zu: <strong>Websuche</strong>, <strong>Dateiupload</strong>, <strong>Personalisierung/Stil</strong> oder <strong>Projekt</strong>.</li>
+          <li>Aufgaben: (a) Aktuelle Bewertungsmultiples einer Branche recherchieren. (b) Einen 40-seitigen Jahresbericht zusammenfassen. (c) Alle E-Mails im gleichen professionellen Ton formulieren. (d) Wiederkehrend CRM-Einträge aus Gesprächsnotizen erstellen.</li>
+          <li>Begründen Sie jede Wahl in einem Satz.</li>
         </ul>
         <div class="exercise-prompt">
-          <strong>Beispiel-Prompt (optimiert):</strong>
-          <p>Du bist ein erfahrener M&amp;A-Analyst. Fasse den beigefügten Jahresbericht für einen institutionellen Investor zusammen. Format: maximal eine Seite, drei Abschnitte (Highlights, Risiken, Bewertungsrelevanz). Keine allgemeinen Formulierungen — nur konkrete Zahlen und Fakten.</p>
+          <strong>Beispiel-Prompt:</strong>
+          <p>Ich gebe dir 4 Aufgaben aus dem Arbeitsalltag. Ordne jede der passenden Claude-Funktion zu (Websuche, Dateiupload, Personalisierung, Projekt) und erkläre in je einem Satz, warum. Format: nummerierte Liste.</p>
         </div>
         <div class="exercise-note">
-          <strong>Ziel:</strong> Den Unterschied zwischen vagen und präzisen Prompts spüren — und verstehen, welche Elemente den größten Effekt haben.
-        </div>
-        <button class="exercise-solution-toggle" onclick="toggleSolution(this)" data-label-closed="Verbesserungsschritte anzeigen" data-label-open="Verbesserungsschritte ausblenden">
-          Verbesserungsschritte anzeigen
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="exercise-solution">
-          <div class="exercise-solution-eyebrow">Prompt-Optimierung Schritt für Schritt</div>
-          <ul>
-            <li><strong>Ausgangspunkt:</strong> „Schreib eine Zusammenfassung." — zu vage, kein Kontext</li>
-            <li><strong>+ Kontext:</strong> „Ich bin M&amp;A-Analyst und habe einen 60-seitigen Jahresbericht." — Claude weiß nun den Zweck</li>
-            <li><strong>+ Rolle:</strong> „Du bist ein erfahrener M&amp;A-Analyst." — Fachperspektive und Vokabular werden aktiviert</li>
-            <li><strong>+ Format:</strong> „Format: max. eine Seite, drei Abschnitte (Highlights, Risiken, Bewertung)." — strukturiertes, nutzbares Ergebnis</li>
-            <li><strong>+ Einschränkung:</strong> „Keine allgemeinen Aussagen — nur konkrete Zahlen." — Claude bleibt präzise und faktisch</li>
-          </ul>
-          <p style="margin-top:12px"><strong>Fazit:</strong> Die Rolle bringt oft die größte Einzelverbesserung — sie schaltet Fachperspektive und passendes Vokabular ein.</p>
+          <strong>Ziel:</strong> Sichere und effiziente Tool-Wahl — die richtige Funktion für den richtigen Zweck.
         </div>
       </article>
     </div>
@@ -197,19 +195,21 @@
   <div class="quiz-section">
     <div class="quiz-eyebrow">Bereit für das Quiz?</div>
     <h2>Testen Sie Ihr Verständnis</h2>
-    <p class="quiz-lede">10 Fragen · Pass-Threshold 70 %.</p>
-    <button class="btn btn-primary" onclick="startQuiz()">Quiz starten <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+    <p class="quiz-lede">5 Fragen · Pass-Threshold 70 %. Bei Bestehen wird Modul 02 freigeschaltet.</p>
+    <button class="btn btn-primary" onclick="startQuiz()">Quiz starten
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
   </div>
 </main>
 
 <div class="module-navigation">
   <a href="modul-00.html" class="nav-card nav-card-prev">
     <div class="nav-card-label">← Vorheriges Modul</div>
-    <div class="nav-card-title">00 · Claude — Der komplette Grundkurs (2026)</div>
+    <div class="nav-card-title">00 · The AI-Powered Investment Bank</div>
   </a>
   <a href="modul-02.html" class="nav-card nav-card-next">
     <div class="nav-card-label">Nächstes Modul →</div>
-    <div class="nav-card-title">02 · Prompting und strukturierte Anweisungen</div>
+    <div class="nav-card-title">02 · Document Engineering & Data Synthesis</div>
   </a>
 </div>
 
@@ -224,13 +224,13 @@
 
 <footer class="module-footer">
   <img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo">
-  <div class="module-footer-text">© 2026 IEG Investment Banking Group</div>
+  <div class="module-footer-text">© 2026 IEG Investment Banking Group · Internal Training Material</div>
 </footer>
 
 <script src="../content.js"></script>
 <script>
   const MODULE_ID = 1;
-  const MODULE_TITLE = "Claude im Überblick: Vom Einsteiger zum Profi";
+  const MODULE_TITLE = "Foundations & The Analyst’s Workbench";
   const MODULE_QUIZ = CURRICULUM.find(m => m.id === 1).quiz;
 </script>
 <script src="module.js"></script>
