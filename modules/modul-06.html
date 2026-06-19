@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modul 06 · Advanced Prompt Engineering for Finance — IEG Claude Academy</title>
+<title>Modul 06 · Contact Research & Outreach — IEG Claude Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<!-- ============ NAVBAR ============ -->
 <nav class="navbar">
   <div class="nav-inner">
     <a href="../index.html" class="nav-logo">
@@ -29,99 +28,200 @@
   </div>
 </nav>
 
-<!-- ============ MODULE HERO ============ -->
 <section class="module-hero">
   <div class="module-hero-inner">
     <div class="module-breadcrumb">
-      <span>MASTERCLASS</span>
+      <span>PRAXIS</span>
       <span>·</span>
       <span>MODULE 6</span>
     </div>
     <div class="module-hero-number">06</div>
-    <h1 class="module-hero-title">Advanced Prompt Engineering for Finance</h1>
-    <p class="module-hero-lede">Prompt Engineering als empirische Wissenschaft. XML-Tags, Order of Operations, Few-Shot, Chain-of-Thought und die Pre-fill-Technik.</p>
+    <h1 class="module-hero-title">Contact Research &amp; Outreach im M&amp;A-Alltag</h1>
+    <p class="module-hero-lede">Praktische Claude-Workflows für Unternehmensrecherche, Target Profiling, Outreach-E-Mails und CRM-Notizen — die wichtigsten Daily Tasks für Analysts und Interns.</p>
     <div class="module-hero-meta">
       <span class="module-hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        35 Minuten Lernzeit
+        40 Minuten Lernzeit
       </span>
       <span class="module-hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        5 Quiz-Fragen
+        8 Quiz-Fragen
       </span>
     </div>
   </div>
 </section>
 
-<!-- ============ MODULE CONTENT ============ -->
 <main class="module-content">
 
-  
-  <!-- DYNAMIC CONTENT aus content.js (Videos, Bilder, Zusatztexte) -->
   <div id="dynamicContent"></div>
 
-<!-- ===== OPTIONAL: VIDEO HIER EINFÜGEN ===== -->
-  <!--
-  Beispiel für ein YouTube-Video:
-
-  <div class="video-embed">
-    <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="Video Titel"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
+  <h3>1. Die drei Daily Tasks im M&amp;A-Alltag</h3>
+  <p>Als Analyst oder Intern verbringst du täglich Zeit mit drei Kernaufgaben:
+  <strong>Unternehmen recherchieren</strong>, <strong>Kontakte identifizieren</strong>
+  und <strong>professionelle Kommunikation</strong> vorbereiten. Claude kann jeden dieser
+  Schritte erheblich beschleunigen — wenn man weiß, wie man fragt.</p>
+  <div class="callout callout-warn">
+    <div class="callout-title">Datenschutz zuerst</div>
+    <p>Echte Namen, Deal-Details oder vertrauliche Kundendaten gehören <strong>nicht</strong>
+    in einen persönlichen Claude-Account. Nutze für diese Aufgaben den
+    <strong>IEG Claude Account</strong> oder anonymisiere die Daten vorher.</p>
   </div>
-  <div class="video-caption">Video x.y · Beschreibung</div>
-  -->
 
-  <!-- ===== HAUPT-INHALT ===== -->
-  <h3>Structural Prompting &amp; Order of Operations</h3>
-      <p>Zur Organisation komplexer Inputs nutzen Profis XML Tags wie <code>&lt;context&gt;</code>,
-      <code>&lt;instructions&gt;</code>, <code>&lt;examples&gt;</code>. Crucially: Claude performt
-      besser, wenn er einer spezifischen <strong>Order of Operations</strong> folgt:</p>
-      <ul>
-        <li><strong>Analyze the Form before the Sketch:</strong> In visuellen oder Multi-Part-Audits
-        immer Claude instruieren, strukturierte Daten (die <em>Form</em>) <em>vor</em> visuellen oder
-        unstrukturierten Daten (dem <em>Sketch</em>) zu analysieren. So hat das Modell den korrekten
-        Kontext, bevor es ein Urteil f&auml;llt.</li>
-      </ul>
+  <h3>2. Company Research &amp; Target Profiling</h3>
+  <p>Ein Company Profile zu einem potenziellen M&amp;A-Target ist oft die erste Aufgabe.
+  Claude erstellt in Minuten eine strukturierte Übersicht — mit dem richtigen Prompt.</p>
 
-      <h3>Few-Shot &amp; Chain-of-Thought</h3>
-      <p>Output-Quality wird exponentiell durch <strong>Few-Shot Prompting</strong> verbessert &mdash;
-      3&ndash;5 Beispiele eines &bdquo;Perfect Pitchbook Summary&ldquo; bereitstellen. Das zwingt das Modell,
-      spezifische Reasoning- und Formatting-Stile zu matchen.</p>
-      <p><strong>Chain-of-Thought</strong>-Techniken ermutigen das Modell weiter, &bdquo;step-by-step zu denken&ldquo;
-      durch eine Bewertung oder einen Accident Report &mdash; bevor es ein finales Verdict liefert.</p>
+  <h4>Musterprompt: Company Profile</h4>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Company Profile</div>
+    <p><em>„Du bist ein erfahrener M&amp;A-Analyst. Erstelle ein strukturiertes Company Profile
+    für [Unternehmensname] mit folgenden Abschnitten: (1) Geschäftsmodell &amp; Umsatzquellen,
+    (2) Marktposition &amp; Wettbewerber, (3) Finanzkennzahlen (falls öffentlich),
+    (4) Management-Team, (5) mögliche Akquisitionsgründe aus Käuferperspektive.
+    Format: strukturierte Tabelle + kurzer Fließtext pro Abschnitt.
+    Wenn Informationen nicht verfügbar sind, sag es explizit — keine Vermutungen."</em></p>
+  </div>
+  <div class="callout">
+    <div class="callout-title">Warum "sag es explizit"?</div>
+    <p>Ohne diese Stoppklausel <strong>erfindet Claude fehlende Fakten</strong>.
+    Gerade bei Finanzkennzahlen ist das gefährlich. Die Klausel verhindert Halluzinationen.</p>
+  </div>
 
-      <h3>Die &bdquo;Pre-fill&ldquo;-Technik</h3>
-      <p>Um konversationale Pre-Ambles zu umgehen und Daten direkt in Banking-Software zu f&uuml;ttern,
-      nutzt man die <strong>Pre-fill</strong>-Technik. Indem man eine Antwort mit einem spezifischen
-      Zeichen startet (z. B. <code>{</code>), zwingt man Claude zu valider JSON oder einer
-      Markdown-Tabelle &mdash; ready for immediate integration.</p>
+  <h4>Target Screening: Mehrere Unternehmen vergleichen</h4>
+  <p>Für Screenlisten eignet sich <strong>Prompt Chaining</strong>: Erst Einzelprofile,
+  dann ein Vergleichsprompt. So ist jedes Teilergebnis prüfbar.</p>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Vergleichstabelle</div>
+    <p><em>„Fasse die Profile von [Unternehmen A], [Unternehmen B] und [Unternehmen C]
+    in einer Vergleichstabelle zusammen. Spalten: Unternehmen, Umsatz (ca.), Mitarbeiter,
+    Marktposition, strategische Passung für M&amp;A (Bewertung 1–5, mit Begründung).
+    Sortiere nach strategischer Passung absteigend."</em></p>
+  </div>
 
-      <div class="callout">
-        <div class="callout-title">Conclusion</div>
-        <p>Der Weg zur Claude-Mastery beginnt mit einer einzigen, bewussten Automatisierung. Heute
-        personalisierte Personas, morgen agentische Workflows &mdash; so steigern Investment Banking
-        Profis ihren Impact und navigieren globale Kapitalm&auml;rkte mit unvergleichlicher Geschwindigkeit.</p>
-      </div>
+  <h3>3. Kontaktrecherche &amp; Person Research</h3>
+  <p>Entscheider identifizieren und qualifizieren — ohne stundenlange LinkedIn-Recherche.
+  Claude verarbeitet Textauszüge und leitet daraus strukturierte Zusammenfassungen ab.</p>
 
-  <!-- ===== OPTIONAL: WEITERE RESSOURCEN HIER EINFÜGEN ===== -->
-  <!--
-  <div class="resources-section">
-    <div class="resources-title">📎 Zusätzliche Ressourcen</div>
-    <div class="resources-list">
-      <a href="../assets/dokument.pdf" class="resource-link">...</a>
+  <h4>Musterprompt: Entscheider-Profil</h4>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Person Research</div>
+    <p><em>„Du bist ein Research-Analyst. Ich gebe dir folgenden LinkedIn-Auszug zu
+    einer Führungskraft (Name anonymisiert). Fasse zusammen: (1) Karriereweg in 3 Sätzen,
+    (2) relevante Expertise für einen M&amp;A-Kontext, (3) zwei mögliche Gesprächseinstiege
+    für eine Erstansprache. Halte die Zusammenfassung auf max. 150 Wörter.
+    Hier ist der Auszug: [Text einfügen]"</em></p>
+  </div>
+  <div class="callout callout-warn">
+    <div class="callout-title">Regel: Immer anonymisieren</div>
+    <p>Kein echter Vor- und Nachname. Nutze Platzhalter wie <code>[CFO, mittelständisches Industrieunternehmen]</code> —
+    das reicht für eine qualitativ hochwertige Zusammenfassung.</p>
+  </div>
+
+  <h3>4. Outreach-E-Mails &amp; Follow-ups</h3>
+  <p>Die Erstansprache ist oft das Schwierigste. Claude hilft, den richtigen Ton zu treffen —
+  du gibst Kontext, Claude liefert den Entwurf, du passt an.</p>
+
+  <h4>Musterprompt: Cold Outreach</h4>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Cold Outreach</div>
+    <p><em>„Schreibe eine professionelle Erstansprache-E-Mail (max. 120 Wörter) von einer
+    M&amp;A-Boutique an den [Rolle] eines mittelständischen Unternehmens im Bereich [Branche].
+    Ziel: ein erstes Kennenlern-Gespräch vereinbaren. Ton: professionell, direkt, keine leeren
+    Floskeln. Betreffzeile: konkret und Neugier weckend.
+    Schreibe 2 Varianten — eine sachlich-nüchtern, eine mit persönlichem Aufhänger."</em></p>
+  </div>
+
+  <h4>Musterprompt: Follow-up nach 10 Tagen</h4>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — Follow-up</div>
+    <p><em>„Schreibe ein kurzes Follow-up (max. 60 Wörter) zu einer Erstansprache-E-Mail,
+    die vor 10 Tagen verschickt wurde und keine Antwort erhielt.
+    Ton: freundlich, nicht aufdringlich, keine Vorwürfe.
+    Neuer Aufhänger: [aktuelles Markt- oder Branchenereignis einfügen]."</em></p>
+  </div>
+  <div class="callout">
+    <div class="callout-title">Tipp: Few-Shot für konsistenten Stil</div>
+    <p>Wenn du bereits eine gute Outreach-Mail hast, gib sie als Beispiel mit: <em>„Schreibe
+    ähnlich wie dieses Beispiel: [E-Mail einfügen]"</em> — Claude übernimmt dann Ton und Struktur.</p>
+  </div>
+
+  <h3>5. CRM-Notizen strukturieren</h3>
+  <p>Nach einem Gespräch schnell strukturierte CRM-Einträge erstellen — statt roher Notizen
+  ein sofort verwendbares Format.</p>
+  <div class="callout callout-success">
+    <div class="callout-title">Copy-Paste Prompt — CRM-Eintrag</div>
+    <p><em>„Ich gebe dir meine rohen Gesprächsnotizen vom heutigen Call. Erstelle daraus
+    einen strukturierten CRM-Eintrag mit: (1) Datum &amp; Gesprächstyp, (2) Kerninhalte
+    in max. 5 Bulletpoints, (3) vereinbarte nächste Schritte mit Verantwortlichen,
+    (4) empfohlenes Follow-up-Datum. Anonymisiere alle Namen.
+    Hier sind meine Notizen: [Notizen einfügen]"</em></p>
+  </div>
+
+  <h3>6. Prompt-Cheatsheet: Die 5 Templates im Überblick</h3>
+  <table>
+    <thead>
+      <tr><th>Aufgabe</th><th>Prompt-Starter</th><th>Schlüssel-Element</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Company Profile</strong></td><td>„Du bist M&amp;A-Analyst. Erstelle Company Profile für [X] mit Abschnitten..."</td><td>Stoppklausel gegen Halluzinationen</td></tr>
+      <tr><td><strong>Vergleichstabelle</strong></td><td>„Fasse Profile von [A, B, C] in Tabelle zusammen. Spalten: ... Sortiere nach..."</td><td>Prompt Chaining (erst Einzel, dann Vergleich)</td></tr>
+      <tr><td><strong>Person-Summary</strong></td><td>„Fasse diesen Auszug zusammen: Karriere, Expertise, Gesprächseinstieg (max. 150 W.)"</td><td>Anonymisierung vorab</td></tr>
+      <tr><td><strong>Cold Outreach</strong></td><td>„Erstansprache-E-Mail max. 120 Wörter, Ton: direkt, 2 Varianten"</td><td>2 Varianten für Auswahl</td></tr>
+      <tr><td><strong>CRM-Eintrag</strong></td><td>„CRM-Eintrag aus Notizen: Bullets + Next Steps + Follow-up-Datum"</td><td>Klare Ausgabestruktur</td></tr>
+    </tbody>
+  </table>
+
+  <section class="exercise-section">
+    <div class="section-intro">
+      <div class="section-eyebrow">Praxisübung</div>
+      <h2>Das Gelernte anwenden</h2>
+      <p>Erstellen Sie ein vollständiges Company Profile und verfassen Sie eine professionelle Outreach-E-Mail — beides mit Claude.</p>
     </div>
-  </div>
-  -->
+    <div class="exercise-grid">
+      <article class="exercise-card">
+        <div class="exercise-kicker">Übung 1</div>
+        <h3 class="exercise-title">Company Profile erstellen und prüfen</h3>
+        <p class="exercise-text">Erstellen Sie mit Claude ein strukturiertes Company Profile für ein reales, öffentlich bekanntes Unternehmen — und prüfen Sie das Ergebnis kritisch auf Halluzinationen.</p>
+        <ul class="exercise-list">
+          <li>Wählen Sie ein öffentlich bekanntes Unternehmen (z.B. ein börsennotiertes Unternehmen aus dem MDAX).</li>
+          <li>Nutzen Sie den Company-Profile-Prompt aus diesem Modul und generieren Sie das Profil.</li>
+          <li>Prüfen Sie das Ergebnis: Sind die Finanzkennzahlen plausibel? Hat Claude bei fehlenden Daten explizit darauf hingewiesen oder Zahlen erfunden?</li>
+          <li>Erstellen Sie eine zweite Version mit der Websuche aktiviert und vergleichen Sie die Datenqualität.</li>
+        </ul>
+        <div class="exercise-prompt">
+          <strong>Beispiel-Prompt:</strong>
+          <p>Du bist ein erfahrener M&amp;A-Analyst. Erstelle ein strukturiertes Company Profile für [Unternehmensname] mit: (1) Geschäftsmodell &amp; Umsatzquellen, (2) Marktposition &amp; Wettbewerber, (3) Finanzkennzahlen (falls öffentlich), (4) Management-Team, (5) mögliche Akquisitionsgründe. Wenn Informationen nicht verfügbar sind, sag es explizit.</p>
+        </div>
+        <div class="exercise-note">
+          <strong>Ziel:</strong> Den Company-Profile-Workflow beherrschen und Halluzinationen erkennen lernen.
+        </div>
+      </article>
+      <article class="exercise-card">
+        <div class="exercise-kicker">Übung 2</div>
+        <h3 class="exercise-title">Outreach-E-Mail mit zwei Varianten</h3>
+        <p class="exercise-text">Verfassen Sie mit Claude eine Erstansprache-E-Mail in zwei Tonalitäten und bewerten Sie, welche Variante für Ihren Zielkontakt besser geeignet ist.</p>
+        <ul class="exercise-list">
+          <li>Definieren Sie einen Zielkontakt: Rolle (z.B. Geschäftsführer), Branche (z.B. Maschinenbau), Unternehmensgröße (z.B. EUR 30 Mio. Umsatz). Verwenden Sie keine echten Namen.</li>
+          <li>Nutzen Sie den Cold-Outreach-Prompt aus diesem Modul, um zwei Varianten zu erstellen: eine sachlich-nüchterne und eine mit persönlichem Aufhänger.</li>
+          <li>Bewerten Sie beide Varianten: Welche Betreffzeile weckt mehr Interesse? Welcher Ton passt besser zur Zielgruppe?</li>
+          <li>Erstellen Sie zusätzlich ein Follow-up für die gewählte Variante (nach 10 Tagen ohne Antwort).</li>
+        </ul>
+        <div class="exercise-prompt">
+          <strong>Beispiel-Prompt:</strong>
+          <p>Schreibe eine professionelle Erstansprache-E-Mail (max. 120 Wörter) von einer M&amp;A-Boutique an den Geschäftsführer eines mittelständischen Maschinenbauunternehmens. Ziel: erstes Kennenlern-Gespräch. 2 Varianten: sachlich-nüchtern und mit persönlichem Aufhänger. Betreffzeile jeweils konkret und Neugier weckend.</p>
+        </div>
+        <div class="exercise-note">
+          <strong>Ziel:</strong> Professionelle Outreach-Kommunikation mit Claude erstellen und die Variantenauswahl als Qualitätsinstrument nutzen.
+        </div>
+      </article>
+    </div>
+  </section>
 
-  <!-- ===== QUIZ-CTA ===== -->
   <div class="quiz-section">
     <div class="quiz-eyebrow">Bereit für das Quiz?</div>
     <h2>Testen Sie Ihr Verständnis</h2>
     <p class="quiz-lede">
-      5 Fragen · Pass-Threshold 70 %. Bei Bestehen wird Modul 07 freigeschaltet.
+      8 Fragen · Pass-Threshold 70 %. Bei Bestehen wird die Abschlussprüfung freigeschaltet.
     </p>
     <button class="btn btn-primary" onclick="startQuiz()">
       Quiz starten
@@ -131,19 +231,17 @@
 
 </main>
 
-<!-- ============ MODULE NAVIGATION ============ -->
 <div class="module-navigation">
   <a href="modul-05.html" class="nav-card nav-card-prev">
     <div class="nav-card-label">← Vorheriges Modul</div>
-    <div class="nav-card-title">05 · Claude Code — The Terminal-Based Power User</div>
+    <div class="nav-card-title">05 · Skills in Finance-Workflows</div>
   </a>
-  <a href="modul-07.html" class="nav-card nav-card-next">
-    <div class="nav-card-label">Nächstes Modul →</div>
-    <div class="nav-card-title">07 · Contact Research & Outreach</div>
+  <a href="../index.html#certificate" class="nav-card nav-card-next">
+    <div class="nav-card-label">Nächster Schritt →</div>
+    <div class="nav-card-title">★ Abschlussprüfung</div>
   </a>
 </div>
 
-<!-- ============ QUIZ MODAL ============ -->
 <div class="modal-overlay" id="quizModal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeQuiz()">
@@ -153,7 +251,6 @@
   </div>
 </div>
 
-<!-- ============ FOOTER ============ -->
 <footer class="module-footer">
   <img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo">
   <div class="module-footer-text">© 2026 IEG Investment Banking Group · Internal Training Material</div>
@@ -161,66 +258,12 @@
 
 <script>
   const MODULE_ID = 6;
-  const MODULE_TITLE = "Advanced Prompt Engineering for Finance";
-  const MODULE_QUIZ = [
-  {
-    q: "Welches Prinzip beschreibt \"Analyze the Form before the Sketch\"?",
-    options: [
-      "Erst kreativ skizzieren, dann strukturieren",
-      "In Multi-Part-Audits immer strukturierte Daten (Form) vor visuellen/unstrukturierten Daten (Sketch) analysieren",
-      "Formulare digitalisieren, bevor man zeichnet",
-      "Skizzen sind im Banking generell verboten"
-    ],
-    correct: 1,
-    explanation: "Order of Operations: Strukturierte Daten zuerst — sie liefern den Kontext, in dem unstrukturierte Daten korrekt interpretiert werden können."
-  },
-  {
-    q: "Wie viele Beispiele werden für effektives Few-Shot Prompting empfohlen?",
-    options: [
-      "1 Beispiel reicht immer",
-      "3–5 Beispiele",
-      "20–30 Beispiele",
-      "So viele wie möglich, mindestens 100"
-    ],
-    correct: 1,
-    explanation: "3–5 Beispiele eines \"Perfect Pitchbook Summary\" werden im Curriculum als Sweet Spot genannt — genug, um Stil zu prägen, ohne das Modell zu überladen."
-  },
-  {
-    q: "Was bewirkt die \"Pre-fill\"-Technik?",
-    options: [
-      "Sie speichert Prompts vorab",
-      "Sie zwingt Claude zu einem bestimmten Output-Format (z.B. valides JSON), indem die Antwort mit einem spezifischen Zeichen wie { gestartet wird",
-      "Sie sendet Prompts automatisch",
-      "Sie übersetzt Prompts in andere Sprachen"
-    ],
-    correct: 1,
-    explanation: "Pre-fill umgeht konversationale Vorworte: Wer mit \"{\" startet, bekommt valides JSON; wer mit \"|\" startet, eine Markdown-Tabelle. Output direkt integrierbar."
-  },
-  {
-    q: "Welche XML-Tags werden für Structural Prompting verwendet?",
-    options: [
-      "<a>, <b>, <p>",
-      "<header>, <footer>, <main>",
-      "<context>, <instructions>, <examples>",
-      "<div>, <span>, <button>"
-    ],
-    correct: 2,
-    explanation: "<context>, <instructions> und <examples> sind die zentralen Tags, um komplexe Inputs strukturiert zu organisieren."
-  },
-  {
-    q: "Wie wird Prompt Engineering im Curriculum charakterisiert?",
-    options: [
-      "Als reine Kunst, die nicht lernbar ist",
-      "Als empirische, iterative Wissenschaft — besonders kritisch in Finance, wo Faktenakkuratheit zählt",
-      "Als optionales Soft Skill",
-      "Als reine Programmieraufgabe"
-    ],
-    correct: 1,
-    explanation: "Empirisch und iterativ — also: Hypothesen testen, Ergebnisse beobachten, Prompts anpassen. In Finance entscheidet sich daran die Audit-Tauglichkeit."
-  }
-];
+  const MODULE_TITLE = "Contact Research & Outreach im M&A-Alltag";
 </script>
 <script src="../content.js"></script>
+<script>
+  const MODULE_QUIZ = CURRICULUM.find(m => m.id === 6).quiz;
+</script>
 <script src="module.js"></script>
 
 </body>
