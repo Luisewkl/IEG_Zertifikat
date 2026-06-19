@@ -122,7 +122,7 @@ function renderModules() {
 }
 
 function renderProgress() {
-  var c = state.completed.length, t = CURRICULUM.length, p = Math.round(c / t * 100);
+  var t = CURRICULUM.length, c = Math.min(state.completed.length, t), p = Math.min(Math.round(c / t * 100), 100);
   var el;
   if ((el = document.getElementById('progressFill'))) el.style.width = p + '%';
   if ((el = document.getElementById('progressText'))) el.textContent = c + ' von ' + t + ' Modulen abgeschlossen';
