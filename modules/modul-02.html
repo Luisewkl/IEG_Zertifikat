@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Modul 02 · Prompt Engineering Masterclass — IEG Claude Academy</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="module-styles.css"></head><body><nav class="navbar"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img"><span class="logo-divider"></span><div class="logo-text"><span class="logo-primary">Claude Academy</span><span class="logo-secondary">Modul 02</span></div></a><a href="../index.html#curriculum" class="nav-back"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Zurück zum Curriculum</a></div></nav><section class="module-hero"><div class="module-hero-inner"><div class="module-breadcrumb"><span>INTERMEDIATE</span><span>·</span><span>MODULE 2</span></div><div class="module-hero-number">02</div><h1 class="module-hero-title">Prompt Engineering Masterclass</h1><p class="module-hero-lede">Die 6 Bausteine des perfekten Prompts, XML-Tags, Few-Shot, Chain of Thought, Prompt Chaining, Self-Reflection, Pre-filling und System Prompts.</p><div class="module-hero-meta"><span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 35 Min. Lernzeit</span><span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> 10 Quiz-Fragen</span><span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> Mit Video</span></div></div></section><main class="module-content"><div id="dynamicContent"></div><h3>1. Prompt Engineering als iterative Wissenschaft</h3>
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Modul 02 · Prompting und strukturierte Anweisungen — IEG Claude Academy</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="module-styles.css"></head><body><nav class="navbar"><div class="nav-inner"><a href="../index.html" class="nav-logo"><img src="../assets/ieg-logo.png" alt="IEG" class="nav-logo-img"><span class="logo-divider"></span><div class="logo-text"><span class="logo-primary">Claude Academy</span><span class="logo-secondary">Modul 02</span></div></a><a href="../index.html#curriculum" class="nav-back"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Zurück zum Curriculum</a></div></nav><section class="module-hero"><div class="module-hero-inner"><div class="module-breadcrumb"><span>VERTIEFUNG</span><span>·</span><span>MODUL 2</span></div><div class="module-hero-number">02</div><h1 class="module-hero-title">Prompting und strukturierte Anweisungen</h1><p class="module-hero-lede">Die sechs Bausteine eines starken Prompts, XML-Tags, Few-Shot, Chain of Thought, Prompt Chaining, Self-Reflection, Pre-filling und System Prompts — mit konkreten Beispielen aus dem M&amp;A-Alltag.</p><div class="module-hero-meta"><span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 35 Min. Lernzeit</span><span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> 10 Quiz-Fragen</span><span class="module-hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> Mit Video</span></div></div></section><main class="module-content"><div id="dynamicContent"></div><h3>1. Prompt Engineering als iterative Wissenschaft</h3>
       <p>Prompt Engineering ist kein einmaliges Eintippen, sondern eine <strong>empirische Wissenschaft</strong>.</p>
       <ul>
         <li><strong>Der Prozess:</strong> Man startet mit einer Basis-Anweisung, analysiert die Fehler
@@ -26,7 +26,51 @@
         Stoppkriterien wie &bdquo;Verwende keine Fachbegriffe&ldquo; verhindern Halluzinationen.</p>
       </div>
 
-      <h3>3. Strukturierung durch XML-Tags</h3>
+      <h3>3. Vom schwachen zum exzellenten Prompt — ein Vergleich</h3>
+      <p>Derselbe Informationsbedarf, drei Qualitätsstufen. Das Beispiel stammt aus dem M&amp;A-Alltag:
+      Sie brauchen ein erstes Profil zu einem möglichen Target.</p>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">❌ Schwacher Prompt</div>
+        <p><em>&bdquo;Erzähl mir was über die Firma XY."</em></p>
+        <p><strong>Problem:</strong> Keine Rolle, keine Struktur, kein Format, keine Grenzen. Claude
+        rät, was gemeint sein könnte, liefert einen beliebigen Fließtext und erfindet im Zweifel
+        Kennzahlen. Das Ergebnis ist unbrauchbar und muss komplett überarbeitet werden.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">➖ Guter Prompt</div>
+        <p><em>&bdquo;Du bist M&amp;A-Analyst. Erstelle ein kurzes Company Profile zu [Firma XY]:
+        Geschäftsmodell, Marktposition und mögliche Käufergründe. Antworte als strukturierte Liste."</em></p>
+        <p><strong>Besser:</strong> Rolle, Aufgabe und Output-Format sind definiert. Das Ergebnis ist
+        brauchbar — aber es fehlen Stoppkriterien gegen Halluzinationen und ein klarer Umfang.</p>
+      </div>
+
+      <div class="callout callout-success">
+        <div class="callout-title">✅ Sehr guter Prompt</div>
+        <p><em>&bdquo;Du bist ein erfahrener M&amp;A-Analyst. Erstelle ein strukturiertes Company Profile
+        zu [Firma XY] mit genau diesen Abschnitten: (1) Geschäftsmodell &amp; Umsatzquellen,
+        (2) Marktposition &amp; zwei bis drei Wettbewerber, (3) mögliche Akquisitionsgründe aus
+        Käuferperspektive. Format: Tabelle plus je ein erläuternder Satz. Maximal 200 Wörter.
+        Wenn Informationen nicht öffentlich verfügbar sind, kennzeichne das explizit mit
+        &#39;nicht öffentlich verfügbar&#39; — keine Schätzungen, keine erfundenen Zahlen."</em></p>
+        <p><strong>Exzellent:</strong> Rolle, klar gegliederte Aufgabe, festes Format, Umfangsgrenze
+        und — entscheidend — eine Stoppklausel gegen Halluzinationen. Das Ergebnis ist sofort
+        verwendbar und überprüfbar.</p>
+      </div>
+
+      <table>
+        <thead><tr><th>Element</th><th>Schwach</th><th>Gut</th><th>Sehr gut</th></tr></thead>
+        <tbody>
+          <tr><td>Rolle</td><td>—</td><td>✔</td><td>✔</td></tr>
+          <tr><td>Struktur / Abschnitte</td><td>—</td><td>teilweise</td><td>✔ präzise</td></tr>
+          <tr><td>Output-Format</td><td>—</td><td>✔</td><td>✔ inkl. Umfang</td></tr>
+          <tr><td>Stoppkriterien</td><td>—</td><td>—</td><td>✔</td></tr>
+          <tr><td>Überprüfbarkeit</td><td>gering</td><td>mittel</td><td>hoch</td></tr>
+        </tbody>
+      </table>
+
+      <h3>4. Strukturierung durch XML-Tags</h3>
       <p>Anthropic empfiehlt XML-Tags (z.B. <code>&lt;anweisungen&gt;</code>,
       <code>&lt;kontext&gt;</code>, <code>&lt;beispiel&gt;</code>), um Informationen sauber zu trennen.</p>
       <ul>
@@ -34,7 +78,7 @@
         <li><strong>Output-Kontrolle:</strong> Endergebnis in Tags wie <code>&lt;urteil&gt;</code> setzen für automatisierte Weiterverarbeitung.</li>
       </ul>
 
-      <h3>4. Fortgeschrittene Prompt-Techniken</h3>
+      <h3>5. Fortgeschrittene Prompt-Techniken</h3>
       <h4>Few-Shot Prompting</h4>
       <p>Zeige Claude <strong>1 bis 3 Beispiele</strong> &mdash; oft mächtiger als jede lange Beschreibung.</p>
       <h4>Chain of Thought (Gedankenkette)</h4>
@@ -46,13 +90,13 @@
       <h4>Pre-filling</h4>
       <p>Anfang der Antwort vorgeben (z.B. <code>{</code> für JSON) &mdash; <strong>erzwingt das Format strikt</strong>.</p>
 
-      <h3>5. Effizienz durch System-Prompts &amp; Caching</h3>
+      <h3>6. Effizienz durch System-Prompts &amp; Caching</h3>
       <ul>
         <li><strong>System-Prompts:</strong> Statische Informationen (z.B. Firmenformulare) auslagern.</li>
         <li><strong>Prompt Caching:</strong> Spart Zeit, da Claude statische Dokumente nicht neu einlesen muss.</li>
       </ul>
 
-      <h3>6. Die Reihenfolge der Analyse</h3>
+      <h3>7. Die Reihenfolge der Analyse</h3>
       <p>Immer <strong>Form vor Sketch</strong> &mdash; erst klare Fakten, dann interpretative Daten.</p>
 
       <div class="callout callout-warn">
@@ -105,4 +149,4 @@
     </div>
   </section>
 
-  <div class="quiz-section"><div class="quiz-eyebrow">Bereit für das Quiz?</div><h2>Testen Sie Ihr Verständnis</h2><p class="quiz-lede">10 Fragen · Pass-Threshold 70 %.</p><button class="btn btn-primary" onclick="startQuiz()">Quiz starten <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button></div></main><div class="module-navigation"><a href="modul-01.html" class="nav-card nav-card-prev"><div class="nav-card-label">← Vorheriges Modul</div><div class="nav-card-title">01 · Claude im Überblick: Vom Einsteiger zum Profi</div></a><a href="modul-03.html" class="nav-card nav-card-next"><div class="nav-card-label">Nächstes Modul →</div><div class="nav-card-title">03 · Sicherer Umgang mit Daten und Tools</div></a></div><div class="modal-overlay" id="quizModal"><div class="modal-content"><button class="modal-close" onclick="closeQuiz()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div id="quizModalBody"></div></div></div><footer class="module-footer"><img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo"><div class="module-footer-text">© 2026 IEG Investment Banking Group</div></footer><script src="../content.js"></script><script>const MODULE_ID=2;const MODULE_TITLE="Prompt Engineering Masterclass";const MODULE_QUIZ=CURRICULUM.find(m=>m.id===2).quiz;</script><script src="module.js"></script></body></html>
+  <div class="quiz-section"><div class="quiz-eyebrow">Bereit für das Quiz?</div><h2>Testen Sie Ihr Verständnis</h2><p class="quiz-lede">10 Fragen · Pass-Threshold 70 %.</p><button class="btn btn-primary" onclick="startQuiz()">Quiz starten <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button></div></main><div class="module-navigation"><a href="modul-01.html" class="nav-card nav-card-prev"><div class="nav-card-label">← Vorheriges Modul</div><div class="nav-card-title">01 · Claude im Überblick: Vom Einsteiger zum Profi</div></a><a href="modul-03.html" class="nav-card nav-card-next"><div class="nav-card-label">Nächstes Modul →</div><div class="nav-card-title">03 · Sicherer Umgang mit Daten und Tools</div></a></div><div class="modal-overlay" id="quizModal"><div class="modal-content"><button class="modal-close" onclick="closeQuiz()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div id="quizModalBody"></div></div></div><footer class="module-footer"><img src="../assets/ieg-logo.png" alt="IEG" class="module-footer-logo"><div class="module-footer-text">© 2026 IEG Investment Banking Group</div></footer><script src="../content.js"></script><script>const MODULE_ID=2;const MODULE_TITLE="Prompting und strukturierte Anweisungen";const MODULE_QUIZ=CURRICULUM.find(m=>m.id===2).quiz;</script><script src="module.js"></script></body></html>
