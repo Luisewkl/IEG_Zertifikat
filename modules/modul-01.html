@@ -32,7 +32,7 @@
     <div class="module-breadcrumb"><span>EINFÜHRUNG</span><span>·</span><span>MODUL 1</span></div>
     <div class="module-hero-number">01</div>
     <h1 class="module-hero-title">Claude — Der komplette Grundkurs (2026)</h1>
-    <p class="module-hero-lede">Chat-Disziplin, die drei Modelle, Websuche, Dateianalyse, Personalisierung und Datenschutz — die solide Basis für jeden Claude-Einstieg im professionellen Umfeld.</p>
+    <p class="module-hero-lede">Chat-Disziplin, Websuche, Dateianalyse, technischer Support, Personalisierung und Datenschutz — die solide Basis für jeden Claude-Einstieg im professionellen Umfeld. (Die Modellfamilie haben Sie bereits in Modul 0 kennengelernt.)</p>
     <div class="module-hero-meta">
       <span class="module-hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -55,36 +55,44 @@
 
   <h3>1. Grundlagen und Chat-Disziplin</h3>
   <p>Claude ist ein KI-Tool von Anthropic, das über eine einfache Textbox bedient wird. Ein entscheidender Erfolgsfaktor ist die <strong>Chat-Disziplin</strong>: Erstelle für <strong>jedes neue Thema einen neuen Chat</strong>. Das Vermischen von Themen in einem einzigen Chat verwirrt die KI und verschlechtert die Qualität der Ergebnisse erheblich.</p>
+  <p>Der Grund liegt im sogenannten <strong>Kontextfenster</strong>: Claude liest bei jeder Antwort den <em>gesamten</em> bisherigen Chatverlauf erneut mit. Je länger und thematisch unübersichtlicher ein Chat wird, desto mehr irrelevante Informationen muss das Modell berücksichtigen — die Antworten werden ungenauer und langsamer. Ein frischer Chat pro Thema hält den Kontext sauber und fokussiert.</p>
   <div class="callout">
     <div class="callout-title">Goldene Regel</div>
     <p>Ein Thema — ein Chat. Wer Urlaubsplanung und Quartalsberichte im selben Chat mischt, bekommt schlechtere Ergebnisse für beides.</p>
   </div>
-
-  <h3>2. Die Modellfamilie</h3>
-  <p>Claude bietet drei spezialisierte Modelle für unterschiedliche Anforderungen:</p>
-  <table>
-    <thead><tr><th>Modell</th><th>Stärke</th><th>Typischer Einsatz</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Opus</strong></td><td>Das leistungsstärkste Modell</td><td>Tiefgehende Recherche, komplexe Analysen — baut Studien und Quellen ein. Verfügbar in der Pro-Version.</td></tr>
-      <tr><td><strong>Sonnet</strong></td><td>Effizienter Allrounder</td><td>Tägliche Arbeit, Standard in der Gratisversion. Gute Balance aus Geschwindigkeit und Qualität.</td></tr>
-      <tr><td><strong>Haiku</strong></td><td>Das schnellste Modell</td><td>Schnelle Formulierungen und einfache Aufgaben. Weniger tiefgründig.</td></tr>
-    </tbody>
-  </table>
-
-  <h3>3. Zentrale Arbeitsfunktionen</h3>
-  <h4>Websuche</h4>
-  <p>Über das <strong>Plus-Symbol</strong> aktivierbar. Claude kann hunderte Quellen in Sekunden durchsuchen, um aktuelle Daten (z.&thinsp;B. DAX-Umsätze) in Tabellen zusammenzufassen.</p>
-  <h4>Dateianalyse</h4>
-  <p>PDFs, Excel- oder Word-Dokumente lassen sich direkt hochladen. <strong>Pro-Tipp:</strong> Nutze das Stoppuhr-Symbol (<em>erweiterter Nachdenkenmodus</em>), damit Claude sich mehr Zeit nimmt, die Datei gründlich einzulesen und präzisere Antworten zu geben.</p>
-  <h4>Technischer Support</h4>
-  <p>Claude hilft bei PC-Problemen. Der effizienteste Workflow: Erst das Problem allgemein beschreiben, dann einen <strong>Screenshot der Benutzeroberfläche</strong> (z.&thinsp;B. Aktivitätsanzeige) hochladen — Claude diagnostiziert die Ursache direkt.</p>
-
-  <h3>4. Einstellungen: Präferenzen &amp; Datenschutz</h3>
-  <p>Zwei schnelle Einstellungen, die du einmalig vornehmen solltest, bevor du loslegst:</p>
+  <p>Zwei weitere Gewohnheiten zahlen sich vom ersten Tag an aus:</p>
   <ul>
-    <li><strong>Globale Präferenzen:</strong> Unter Einstellungen kannst du Claude dauerhaft anweisen, wie er antworten soll — z.&thinsp;B. „Antworte immer auf Deutsch und fasse dich kurz." Das gilt automatisch für jeden neuen Chat.</li>
-    <li><strong>Training deaktivieren:</strong> Unter „Datenschutz" die Option „hilft dabei Claude zu verbessern" <strong>deaktivieren</strong>, damit deine Eingaben nicht zum Training neuer Modelle verwendet werden.</li>
-    <li><strong>Inkognitomodus</strong> (Geist-Symbol): Chats werden nicht dauerhaft gespeichert — ideal für private oder einmalige Anfragen.</li>
+    <li><strong>Kontext mitgeben:</strong> Sagen Sie Claude, <em>wer</em> Sie sind, <em>für wen</em> die Ausgabe gedacht ist und <em>in welchem Format</em> — z.&thinsp;B. „Schreibe als Analyst für ein internes Memo, maximal 200 Wörter."</li>
+    <li><strong>Iterativ arbeiten:</strong> Eine erste Antwort ist selten perfekt. Verfeinern Sie im selben (themenkonsistenten) Chat mit Folgeanweisungen wie „kürzer", „förmlicher" oder „mit Quellenangaben".</li>
+  </ul>
+
+  <h3>2. Zentrale Arbeitsfunktionen</h3>
+  <p>Über das <strong>Plus-Symbol</strong> unter der Texteingabe lassen sich die wichtigsten Werkzeuge aktivieren. Diese drei bilden das Rückgrat der täglichen Arbeit:</p>
+  <h4>Websuche</h4>
+  <p>Claude kann hunderte Quellen in Sekunden durchsuchen, um aktuelle Daten (z.&thinsp;B. DAX-Umsätze oder tagesaktuelle Branchennews) in Tabellen zusammenzufassen. Anders als beim reinen Modellwissen sind die Ergebnisse <strong>mit Quellenlinks belegt</strong> — prüfen Sie diese bei kritischen Zahlen immer gegen. Formulieren Sie die Anfrage präzise mit Zeitraum und gewünschtem Ausgabeformat, etwa „Fasse die Q3-Umsätze der drei größten deutschen Automobilhersteller als Tabelle mit Quellenangabe zusammen."</p>
+  <h4>Dateianalyse</h4>
+  <p>PDFs, Excel- oder Word-Dokumente lassen sich direkt hochladen. <strong>Pro-Tipp:</strong> Nutze das Stoppuhr-Symbol (<em>erweiterter Nachdenkenmodus</em>), damit Claude sich mehr Zeit nimmt, die Datei gründlich einzulesen und präzisere Antworten zu geben. Stellen Sie konkrete Fragen <em>zu</em> dem Dokument statt einer pauschalen Zusammenfassung — z.&thinsp;B. „Welche drei Risiken nennt der Bericht auf den Seiten 10–15?" Bei mehreren Dateien kann Claude diese auch <strong>vergleichen</strong> (etwa zwei Quartalsberichte gegenüberstellen).</p>
+  <h4>Technischer Support</h4>
+  <p>Claude hilft bei PC- und Software-Problemen. Der effizienteste Workflow: Erst das Problem allgemein beschreiben, dann einen <strong>Screenshot der Benutzeroberfläche</strong> (z.&thinsp;B. der Aktivitätsanzeige oder einer Fehlermeldung) hochladen — Claude liest die Bildschirminhalte aus und diagnostiziert die Ursache direkt. Bitten Sie anschließend um eine <strong>Schritt-für-Schritt-Anleitung</strong> und lassen Sie sich technische Begriffe bei Bedarf in einfachen Worten erklären.</p>
+
+  <h3>3. Personalisierung: Die KI auf dich zuschneiden</h3>
+  <p>Damit Claude nicht generisch klingt, sondern zu dir und deinem Arbeitsstil passt, gibt es drei Werkzeuge:</p>
+  <ul>
+    <li><strong>Präferenzen:</strong> Globale Regeln in den Einstellungen (z.&thinsp;B. „Antworte immer kurz und auf Deutsch" oder „Ich bin Mac-Nutzer"), die für <strong>jeden neuen Chat</strong> automatisch übernommen werden.</li>
+    <li><strong>Stile:</strong> Du kannst vordefinierte Stile (formal, prägnant) wählen oder einen <strong>benutzerdefinierten Stil</strong> erstellen, indem du eigene Schreibproben (z.&thinsp;B. frühere Memos oder Skripte) hochlädst — Claude analysiert Ton, Struktur und Wortwahl und schreibt fortan in deinem Stil.</li>
+    <li><strong>Erinnerungen (Memory):</strong> Mit dem Befehl „Bitte erstelle eine Erinnerung" merkt sich Claude dauerhaft Fakten über dich (z.&thinsp;B. „Ich habe Flugangst" oder „Mein Team arbeitet im M&amp;A-Bereich"), die er in künftigen Chats automatisch berücksichtigt.</li>
+  </ul>
+
+  <h3>4. Profi-Funktionen: Programmierung und Excel</h3>
+  <h4>Programmierung ohne Code</h4>
+  <p>Claude kann interaktive <strong>Dashboards</strong> oder vollständige <strong>HTML-Websites</strong> — inklusive Kontaktformularen — erstellen, ganz ohne Programmier-Vorwissen. Auf Wunsch liefert Claude sogar die Schritt-für-Schritt-Anleitung zur <strong>Veröffentlichung</strong> der Seite.</p>
+  <h4>Claude in Excel</h4>
+  <p>Das <strong>Excel-Add-in</strong> (Pro-Funktion) erlaubt es Claude, direkt in Tabellen zu arbeiten: Daten aus dem Web abrufen, <strong>dynamische, mit Zellen verknüpfte Charts</strong> erstellen und komplexe Fehler wie <strong>Zirkelbezüge selbstständig korrigieren</strong> — alles per natürlichsprachlicher Anweisung.</p>
+
+  <h3>5. Sicherheit und Datenschutz</h3>
+  <ul>
+    <li><strong>Training deaktivieren:</strong> Gehe in die Einstellungen unter „Datenschutz" und schalte die Option „hilft dabei Claude zu verbessern" auf <strong>AUS</strong>, damit deine Eingaben nicht zum Training neuer Modelle verwendet werden.</li>
+    <li><strong>Inkognitomodus</strong> (Geist-Symbol): Chats werden nicht dauerhaft in der Seitenleiste gespeichert — ideal für private oder einmalige Anfragen.</li>
   </ul>
   <div class="callout callout-warn">
     <div class="callout-title">Pflicht bei IEG</div>
@@ -95,24 +103,24 @@
     <div class="section-intro">
       <div class="section-eyebrow">Praxisübung</div>
       <h2>Das Gelernte anwenden</h2>
-      <p>Trainieren Sie die Grundlagen: Modellwahl, Chat-Disziplin und die erste Einrichtung Ihres Accounts.</p>
+      <p>Trainieren Sie die Grundlagen: die Wahl der richtigen Funktion, Chat-Disziplin und die erste Einrichtung Ihres Accounts.</p>
     </div>
     <div class="exercise-grid">
       <article class="exercise-card">
         <div class="exercise-kicker">Übung 1</div>
-        <h3 class="exercise-title">Das richtige Modell für die richtige Aufgabe</h3>
-        <p class="exercise-text">Haiku, Sonnet oder Opus? Jedes Modell hat seine Stärken. Trainieren Sie, für verschiedene Szenarien das optimale Modell und die passende Funktion zu wählen.</p>
+        <h3 class="exercise-title">Die richtige Funktion für die richtige Aufgabe</h3>
+        <p class="exercise-text">Websuche, Dateianalyse oder Screenshot-Upload? Trainieren Sie, für verschiedene Arbeitssituationen die passende Claude-Funktion zu wählen und sie mit einer präzisen Anweisung zu kombinieren.</p>
         <ul class="exercise-list">
-          <li>Erstellen Sie eine Tabelle mit drei Spalten: <strong>Aufgabe</strong>, <strong>Modell</strong> und <strong>Funktion/Begründung</strong>.</li>
-          <li>Bewerten Sie diese Szenarien: (a) Schnelle Formatierung einer Kontaktliste, (b) Tiefgehende Analyse einer 80-seitigen Marktstudie als PDF, (c) Aktuelle Branchenmultiples mit Quellenangabe recherchieren, (d) Einen langsamen PC diagnostizieren, (e) Eine kurze Zusammenfassung für eine interne E-Mail erstellen.</li>
-          <li>Begründen Sie jede Entscheidung in einem Satz.</li>
+          <li>Erstellen Sie eine Tabelle mit drei Spalten: <strong>Aufgabe</strong>, <strong>Funktion</strong> und <strong>Begründung</strong>.</li>
+          <li>Bewerten Sie diese Szenarien: (a) Aktuelle Branchenmultiples mit Quellenangabe recherchieren, (b) Eine 80-seitige Marktstudie als PDF auswerten, (c) Einen langsamen PC diagnostizieren, (d) Zwei Quartalsberichte gegenüberstellen, (e) Eine kurze interne E-Mail formulieren.</li>
+          <li>Formulieren Sie für ein Szenario Ihrer Wahl die vollständige Anweisung — inkl. Kontext, Format und Quellenwunsch.</li>
         </ul>
         <div class="exercise-prompt">
           <strong>Beispiel-Prompt:</strong>
-          <p>Ich gebe dir 5 Aufgaben aus dem Arbeitsalltag. Empfehle jeweils das passende Claude-Modell (Haiku, Sonnet, Opus) und die geeignete Funktion (Standard-Chat, Dateiupload + erweiterter Nachdenkenmodus, Websuche, Screenshot-Upload). Begründe in je einem Satz. Format: Tabelle.</p>
+          <p>Ich gebe dir 5 Aufgaben aus dem Arbeitsalltag. Empfehle jeweils die passende Claude-Funktion (Websuche, Dateiupload + erweiterter Nachdenkenmodus, Screenshot-Upload, Standard-Chat) und begründe die Wahl in je einem Satz. Format: Tabelle mit drei Spalten.</p>
         </div>
         <div class="exercise-note">
-          <strong>Ziel:</strong> Das richtige Werkzeug für den richtigen Zweck — Modell, Funktion und Kontext zusammendenken.
+          <strong>Ziel:</strong> Funktion und präzise Anweisung zusammendenken — das richtige Werkzeug allein reicht nicht, der Auftrag muss klar sein.
         </div>
         <button class="exercise-solution-toggle" onclick="toggleSolution(this)">
           Musterlösung anzeigen
@@ -121,13 +129,13 @@
         <div class="exercise-solution">
           <div class="exercise-solution-eyebrow">Musterlösung</div>
           <table>
-            <thead><tr><th>Aufgabe</th><th>Modell</th><th>Funktion &amp; Begründung</th></tr></thead>
+            <thead><tr><th>Aufgabe</th><th>Funktion</th><th>Begründung</th></tr></thead>
             <tbody>
-              <tr><td>(a) Schnelle Formatierung einer Kontaktliste</td><td><strong>Haiku</strong></td><td>Standard-Chat — einfache Aufgabe, Geschwindigkeit zählt</td></tr>
-              <tr><td>(b) Analyse einer 80-seitigen Marktstudie</td><td><strong>Opus</strong></td><td>Dateiupload + erweiterter Nachdenkenmodus für maximale Analysetiefe</td></tr>
-              <tr><td>(c) Branchenmultiples mit Quellenangabe</td><td><strong>Sonnet/Opus</strong></td><td>Websuche — Claude belegt Fakten automatisch mit Quellen</td></tr>
-              <tr><td>(d) Langsamen PC diagnostizieren</td><td><strong>Sonnet</strong></td><td>Screenshot der Aktivitätsanzeige hochladen — Claude erkennt UI-Elemente direkt</td></tr>
-              <tr><td>(e) Zusammenfassung für interne E-Mail</td><td><strong>Haiku</strong></td><td>Standard-Chat — einfache Textaufgabe, kein Deep-Thinking nötig</td></tr>
+              <tr><td>(a) Branchenmultiples mit Quellenangabe</td><td><strong>Websuche</strong></td><td>Liefert aktuelle Daten mit belegten Quellenlinks zum Gegenprüfen</td></tr>
+              <tr><td>(b) 80-seitige Marktstudie auswerten</td><td><strong>Dateiupload + erweiterter Nachdenkenmodus</strong></td><td>Gründliches Einlesen großer Dokumente, gezielte Fragen statt Pauschal-Zusammenfassung</td></tr>
+              <tr><td>(c) Langsamen PC diagnostizieren</td><td><strong>Screenshot-Upload</strong></td><td>Claude liest die Aktivitätsanzeige aus und erkennt UI-Elemente direkt</td></tr>
+              <tr><td>(d) Zwei Quartalsberichte gegenüberstellen</td><td><strong>Dateiupload (mehrere Dateien)</strong></td><td>Claude vergleicht beide Dokumente und arbeitet Unterschiede heraus</td></tr>
+              <tr><td>(e) Kurze interne E-Mail</td><td><strong>Standard-Chat</strong></td><td>Einfache Textaufgabe — keine externe Quelle oder Datei nötig</td></tr>
             </tbody>
           </table>
         </div>
