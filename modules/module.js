@@ -96,12 +96,50 @@ document.addEventListener('DOMContentLoaded', renderDynamicContent);
 // ---------- QUIZ ENGINE ----------
 let currentQuiz = null;
 
+// Speichert den laufenden Quiz-Fortschritt (Antworten + aktuelle Frage) pro Modul,
+// damit ein begonnenes Quiz beim Schließen/Verlassen nicht verloren geht.
+const QUIZ_PROGRESS_KEY = 'ieg-academy-quiz-progress-v1';
+
+function loadQuizProgress() {
+  try {
+    const saved = localStorage.getItem(QUIZ_PROGRESS_KEY);
+    if (saved) return JSON.parse(saved);
+  } catch (e) {}
+  return {};
+}
+
+function saveQuizProgress() {
+  if (!currentQuiz) return;
+  try {
+    const all = loadQuizProgress();
+    all[MODULE_ID] = {
+      currentIndex: currentQuiz.currentIndex,
+      answers: currentQuiz.answers
+    };
+    localStorage.setItem(QUIZ_PROGRESS_KEY, JSON.stringify(all));
+  } catch (e) {}
+}
+
+function clearQuizProgress() {
+  try {
+    const all = loadQuizProgress();
+    delete all[MODULE_ID];
+    localStorage.setItem(QUIZ_PROGRESS_KEY, JSON.stringify(all));
+  } catch (e) {}
+}
+
 function startQuiz() {
+  // Vorhandenen Fortschritt wiederherstellen, falls das Quiz schon begonnen wurde
+  const saved = loadQuizProgress()[MODULE_ID];
+  const validSaved = saved
+    && Array.isArray(saved.answers)
+    && saved.answers.length === MODULE_QUIZ.length;
+
   currentQuiz = {
     moduleId: MODULE_ID,
     questions: MODULE_QUIZ,
-    currentIndex: 0,
-    answers: new Array(MODULE_QUIZ.length).fill(null)
+    currentIndex: validSaved ? saved.currentIndex : 0,
+    answers: validSaved ? saved.answers.slice() : new Array(MODULE_QUIZ.length).fill(null)
   };
 
   document.getElementById('quizModal').classList.add('active');
@@ -177,12 +215,14 @@ function renderQuizQuestion() {
 
 function answerQuestion(optionIndex) {
   currentQuiz.answers[currentQuiz.currentIndex] = optionIndex;
+  saveQuizProgress();
   renderQuizQuestion();
 }
 
 function nextQuestion() {
   if (currentQuiz.currentIndex < currentQuiz.questions.length - 1) {
     currentQuiz.currentIndex++;
+    saveQuizProgress();
     renderQuizQuestion();
   }
 }
@@ -190,6 +230,7 @@ function nextQuestion() {
 function prevQuestion() {
   if (currentQuiz.currentIndex > 0) {
     currentQuiz.currentIndex--;
+    saveQuizProgress();
     renderQuizQuestion();
   }
 }
@@ -203,6 +244,9 @@ function finishQuiz() {
   const percent = Math.round((correct / total) * 100);
   const passed = percent >= PASS_THRESHOLD;
 
+  // Quiz ausgewertet — laufenden Fortschritt verwerfen
+  clearQuizProgress();
+
   if (passed) {
     const state = loadState();
     if (!state.completed.includes(MODULE_ID)) state.completed.push(MODULE_ID);
@@ -215,7 +259,7 @@ function finishQuiz() {
     : `Sie benötigen mindestens ${PASS_THRESHOLD}% zum Bestehen. Sehen Sie sich das Material noch einmal an und versuchen Sie es erneut.`;
 
   const nextModuleId = MODULE_ID + 1;
-  const hasNext = nextModuleId <= 7;
+  const hasNext = nextModuleId <= 6;
 
   const actions = passed
     ? (hasNext
@@ -237,7 +281,7 @@ function finishQuiz() {
   `;
 }
 
-function restartQuiz() { startQuiz(); }
+function restartQuiz() { clearQuizProgress(); startQuiz(); }
 
 function closeQuiz() {
   document.getElementById('quizModal').classList.remove('active');
