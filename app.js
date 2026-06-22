@@ -207,21 +207,386 @@ function finishQuiz() {
 }
 
 function restartQuiz() { startQuiz(currentQuiz.moduleId, currentQuiz.isFinal); }
-function closeQuiz() { var m = document.getElementById('quizModal'); if (m) { m.style.display = 'none'; document.body.style.overflow = ''; } currentQuiz = null; renderEverything(); }
+function closeQuiz() {
+  // Laufende, noch nicht abgegebene Abschlussprüfung: Stand sichern statt verwerfen
+  if (currentQuiz && currentQuiz.isFinal && !currentQuiz.submitted) saveExamState();
+  clearExamTimer();
+  var m = document.getElementById('quizModal'); if (m) { m.style.display = 'none'; document.body.style.overflow = ''; }
+  currentQuiz = null; renderEverything();
+}
 
-// ===== FINAL EXAM =====
+// ============================================
+//  FINAL EXAM — Professioneller Prüfungsmodus
+//  Persistenter Zustand, Timer, Frage-Palette,
+//  Markierungen, Bestätigung & Auto-Speicherung.
+// ============================================
+
+var EXAM_STORAGE_KEY = 'ieg-academy-final-exam-v1';
+var FINAL_EXAM_DURATION_SEC = 40 * 60;   // 40 Minuten für 40 Fragen
+var examTimerId = null;
+
+// ----- Persistenz -----
+function saveExamState() {
+  if (!currentQuiz || !currentQuiz.isFinal) return;
+  try {
+    localStorage.setItem(EXAM_STORAGE_KEY, JSON.stringify({
+      started: currentQuiz.started,
+      submitted: currentQuiz.submitted,
+      currentIndex: currentQuiz.currentIndex,
+      answers: currentQuiz.answers,
+      flagged: currentQuiz.flagged,
+      endsAt: currentQuiz.endsAt,
+      durationSec: currentQuiz.durationSec,
+      startedAt: currentQuiz.startedAt,
+      timeLeft: Math.max(0, Math.round((currentQuiz.endsAt - Date.now()) / 1000)),
+      savedAt: Date.now()
+    }));
+  } catch (e) {}
+}
+function loadExamState() {
+  try { var s = localStorage.getItem(EXAM_STORAGE_KEY); if (s) return JSON.parse(s); } catch (e) {}
+  return null;
+}
+function clearExamState() {
+  try { localStorage.removeItem(EXAM_STORAGE_KEY); } catch (e) {}
+}
+
+// Bringt ein (ggf. veraltetes) Array auf die korrekte Länge des aktuellen Fragensatzes.
+function normalizeExamArray(arr, len, fill) {
+  var out = new Array(len);
+  for (var i = 0; i < len; i++) {
+    out[i] = (arr && i < arr.length && arr[i] !== undefined && arr[i] !== null) ? arr[i] : fill;
+  }
+  return out;
+}
+
+// ----- Timer -----
+function clearExamTimer() { if (examTimerId) { clearInterval(examTimerId); examTimerId = null; } }
+function startExamTimer() {
+  clearExamTimer();                 // verhindert doppelte Intervalle
+  examTimerId = setInterval(tickExamTimer, 1000);
+  tickExamTimer();
+}
+function examRemainingSec() {
+  if (!currentQuiz) return 0;
+  return Math.max(0, Math.round((currentQuiz.endsAt - Date.now()) / 1000));
+}
+function tickExamTimer() {
+  if (!currentQuiz || !currentQuiz.isFinal || currentQuiz.submitted) { clearExamTimer(); return; }
+  var remaining = examRemainingSec();
+  updateTimerDisplay(remaining);
+  if (remaining <= 0) { clearExamTimer(); finishExam(true); }
+}
+function updateTimerDisplay(sec) {
+  var el = document.getElementById('examTimer');
+  if (!el) return;
+  el.textContent = formatExamTime(sec);
+  el.classList.toggle('warn', sec <= 300);   // letzte 5 Minuten hervorheben
+}
+function formatExamTime(sec) {
+  var m = Math.floor(sec / 60), s = sec % 60;
+  return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+}
+
+// ----- Modal-Helfer -----
+function openExamModal() {
+  var m = document.getElementById('quizModal');
+  if (m) { m.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+}
+
+// ----- Einstieg -----
+// Aufgerufen über die Final-Exam-Karte. Setzt eine laufende Prüfung NICHT zurück,
+// sondern nimmt sie genau an der gespeicherten Stelle wieder auf.
 function startFinalExam() {
   if (!isFinalUnlocked()) return;
   if (!state.userName) { state.userName = currentUser.name; saveState(); }
-  startQuiz(null, true);
+  var saved = loadExamState();
+  if (saved && saved.started && !saved.submitted) { resumeExam(saved, false); return; }
+  openExamModal();
+  renderExamIntro();
 }
+
+// Vom Namens-Dialog (optional genutzt) — startet eine frische Prüfung.
 function submitName() {
   var inp = document.getElementById('userNameInput'), n = inp ? inp.value.trim() : '';
   if (n.length < 2) { if (inp) inp.style.borderColor = 'var(--rust)'; return; }
   state.userName = n; saveState();
   var nm = document.getElementById('nameModal'); if (nm) { nm.style.display = 'none'; document.body.style.overflow = ''; }
-  startQuiz(null, true);
+  beginExam();
 }
+
+// Frische Prüfung initialisieren
+function beginExam() {
+  clearExamTimer();
+  var n = FINAL_EXAM.length;
+  currentQuiz = {
+    isFinal: true, started: true, submitted: false,
+    questions: FINAL_EXAM,
+    currentIndex: 0,
+    answers: new Array(n).fill(null),
+    flagged: new Array(n).fill(false),
+    durationSec: FINAL_EXAM_DURATION_SEC,
+    startedAt: Date.now(),
+    endsAt: Date.now() + FINAL_EXAM_DURATION_SEC * 1000,
+    restored: false
+  };
+  saveExamState();
+  openExamModal();
+  startExamTimer();
+  renderExamQuestion();
+}
+
+// Gespeicherten Stand wieder aufnehmen. showBanner=true blendet den Hinweis ein.
+function resumeExam(saved, showBanner) {
+  clearExamTimer();
+  var n = FINAL_EXAM.length;
+  currentQuiz = {
+    isFinal: true, started: true, submitted: false,
+    questions: FINAL_EXAM,
+    currentIndex: Math.min(Math.max(saved.currentIndex || 0, 0), n - 1),
+    answers: normalizeExamArray(saved.answers, n, null),
+    flagged: normalizeExamArray(saved.flagged, n, false),
+    durationSec: saved.durationSec || FINAL_EXAM_DURATION_SEC,
+    startedAt: saved.startedAt || Date.now(),
+    endsAt: saved.endsAt || (Date.now() + (saved.timeLeft || FINAL_EXAM_DURATION_SEC) * 1000),
+    restored: !!showBanner
+  };
+  openExamModal();
+  if (examRemainingSec() <= 0) { finishExam(true); return; }
+  startExamTimer();
+  renderExamQuestion();
+}
+
+// Beim Laden der Seite: gibt es eine laufende, nicht abgegebene Prüfung? → fortsetzen.
+function restoreExamUI() {
+  if (typeof FINAL_EXAM === 'undefined' || !FINAL_EXAM.length) return;
+  var saved = loadExamState();
+  if (!saved || !saved.started || saved.submitted) return;
+  resumeExam(saved, true);
+}
+
+// ----- Interaktionen -----
+function selectExamAnswer(j) {
+  if (!currentQuiz || currentQuiz.submitted) return;
+  currentQuiz.answers[currentQuiz.currentIndex] = j;
+  saveExamState();
+  renderExamQuestion();
+}
+function toggleExamFlag() {
+  if (!currentQuiz) return;
+  var i = currentQuiz.currentIndex;
+  currentQuiz.flagged[i] = !currentQuiz.flagged[i];
+  saveExamState();
+  renderExamQuestion();
+}
+function examGoto(i) {
+  if (!currentQuiz || i < 0 || i >= currentQuiz.questions.length) return;
+  currentQuiz.currentIndex = i;
+  saveExamState();
+  renderExamQuestion();
+}
+function examNext() { examGoto(currentQuiz.currentIndex + 1); }
+function examPrev() { examGoto(currentQuiz.currentIndex - 1); }
+
+// ----- Abgabe -----
+function confirmExamSubmit() { renderExamConfirm(); }
+function cancelExamSubmit() { renderExamQuestion(); }
+
+function finishExam(auto) {
+  clearExamTimer();
+  if (!currentQuiz || currentQuiz.submitted) return;
+  currentQuiz.submitted = true;
+
+  var t = currentQuiz.questions.length, c = 0;
+  currentQuiz.questions.forEach(function(q, i) { if (currentQuiz.answers[i] === q.correct) c++; });
+  var pct = Math.round(c / t * 100), pass = pct >= PASS_THRESHOLD;
+
+  if (pass) {
+    state.finalPassed = true;
+    state.finalScore = pct;
+    if (!state.completionDate) state.completionDate = new Date().toISOString();
+    saveState();
+    saveProgressToSupabase();
+  } else if (pct > (state.finalScore || 0)) {
+    state.finalScore = pct;        // besten Versuch behalten
+    saveState();
+    saveProgressToSupabase();
+  }
+
+  // Abgabe ist abgeschlossen → persistenten Prüfungsstand entfernen
+  clearExamState();
+  renderExamResult(c, t, pct, pass, !!auto);
+}
+
+function retryExam() { clearExamState(); beginExam(); }
+
+// ----- Rendering -----
+function renderExamHtml(html) {
+  var b = document.getElementById('quizModalBody');
+  if (b) b.innerHTML = html;
+}
+
+function renderExamIntro() {
+  var n = FINAL_EXAM.length;
+  var mins = Math.round(FINAL_EXAM_DURATION_SEC / 60);
+  renderExamHtml(
+    '<div class="exam-intro">' +
+      '<div class="quiz-eyebrow">Abschlussprüfung</div>' +
+      '<h2 class="quiz-title" style="text-align:center;">IEG Claude Academy — Abschlussprüfung</h2>' +
+      '<div class="exam-intro-meta">' +
+        '<span><strong>' + n + '</strong> Fragen</span>' +
+        '<span><strong>' + PASS_THRESHOLD + '%</strong> zum Bestehen</span>' +
+        '<span><strong>' + mins + ' Min.</strong> Bearbeitungszeit</span>' +
+      '</div>' +
+      '<div class="exam-intro-rules">' +
+        examRule('Die Zeit läuft ab dem Start. Bei Ablauf wird die Prüfung automatisch abgegeben.') +
+        examRule('Ihr Fortschritt wird automatisch gespeichert — Sie können die Prüfung jederzeit fortsetzen.') +
+        examRule('Sie können Fragen frei wählen, beantworten, ändern und zur Überprüfung markieren.') +
+        examRule('Die Auswertung erfolgt erst nach der endgültigen Abgabe.') +
+      '</div>' +
+      '<div style="text-align:center;">' +
+        '<button class="btn btn-primary" onclick="beginExam()">Prüfung starten ' +
+        '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+function examRule(text) {
+  return '<div class="exam-intro-rule">' +
+    '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--ieg-blue);margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>' +
+    '<span>' + text + '</span></div>';
+}
+
+function renderExamQuestion() {
+  if (!currentQuiz) return;
+  var i = currentQuiz.currentIndex, n = currentQuiz.questions.length, q = currentQuiz.questions[i];
+  var answeredCount = currentQuiz.answers.filter(function(a) { return a !== null; }).length;
+  var remaining = examRemainingSec();
+
+  var banner = currentQuiz.restored
+    ? '<div class="exam-restored-banner">' +
+        '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>' +
+        '<span>Dein Prüfungsfortschritt wurde automatisch gespeichert und wiederhergestellt.</span>' +
+      '</div>'
+    : '';
+
+  var topbar =
+    '<div class="exam-topbar">' +
+      '<div class="exam-topbar-left">' +
+        '<div class="exam-topbar-title">Abschlussprüfung</div>' +
+        '<div class="exam-topbar-q">Frage ' + (i + 1) + ' von ' + n + '</div>' +
+      '</div>' +
+      '<div class="exam-stats">' +
+        '<span class="exam-answered">' + answeredCount + '/' + n + ' beantwortet</span>' +
+        '<span class="exam-timer' + (remaining <= 300 ? ' warn' : '') + '" id="examTimer">' + formatExamTime(remaining) + '</span>' +
+      '</div>' +
+    '</div>';
+
+  var progress = '<div class="exam-progress-line"><div class="exam-progress-line-fill" style="width:' + Math.round(answeredCount / n * 100) + '%"></div></div>';
+
+  var legend =
+    '<div class="exam-legend">' +
+      '<span><i class="dot open"></i> offen</span>' +
+      '<span><i class="dot answered"></i> beantwortet</span>' +
+      '<span><i class="dot flagged"></i> markiert</span>' +
+    '</div>';
+
+  var palette = '<div class="exam-palette">' + currentQuiz.questions.map(function(_, j) {
+    var cls = 'exam-pal-btn';
+    if (currentQuiz.answers[j] !== null) cls += ' answered';
+    if (currentQuiz.flagged[j]) cls += ' flagged';
+    if (j === i) cls += ' current';
+    return '<button class="' + cls + '" onclick="examGoto(' + j + ')" title="Frage ' + (j + 1) + '">' + (j + 1) + '</button>';
+  }).join('') + '</div>';
+
+  var ua = currentQuiz.answers[i];
+  var opts = q.options.map(function(o, j) {
+    var cls = 'quiz-option' + (j === ua ? ' selected' : '');
+    return '<button class="' + cls + '" onclick="selectExamAnswer(' + j + ')">' +
+      '<span class="quiz-option-marker">' + String.fromCharCode(65 + j) + '</span><span>' + o + '</span></button>';
+  }).join('');
+
+  var flagged = currentQuiz.flagged[i];
+  var flagBtn = '<button class="exam-flag-btn' + (flagged ? ' active' : '') + '" onclick="toggleExamFlag()">' +
+    '<svg viewBox="0 0 24 24" width="15" height="15" fill="' + (flagged ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>' +
+    (flagged ? 'Markierung entfernen' : 'Zur Überprüfung markieren') + '</button>';
+
+  var actions =
+    '<div class="exam-actions">' +
+      '<button class="btn btn-secondary"' + (i === 0 ? ' disabled' : '') + ' onclick="examPrev()">← Zurück</button>' +
+      '<div class="exam-actions-right">' +
+        '<button class="btn btn-secondary"' + (i === n - 1 ? ' disabled' : '') + ' onclick="examNext()">Weiter →</button>' +
+        '<button class="btn btn-primary" onclick="confirmExamSubmit()">Prüfung abgeben</button>' +
+      '</div>' +
+    '</div>';
+
+  renderExamHtml(
+    banner + topbar + progress + legend + palette +
+    '<div class="quiz-question">' + q.q + '</div>' +
+    '<div class="quiz-options">' + opts + '</div>' +
+    '<div class="exam-flag-row">' + flagBtn + '</div>' +
+    actions
+  );
+
+  currentQuiz.restored = false;   // Banner nur einmalig zeigen
+}
+
+function renderExamConfirm() {
+  if (!currentQuiz) return;
+  var n = currentQuiz.questions.length;
+  var answered = currentQuiz.answers.filter(function(a) { return a !== null; }).length;
+  var unanswered = n - answered;
+  var flaggedCount = currentQuiz.flagged.filter(Boolean).length;
+
+  var warn = (unanswered > 0 || flaggedCount > 0)
+    ? '<div class="exam-confirm-summary">' +
+        (unanswered > 0 ? '<div class="exam-confirm-row warn"><strong>' + unanswered + '</strong> Frage' + (unanswered === 1 ? '' : 'n') + ' noch unbeantwortet</div>' : '') +
+        (flaggedCount > 0 ? '<div class="exam-confirm-row"><strong>' + flaggedCount + '</strong> Frage' + (flaggedCount === 1 ? '' : 'n') + ' zur Überprüfung markiert</div>' : '') +
+      '</div>'
+    : '<div class="exam-confirm-summary"><div class="exam-confirm-row ok">Alle ' + n + ' Fragen beantwortet.</div></div>';
+
+  renderExamHtml(
+    '<div class="exam-confirm">' +
+      '<div class="quiz-eyebrow">Bestätigung</div>' +
+      '<h2 class="quiz-title" style="text-align:center;">Prüfung endgültig abgeben?</h2>' +
+      '<p class="exam-confirm-lede">Nach der Abgabe kann die Prüfung nicht mehr bearbeitet werden. Die Auswertung erfolgt sofort.</p>' +
+      warn +
+      '<div class="exam-confirm-actions">' +
+        '<button class="btn btn-secondary" onclick="cancelExamSubmit()">← Zurück zur Prüfung</button>' +
+        '<button class="btn btn-danger" onclick="finishExam(false)">Endgültig abgeben</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function renderExamResult(c, t, pct, pass, auto) {
+  renderExamHtml(
+    '<div class="quiz-result">' +
+      '<div class="quiz-result-icon ' + (pass ? 'pass' : 'fail') + '">' + (pass ? '✓' : '!') + '</div>' +
+      '<div class="quiz-result-title">' + (pass ? 'Bestanden!' : 'Nicht bestanden') + '</div>' +
+      '<div class="quiz-result-score">' + c + '/' + t + ' · ' + pct + '%</div>' +
+      (auto ? '<div class="exam-result-auto">Die Bearbeitungszeit ist abgelaufen — die Prüfung wurde automatisch abgegeben.</div>' : '') +
+      '<div class="quiz-result-msg">' + (pass ? 'Ihr Zertifikat wartet.' : 'Mindestens ' + PASS_THRESHOLD + '% nötig. Sie können die Prüfung erneut versuchen.') + '</div>' +
+      '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">' +
+        (pass
+          ? '<button class="btn btn-primary" onclick="closeQuiz();showCertificate();">Zum Zertifikat →</button>'
+          : '<button class="btn btn-primary" onclick="retryExam()">Erneut versuchen</button>' +
+            '<button class="btn btn-secondary" onclick="closeQuiz()">Schließen</button>') +
+      '</div>' +
+    '</div>'
+  );
+}
+
+// Warnung beim Verlassen, solange die Prüfung läuft und nicht abgegeben wurde.
+function examBeforeUnload(e) {
+  if (currentQuiz && currentQuiz.isFinal && currentQuiz.started && !currentQuiz.submitted) {
+    saveExamState();          // Stand unmittelbar vor dem Verlassen sichern
+    e.preventDefault();
+    e.returnValue = '';
+    return '';
+  }
+}
+window.addEventListener('beforeunload', examBeforeUnload);
 
 // ===== CERTIFICATE =====
 function showCertificate() { var el = document.getElementById('certificate'); if (el) el.scrollIntoView({behavior:'smooth'}); renderCertificate(); }
@@ -384,6 +749,7 @@ async function saveProgressToSupabase() {
 async function initApp() {
   renderEverything();   // sofortiges Rendern aus lokalem Cache (schneller First Paint)
   setupNavObserver();
+  restoreExamUI();      // laufende Abschlussprüfung nach Reload/Schließen fortsetzen
 
   if (!window.sb) return; // kein Supabase verfügbar → reiner localStorage-Modus
 
