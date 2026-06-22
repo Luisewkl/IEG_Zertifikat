@@ -14,6 +14,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500;1,8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<!-- Supabase: Library + gemeinsamer Client (eine Initialisierung für die ganze App) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script>
+  // Reuse a single Supabase client across the app (kein zweiter Client)
+  if (window.supabase && window._SB_URL) {
+    window.sb = window.supabase.createClient(window._SB_URL, window._SB_KEY);
+  }
+</script>
 </head>
 <body>
 

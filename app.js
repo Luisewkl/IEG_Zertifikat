@@ -8,6 +8,7 @@
 var STORAGE_KEY = 'ieg-academy-progress-v1';
 var state = loadLocalState();
 var currentUser = { name: localStorage.getItem('ieg_user_name') || 'User' };
+var currentUserId = null;   // Supabase Auth user.id, gesetzt beim App-Start
 var previewMode = false;
 
 function loadLocalState() {
@@ -15,7 +16,7 @@ function loadLocalState() {
     var s = localStorage.getItem(STORAGE_KEY);
     if (s) return JSON.parse(s);
   } catch (e) {}
-  return { completed: [], finalPassed: false, userName: '', completionDate: '' };
+  return { completed: [], finalPassed: false, finalScore: 0, userName: '', completionDate: '' };
 }
 
 function saveState() {
@@ -23,6 +24,7 @@ function saveState() {
 }
 
 function logout() {
+  if (window.sb) { try { window.sb.auth.signOut(); } catch (e) {} } // Supabase-Session beenden
   localStorage.removeItem('ieg_logged_in');
   localStorage.removeItem('ieg_user_name');
   window.location.replace('login.html');
@@ -30,8 +32,9 @@ function logout() {
 
 function resetProgress() {
   if (!confirm('Gesamten Lernfortschritt zurücksetzen?')) return;
-  state = { completed: [], finalPassed: false, userName: '', completionDate: '' };
+  state = { completed: [], finalPassed: false, finalScore: 0, userName: '', completionDate: '' };
   saveState();
+  saveProgressToSupabase();   // Reset auch in Supabase persistieren
   renderEverything();
   document.getElementById('curriculum').scrollIntoView({ behavior: 'smooth' });
 }
@@ -182,9 +185,15 @@ function finishQuiz() {
   var pct = Math.round(c / t * 100), pass = pct >= PASS_THRESHOLD;
 
   if (pass) {
-    if (currentQuiz.isFinal) { state.finalPassed = true; state.completionDate = new Date().toISOString(); }
+    if (currentQuiz.isFinal) {
+      state.finalPassed = true;
+      state.finalScore = pct;
+      // completion_date nur beim ERSTEN bestandenen Final-Quiz setzen
+      if (!state.completionDate) state.completionDate = new Date().toISOString();
+    }
     else if (state.completed.indexOf(currentQuiz.moduleId) === -1) state.completed.push(currentQuiz.moduleId);
     saveState();
+    saveProgressToSupabase();   // Save progress to Supabase (Modul bestanden / Final bestanden)
   }
 
   var b = document.getElementById('quizModalBody');
@@ -309,6 +318,72 @@ document.addEventListener('keydown', function(e) {
 // ===== RENDER =====
 function renderEverything() { updateUserDisplay(); renderModules(); renderProgress(); renderCertificate(); }
 
+// ===== SUPABASE PROGRESS SYNC =====
+// Lädt genau einen Datensatz pro Nutzer aus user_progress und mappt ihn auf den State.
+async function loadProgressFromSupabase() {
+  if (!window.sb || !currentUserId) return;
+  // Load progress from Supabase (ein Datensatz pro user_id)
+  var res = await window.sb.from('user_progress')
+    .select('completed_modules, final_passed, final_score, completion_date')
+    .eq('user_id', currentUserId)
+    .maybeSingle();
+
+  if (res.error) { console.warn('Supabase load error:', res.error.message); return; }
+
+  if (!res.data) {
+    // Kein Datensatz vorhanden → neuen mit Default-Werten anlegen (insert)
+    await window.sb.from('user_progress').insert({
+      user_id: currentUserId,
+      completed_modules: [],
+      final_passed: false,
+      final_score: 0,
+      completion_date: null
+    });
+    return; // State bleibt auf Default
+  }
+
+  // Supabase ist die Source of Truth → Row auf bestehende State-Struktur mappen
+  state.completed      = Array.isArray(res.data.completed_modules) ? res.data.completed_modules : [];
+  state.finalPassed    = !!res.data.final_passed;
+  state.finalScore     = res.data.final_score || 0;
+  state.completionDate = res.data.completion_date || '';
+  saveState(); // lokaler Cache, damit Offline/Reload schnell rendert
+}
+
+// Schreibt den aktuellen State nach Supabase (upsert über user_id).
+async function saveProgressToSupabase() {
+  if (!window.sb || !currentUserId) return; // nicht eingeloggt → nur localStorage
+  // Save progress to Supabase (upsert: anlegen oder aktualisieren)
+  var res = await window.sb.from('user_progress').upsert({
+    user_id: currentUserId,
+    completed_modules: state.completed,
+    final_passed: state.finalPassed,
+    final_score: state.finalScore || 0,
+    completion_date: state.completionDate || null
+  }, { onConflict: 'user_id' });
+  if (res.error) console.warn('Supabase save error:', res.error.message);
+}
+
 // ===== START =====
-renderEverything();
-setupNavObserver();
+async function initApp() {
+  renderEverything();   // sofortiges Rendern aus lokalem Cache (schneller First Paint)
+  setupNavObserver();
+
+  if (!window.sb) return; // kein Supabase verfügbar → reiner localStorage-Modus
+
+  // Supabase Auth prüfen: ist ein Nutzer eingeloggt?
+  var ures = await window.sb.auth.getUser();
+  var user = ures && ures.data ? ures.data.user : null;
+
+  if (user) {
+    currentUserId = user.id;
+    if (user.user_metadata && user.user_metadata.full_name) {
+      currentUser.name = user.user_metadata.full_name;
+    }
+    await loadProgressFromSupabase();   // Supabase = Source of Truth
+    renderEverything();                 // UI mit echten Daten neu rendern
+  }
+  // Kein User → anonyme Ansicht; index.html leitet ohne Login ohnehin auf login.html um
+}
+
+initApp();
