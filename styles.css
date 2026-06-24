@@ -400,8 +400,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--navy);
   color: var(--white);
   border-color: var(--navy-line);
-  grid-column: span 2;
-  min-height: auto;
 }
 .module-card.final-exam.locked { background: var(--navy-soft); }
 .module-card.final-exam:hover { border-color: var(--ieg-blue-bright); }
