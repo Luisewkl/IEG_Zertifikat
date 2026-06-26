@@ -262,8 +262,7 @@ ieg-academy/
 ## 🔒 Locking-System
 
 Beim Klick auf ein gesperrtes Modul **passiert nichts** — der User muss erst das
-vorherige Modul-Quiz bestehen (≥70%). Mit dem **"Vorschau-Modus"**-Button auf der
-Hauptseite können Sie als Admin alle Module direkt einsehen, ohne Quizzes zu absolvieren.
+vorherige Modul-Quiz bestehen (≥70%), um das nächste Modul freizuschalten.
 
 Der Fortschritt wird im `localStorage` des Browsers gespeichert.
 

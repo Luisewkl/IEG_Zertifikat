@@ -9,7 +9,6 @@ var STORAGE_KEY = 'ieg-academy-progress-v1';
 var state = loadLocalState();
 var currentUser = { name: localStorage.getItem('ieg_user_name') || 'User' };
 var currentUserId = null;   // Supabase Auth user.id, gesetzt beim App-Start
-var previewMode = false;
 
 function loadLocalState() {
   try {
@@ -39,24 +38,12 @@ function resetProgress() {
   document.getElementById('curriculum').scrollIntoView({ behavior: 'smooth' });
 }
 
-function togglePreviewMode() {
-  previewMode = !previewMode;
-  var btn = document.getElementById('previewToggle');
-  if (btn) {
-    btn.classList.toggle('active', previewMode);
-    btn.textContent = previewMode ? '✓ Vorschau aktiv' : 'Vorschau aktivieren';
-  }
-  renderEverything();
-}
-
 // ===== LOCKING =====
 function isModuleUnlocked(id) {
-  if (previewMode) return true;
   if (id === 0) return true;
   return state.completed.indexOf(id - 1) !== -1;
 }
 function isFinalUnlocked() {
-  if (previewMode) return true;
   for (var i = 0; i < CURRICULUM.length; i++) {
     if (state.completed.indexOf(CURRICULUM[i].id) === -1) return false;
   }
@@ -74,7 +61,7 @@ function renderModules() {
     var unlocked = isModuleUnlocked(mod.id);
     var completed = isModuleCompleted(mod.id);
     var cls = completed ? 'completed' : (unlocked ? 'unlocked' : 'locked');
-    var isNext = unlocked && !completed && !previewMode;
+    var isNext = unlocked && !completed;
 
     var icon = completed
       ? '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>'
