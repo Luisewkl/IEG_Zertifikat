@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500;1,8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=5">
+<script src="i18n.js?v=1"></script>
 <!-- Supabase: Library + gemeinsamer Client (eine Initialisierung für die ganze App) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="supabase-config.js"></script>
@@ -38,19 +39,20 @@
       </div>
     </a>
     <div class="nav-links">
-      <a href="#home" class="nav-link active" data-nav="home">Übersicht</a>
-      <a href="#curriculum" class="nav-link" data-nav="curriculum">Curriculum</a>
-      <a href="#team" class="nav-link" data-nav="team">Team</a>
-      <a href="#certificate" class="nav-link" data-nav="certificate">Zertifikat</a>
+      <a href="#home" class="nav-link active" data-nav="home" data-i18n="nav_home">Übersicht</a>
+      <a href="#curriculum" class="nav-link" data-nav="curriculum" data-i18n="nav_curriculum">Curriculum</a>
+      <a href="#team" class="nav-link" data-nav="team" data-i18n="nav_team">Team</a>
+      <a href="#certificate" class="nav-link" data-nav="certificate" data-i18n="nav_certificate">Zertifikat</a>
     </div>
     <div class="nav-right">
       <div class="nav-progress">
-        <span class="progress-label">Fortschritt</span>
+        <span class="progress-label" data-i18n="nav_progress_label">Fortschritt</span>
         <span class="progress-value" id="navProgress">0/7</span>
       </div>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
       <div class="nav-user" id="navUser">
         <span class="nav-user-name" id="userDisplayName"></span>
-        <button class="nav-logout" onclick="logout()" title="Abmelden">
+        <button class="nav-logout" onclick="logout()" data-i18n="nav_logout_title" data-i18n-attr="title" title="Abmelden">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
         </button>
       </div>
@@ -62,12 +64,12 @@
 <section id="home" class="hero">
   <div class="hero-content">
     <div class="hero-eyebrow">
-      <span>Internes Trainingsprogramm · Onboarding für Analysts &amp; Interns · 2026</span>
+      <span data-i18n="hero_eyebrow">Internes Trainingsprogramm &middot; Onboarding für Analysts &amp; Interns &middot; 2026</span>
     </div>
-    <h1 class="hero-title">
+    <h1 class="hero-title" data-i18n="hero_title">
       Claude im Investment Banking
     </h1>
-    <p class="hero-lede">
+    <p class="hero-lede" data-i18n="hero_lede">
       Ein achtteiliger Einführungskurs für den strukturierten Einsatz von Claude im Investment-Banking-Alltag.
       Der Kurs richtet sich an neue Mitarbeitende und Interns und vermittelt Grundlagen, Anwendungsfälle und
       praktische Workflows für typische Aufgaben im Team — mit klarem Blick auf Sicherheit und Einsatzgrenzen.
@@ -76,28 +78,28 @@
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-num">8</div>
-        <div class="stat-label">Module</div>
+        <div class="stat-label" data-i18n="stat_modules">Module</div>
       </div>
       <div class="stat">
         <div class="stat-num">9</div>
-        <div class="stat-label">Quizze</div>
+        <div class="stat-label" data-i18n="stat_quizzes">Quizze</div>
       </div>
       <div class="stat">
         <div class="stat-num">~6<span class="stat-unit">Std.</span></div>
-        <div class="stat-label">Lernzeit</div>
+        <div class="stat-label" data-i18n="stat_hours">Lernzeit</div>
       </div>
       <div class="stat">
         <div class="stat-num">1</div>
-        <div class="stat-label">Teilnahmezertifikat</div>
+        <div class="stat-label" data-i18n="stat_certificate">Teilnahmezertifikat</div>
       </div>
     </div>
 
     <div class="hero-actions">
       <button class="btn btn-primary" onclick="document.getElementById('curriculum').scrollIntoView({behavior:'smooth'})">
-        Curriculum starten
+        <span data-i18n="hero_btn_start">Curriculum starten</span>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </button>
-      <button class="btn btn-ghost" onclick="document.getElementById('team').scrollIntoView({behavior:'smooth'})">
+      <button class="btn btn-ghost" onclick="document.getElementById('team').scrollIntoView({behavior:'smooth'})" data-i18n="hero_btn_team">
         Über das IEG Team
       </button>
     </div>
@@ -107,9 +109,9 @@
 <!-- ============ CURRICULUM ============ -->
 <section id="curriculum" class="curriculum">
   <div class="section-header">
-    <div class="section-eyebrow">/ Curriculum</div>
-    <h2 class="section-title">Acht Module für den strukturierten Einstieg.</h2>
-    <p class="section-lede">
+    <div class="section-eyebrow" data-i18n="curriculum_eyebrow">/ Curriculum</div>
+    <h2 class="section-title" data-i18n="curriculum_title">Acht Module für den strukturierten Einstieg.</h2>
+    <p class="section-lede" data-i18n="curriculum_lede">
       Jedes Modul schließt mit einem Quiz ab. Nach erfolgreichem Abschluss wird das nächste Modul freigeschaltet.
       Nach allen acht Modulen folgt eine Abschlussprüfung mit internem Teilnahmezertifikat.
     </p>
@@ -131,10 +133,10 @@
 <!-- ============ TEAM ============ -->
 <section id="team" class="team-section">
   <div class="section-header">
-    <div class="section-eyebrow">/ Team </div>
-    <h2 class="section-title">Die Menschen hinter IEG</h2>
-    <p class="section-lede">
-      Eine kurze Einführung in das IEG Team und ausgewählte Ansprechpartner. 
+    <div class="section-eyebrow" data-i18n="team_eyebrow">/ Team</div>
+    <h2 class="section-title" data-i18n="team_title">Die Menschen hinter IEG</h2>
+    <p class="section-lede" data-i18n="team_lede">
+      Eine kurze Einführung in das IEG Team und ausgewählte Ansprechpartner.
       Besonders hilfreich für neue Praktikantinnen, Praktikanten und Analystinnen bzw. Analysten im Onboarding.
     </p>
   </div>
@@ -253,7 +255,7 @@
   </div>
 
   <div class="team-locations">
-    <div class="location-eyebrow">Standorte</div>
+    <div class="location-eyebrow" data-i18n="locations_eyebrow">Standorte</div>
     <div class="location-list">
       <span>Berlin (HQ)</span><span>·</span>
       <span>Oslo</span><span>·</span>
@@ -275,13 +277,13 @@
         <path d="M8 11V7a4 4 0 1 1 8 0v4"/>
       </svg>
     </div>
-    <div class="section-eyebrow">/ Zertifikat</div>
-    <h2 class="section-title">Ihr IEG Claude Teilnahmezertifikat</h2>
-    <p class="section-lede">
+    <div class="section-eyebrow" data-i18n="cert_eyebrow">/ Zertifikat</div>
+    <h2 class="section-title" data-i18n="cert_title">Ihr IEG Claude Teilnahmezertifikat</h2>
+    <p class="section-lede" data-i18n="cert_lede">
       Schließen Sie alle acht Module und die Abschlussprüfung ab, um Ihr persönliches,
       auf Ihren Namen ausgestelltes Zertifikat zu erhalten.
     </p>
-    <div class="cert-status" id="certStatus">Status: noch nicht freigeschaltet</div>
+    <div class="cert-status" id="certStatus" data-i18n="cert_status_locked">Status: noch nicht freigeschaltet</div>
   </div>
 
   <div class="cert-unlocked-state" id="certUnlockedState" style="display:none;">
@@ -312,10 +314,10 @@
 <!-- ============ MODAL: NAME INPUT ============ -->
 <div class="modal-overlay" id="nameModal" style="display:none;">
   <div class="modal-content modal-name">
-    <h3>Wer schreibt die Abschlussprüfung?</h3>
-    <p>Bitte geben Sie Ihren vollständigen Namen ein. Dieser erscheint auf Ihrem Zertifikat.</p>
-    <input type="text" id="userNameInput" placeholder="z. B. Max Mustermann" />
-    <button class="btn btn-primary" onclick="submitName()">Zur Abschlussprüfung</button>
+    <h3 data-i18n="name_modal_title">Wer schreibt die Abschlussprüfung?</h3>
+    <p data-i18n="name_modal_body">Bitte geben Sie Ihren vollständigen Namen ein. Dieser erscheint auf Ihrem Zertifikat.</p>
+    <input type="text" id="userNameInput" data-i18n="name_modal_placeholder" placeholder="z. B. Max Mustermann" />
+    <button class="btn btn-primary" onclick="submitName()" data-i18n="name_modal_btn">Zur Abschlussprüfung</button>
   </div>
 </div>
 
@@ -330,19 +332,19 @@
       </p>
     </div>
     <div class="footer-col">
-      <div class="footer-heading">Academy</div>
+      <div class="footer-heading" data-i18n="footer_academy">Academy</div>
       <a href="#curriculum">Curriculum</a>
       <a href="#team">Team</a>
-      <a href="#certificate">Zertifikat</a>
+      <a href="#certificate" data-i18n="nav_certificate">Zertifikat</a>
     </div>
     <div class="footer-col">
-      <div class="footer-heading">Internal</div>
+      <div class="footer-heading" data-i18n="footer_internal">Internal</div>
       <a href="https://ieg-banking.com" target="_blank" rel="noopener">ieg-banking.com</a>
-      <a href="https://ieg-banking.com/about-us" target="_blank" rel="noopener">Über uns</a>
-      <a href="#" onclick="resetProgress();return false;">Fortschritt zurücksetzen</a>
+      <a href="https://ieg-banking.com/about-us" target="_blank" rel="noopener" data-i18n="footer_about">Über uns</a>
+      <a href="#" onclick="resetProgress();return false;" data-i18n="footer_reset">Fortschritt zurücksetzen</a>
     </div>
     <div class="footer-col">
-      <div class="footer-heading">Kontakt</div>
+      <div class="footer-heading" data-i18n="footer_contact">Kontakt</div>
       <p>IEG Investment Banking Group<br>
       <a href="mailto:info@ieg-banking.com">info@ieg-banking.com</a></p>
     </div>
@@ -354,5 +356,6 @@
 
 <script src="content.js?v=5"></script>
 <script src="app.js?v=5"></script>
+<script>applyLanguage(currentLang);</script>
 </body>
 </html>

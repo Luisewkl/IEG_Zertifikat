@@ -1601,6 +1601,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: white;
 }
 
+.lang-toggle {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 6px;
+  background: none;
+  border: 1px solid var(--bone-soft);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.lang-toggle:hover {
+  background: var(--ieg-blue);
+  border-color: var(--ieg-blue);
+  color: white;
+}
+
 @media (max-width: 900px) {
   .nav-user-name { display: none; }
   .nav-right { gap: 8px; }
